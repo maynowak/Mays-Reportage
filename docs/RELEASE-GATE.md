@@ -1,126 +1,108 @@
-# Release-Gate-Matrix — MAYS-REPORTAGEN-04
+# Release-Gate-Matrix — MAYS-REPORTAGEN-05A
 
 **Stand:** 14. November 2026
-**Entscheidung:** **NO-GO** — technisch vorbereitet, rechtlich und domainseitig blockiert.
-Kein Push, Merge oder Deployment in diesem Task.
+**Entscheidung:** **NO-GO bis zur rechtlichen Freigabe.** Die Betreiber- und
+Hosting-Konfiguration ist eingetragen; Rechtstexte und Bildrechte sind noch nicht
+freigegeben. Kein Push, Merge oder Deployment.
 
 ## Gate-Matrix
 
 | # | Gate | Status | Beleg | Offener Punkt |
 | --- | --- | --- | --- | --- |
 | 1 | Repository & Build | **PASS** | sauberer Baum, `npm run verify` | — |
-| 2 | Unit-Tests | **PASS** | 31/31 | — |
-| 3 | Browser-E2E | **PASS lokal** | 155 passed / 4 skipped (Chromium 53, Firefox/WebKit je 51 + 2 Skips) | Zielhost/echte Geräte |
+| 2 | Unit-Tests | **PASS** | 33/33 | — |
+| 3 | Browser-E2E | **PASS lokal** | 149 passed / 4 skipped (Chromium 51, Firefox/WebKit je 49 + 2 Skips) | Zielhost/echte Geräte |
 | 4 | Accessibility | **PASS lokal** | axe WCAG 2.1 A/AA: 0 Violations | Zielhost |
 | 5 | Performance | **PASS lokal** | Lighthouse 99/100/100/100; LCP 0,8 s, CLS 0, TBT 130 ms | Zielhost/Netz |
 | 6 | Vercel-Konfiguration | **VORBEREITET** | `vercel.json`, JSON validiert | Deployment/Preview |
-| 7 | Domain & SEO | **BLOCKED** | Sitemap-Generator getestet; keine Domain | Domain, Sitemap, robots-Zeile |
-| 8 | Betreiberangaben | **BLOCKED** | `src/content/legal.ts` | 6 Pflichtfelder fehlen |
+| 7 | Domain & SEO | **VORBEREITET** | Domain bestätigt, Sitemap 7 URLs, robots.txt | Indexierung nach Deploy prüfen |
+| 8 | Betreiberangaben | **ERLEDIGT** | `src/content/legal.ts` vollständig | Schreibweise Anschrift bestätigen |
 | 9 | Rechtliche Prüfung | **BLOCKED** | Entwürfe, keine Freigabe | Anwaltliche Prüfung |
-| 10 | Bildrechte/KI | **BLOCKED** | `docs/BILDHERKUNFT.md` | Rechte, Werkzeug, Lizenz |
+| 10 | Bildrechte/KI | **TEILWEISE** | Herkunft dokumentiert (OpenAI) | Nutzungsrechte/Lizenz |
 | 11 | Sicherheitsheader | **TEILWEISE** | Header in `vercel.json` | CSP/HSTS-Entscheidung |
 | 12 | CI | **VORBEREITET** | `.github/workflows/ci.yml` | erster Lauf nach Push |
-| 13 | Quellen-Audit | **PASS** | 14/14 Quellen, `docs/WISSENSCHAFTLICHER-QUELLEN-AUDIT.md` | periodische Prüfung |
+| 13 | Quellen-Audit | **PASS** | 14/14 Quellen | periodische Prüfung |
 | 14 | Deployment | **BLOCKED** | keine Freigabe | separater Release-Entscheid |
 
-## 1. Vercel-Konfiguration
+## 1. Betreiberangaben
 
-Geprüft und ergänzt (`vercel.json`, nicht deployt):
+Die sechs Pflichtfelder in `src/content/legal.ts` sind mit den von der Betreiberin
+bereitgestellten Angaben befüllt. Die Werte werden aus Datenschutzgründen **nicht in
+diesem Dokument, in Auditlogs, Screenshots oder Test-Fixtures dupliziert**.
 
-- `framework: vite`, `installCommand: npm ci`, `buildCommand: npm run build`,
-  `outputDirectory: dist`.
-- SPA-Rewrite `/(.*) → /index.html` für clientseitige Routen. Statische Dateien haben
-  bei Vercel Vorrang; `/media`, `/fonts`, `/assets` werden direkt ausgeliefert.
-- Security-Header: `X-Content-Type-Options`, `X-Frame-Options`,
-  `Referrer-Policy`, `Permissions-Policy`.
-- Cache: gehashte `/assets` und `/media` ein Jahr immutable; `/fonts` sieben Tage.
-- `/impressum` und `/datenschutz` erhalten zusätzlich `X-Robots-Tag: noindex, follow`,
-  solange die Entwürfe unvollständig sind.
-- Keine Domain, keine Umgebungsvariable und kein Deploy nötig. `SITE_URL` wird nur
-  lokal beim Sitemap-Erzeugen gesetzt.
+- Betreiberin und inhaltlich verantwortliche Person sind dieselbe Person.
+- Die Anschrift erscheint öffentlich **nur im Impressum**; die Datenschutzseite verweist
+  für die Postanschrift auf das Impressum. Im Impressum wird sie für die
+  Verantwortlichenangabe mit „Anschrift wie oben“ referenziert.
+- Keine Handelsregister-, Umsatzsteuer- oder Aufsichtsbehördenangaben wurden ergänzt.
+- **Bestätigt:** Schreibweise der Anschrift von der Betreiberin.
 
-**Bekannte Grenze:** Unbekannte Slugs liefern durch den SPA-Rewrite HTTP 200 mit
-404-Oberfläche (Soft-404). Ein echter 404-Status wäre nur mit SSR/Edge-Routing möglich.
-Vor dem Release entscheiden, ob das akzeptiert wird.
+## 2. Impressum
 
-**Nicht gesetzt:** CSP und HSTS. Eine CSP muss gegen die tatsächlich ausgelieferten
-Skripte/JSON-LD getestet werden; HSTS ist domainabhängig. Beides ist bewusst offen.
+Struktur angepasst:
 
-## 2. Sitemap, Canonical und SEO
+- **Anbieterkennzeichnung nach § 5 DDG und § 18 Abs. 1 MStV:** Name, Anschrift,
+  E-Mail.
+- **Verantwortlich im Sinne des § 18 Abs. 2 MStV:** dieselbe Person, Anschrift wie oben.
+- Keine erfundenen Register-, Steuer- oder Aufsichtsangaben.
+- Die frühere Streitbeilegungs-Platzhaltersektion wurde entfernt, da keine
+  einschlägige Angabe vorliegt und keine Teilnahme behauptet wird.
+- Die Seite ist nicht mehr `noindex`; der Entwurfshinweis entfällt.
 
-- Generator: `scripts/generate-sitemap.mjs`; verlangt eine echte HTTPS-Domain und
-  erfindet keine.
-- Standardumfang: `/`, `/reportagen`, `/reportagen/bakteriophagen`, `/ueber-uns`,
-  `/bildnachweis` — **5 URLs**. Rechtliche Entwürfe sind ausgeschlossen.
-- Nach rechtlicher Freigabe:
-  `INCLUDE_LEGAL=true SITE_URL=https://<domain> npm run sitemap` → **7 URLs**.
-- Sitemap wird **nicht** committet, solange die Domain fehlt.
-- `robots.txt` erlaubt Crawling; die `Sitemap:`-Zeile wird erst mit Domain ergänzt.
-- Canonical, OG und Twitter-URLs werden zur Laufzeit gegen `window.location.origin`
-  absolut aufgelöst; `NewsArticle`-JSON-LD ist vorhanden.
-- **Grenze:** Reportage-Metadaten sind clientseitig. Suchmaschinen, die JS ausführen,
-  sehen sie; Social-Crawler ohne JS sehen ggf. nur die statischen Home-Metadaten.
-  Für einen belastbaren Social-Preview wäre Pre-Rendering/Edge-Metadata nötig.
-- Keine erfundene Domain, kein Tracking, keine Search-Console-Anbindung.
+## 3. Datenschutz
 
-## 3. Fehlende Betreiberangaben (exakt)
+Geprüft gegen den tatsächlichen Code und die Vercel-Dokumentation:
 
-`src/content/legal.ts` enthält acht `null`-Felder. Sechs davon sind Pflichtfelder und
-blockieren den Release:
+- Statische Auslieferung über Vercel; keine Vercel Functions, API-Routen, Formulare,
+  Accounts, Newsletter, Cookies, Analytics oder Tracking.
+- Vercel verarbeitet nach eigener Privacy Notice technisch erforderliche
+  Verbindungsdaten (u. a. IP-Adresse, Zeitpunkt, Ressource, User-Agent, Statuscode).
+- Log-Aufbewahrung ist tarifabhängig (Vercel: Hobby 1 Stunde, Pro 1 Tag; statische
+  Anfragen ggf. nur über Log Drains). Die konkrete Einstellung ist im Vercel-Konto zu
+  prüfen.
+- Vercel stellt eine DPA für Enterprise-/Pro-Tarife bereit. Ob der genutzte Tarif
+  erfasst ist und eine Vereinbarung vorliegt, ist im Konto zu prüfen.
+- Übermittlung in die USA möglich; Vercel verweist auf EU-U.S. DPF und
+  Standardvertragsklauseln. Konkrete Grundlage tarif-/vertragsabhängig prüfen.
+- Schriftarten lokal; externe Quellen erst nach Klick; kein Consent-Banner nötig, da
+  keine einwilligungspflichtigen Technologien eingesetzt werden.
 
-| Feld | Verwendung | Status |
-| --- | --- | --- |
-| `operatorName` | Impressum § 5 DDG, Datenschutz Verantwortlicher | **fehlt** |
-| `operatorAddress` | Impressum, Datenschutz | **fehlt** |
-| `contactEmail` | Impressum, Datenschutz | **fehlt** |
-| `responsiblePerson` | Redaktionell verantwortlich § 18 Abs. 2 MStV | **fehlt** |
-| `responsibleAddress` | Redaktionell verantwortlich | **fehlt** |
-| `hostingProvider` | Datenschutz, Hosting/AVV | **fehlt** |
-| `vatId` | Impressum, optional | fehlt (optional) |
-| `supervisoryAuthority` | Datenschutz, Beschwerdestelle | fehlt (optional, aber empfohlen) |
+**Keine fiktiven Verarbeitungsprozesse** dokumentiert. Verbleibende Prüfung:
+tatsächlicher Vercel-Tarif, DPA-Status, Log-Retention, Serverregion.
 
-Zusätzlich fehlen außerhalb des Codes:
+## 4. Domain, Canonical, Sitemap, robots
 
-- Name/Anschrift des Hosters, Auftragsverarbeitungsvertrag, Log-Aufbewahrung,
-  Serverstandort.
-- Datum der finalen Rechtsprüfung und Freigabe durch die verantwortliche Person.
-- Entscheidung zur Streitbeilegung (§ 36 VSBG) und ggf. Umsatzsteuer-ID.
-- Rechtliche Prüfung von Impressum und Datenschutz; keine eigenmächtige Freigabe.
+Bestätigte Domain: **https://mays-reportage.vercel.app** (in `site.config.json`).
 
-**Entwurfsprüfung:** Die Struktur (§ 5 DDG, § 18 Abs. 2 MStV) ist vorhanden; es wurden
-keine persönlichen Daten erfunden. Die Aussagen zu Cookies/Tracking, lokalen Fonts und
-fehlenden Formularen sind durch den Code gedeckt. Die Seiten bleiben bis zur
-Vervollständigung `noindex` (Meta zur Laufzeit, `X-Robots-Tag` für Vercel).
+- Canonical, OG, Twitter und JSON-LD werden gegen diese Domain absolut aufgelöst –
+  nicht mehr gegen `window.location.origin`.
+- `public/sitemap.xml` enthält **7 URLs** inklusive Impressum/Datenschutz.
+- `robots.txt` enthält die Sitemap-Zeile.
+- Vercel-Rewrites und Header geprüft; die früheren `X-Robots-Tag`-Header für die
+  Rechtsseiten wurden entfernt, da die Seiten jetzt indexierbar sind.
+- **Grenze:** Reportage-Metadaten werden clientseitig gesetzt. Social-Crawler ohne JS
+  sehen ggf. die statischen Home-Metadaten; für belastbare Social-Previews wäre
+  Pre-Rendering nötig.
+- Nach Deploy: Statuscodes, Sitemap, robots, Canonical, Rich Results prüfen.
 
-## 4. KI-Bildherkunft und Bildnachweise
+## 5. Bildherkunft
 
-- Alle drei Originale sind KI-generierte Illustrationen, keine Mikroskopaufnahmen.
-- Die PNGs enthalten **keine EXIF-/IPTC-/XMP-/Text-Metadaten** zu Werkzeug, Modell,
-  Prompt, Urheber oder Lizenz.
-- SHA-256-Prüfsummen der Originale und Derivate sind in `docs/BILDHERKUNFT.md`
-  dokumentiert.
-- Kennzeichnung im Produkt: Alt-Text, Bildunterschrift, Hero-Meta, `/bildnachweis`.
-- Designreferenzen werden nicht ausgeliefert.
+- Titelmotiv und Desktop-Designreferenz wurden nach Angaben der Betreiberin mit
+  **OpenAI-Bildgenerierung** erstellt.
+- Keine EXIF-/IPTC-/XMP-/Text-Metadaten zu Modell, Prompt, Urheber oder Lizenz.
+- SHA-256-Prüfsummen in `docs/BILDHERKUNFT.md`.
+- Kennzeichnung als KI-Illustration vorhanden.
+- **Offen:** Nutzungsrechte/Lizenz; keine Lizenzgarantie wird behauptet.
 
-**Blocker:** Nutzungsrechte, Urheber/Freigabe, KI-Kennzeichnung nach den anzuwendenden
-Regeln und die Entscheidung, ob die Bilder öffentlich verwendet werden dürfen.
+## 6. CI und Sicherheit
 
-## 5. CI
+- CI-Workflow vorhanden (verify + drei Browser), noch nicht gelaufen.
+- Security-Header vorhanden; CSP/HSTS bewusst offen (CSP muss gegen JSON-LD/Skripte
+  getestet werden; HSTS ist domainabhängig).
+- Soft-404 durch SPA-Rewrite bleibt eine bekannte Grenze.
 
-Neu: `.github/workflows/ci.yml` (nicht ausgeführt, kein Push):
+## 7. Go/No-Go
 
-- `npm ci`
-- `npm run verify` (ESLint, TypeScript, 31 Unit-Tests, Build)
-- `npx playwright install --with-deps chromium firefox webkit`
-- `npx playwright test`
-- Fehlerartefakte aus `test-results` bei Failure
-
-Lokal wurden alle Schritte bereits ausgeführt. Der Workflow läuft erst nach einem Push
-oder Pull Request. WebKit benötigt auf dem Host weiterhin den lokalen
-`libavif16`-Workaround; CI installiert die Systemabhängigkeiten.
-
-## 6. Go/No-Go
-
-**NO-GO.** Technische Gates sind grün, aber ohne Betreiberangaben, Rechtsprüfung,
-Bildrechte und Domain darf nicht veröffentlicht werden. Der nächste Release-Gate-Lauf
-muss mindestens diese vier Blocker schließen und danach die Zielumgebung prüfen.
+**NO-GO** bis zur anwaltlichen Prüfung von Impressum/Datenschutz und Klärung der
+Bildrechte. Danach: Vercel-Tarif/DPA/Logs prüfen,
+deployen, Indexierung und Zielumgebung verifizieren.

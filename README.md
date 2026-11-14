@@ -13,12 +13,12 @@ eigenes Titelmotiv, ihre eigene Akzentfarbe und ihre eigenen Quellen mit.
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run verify     # ESLint + TypeScript + Unit-Tests + Produktions-Build
+npm run verify     # ESLint + TypeScript + 33 Unit-Tests + Produktions-Build
 npm run e2e        # Playwright: Chromium, Firefox, WebKit; Port 4317
-SITE_URL=https://<domain> npm run sitemap
+npm run sitemap    # bestätigte Domain in site.config.json
 ```
 
-`npm run e2e` (53 Chromium- bzw. 51 Firefox/WebKit-Tests, 4 Skips) schreibt Abnahme-Screenshots nach
+`npm run e2e` (51 Chromium- bzw. 49 Firefox/WebKit-Tests, 4 Skips) schreibt Abnahme-Screenshots nach
 `docs/reports/assets/MAYS-REPORTAGEN-01A/` (Hero/Reportage) und
 `docs/reports/assets/MAYS-REPORTAGEN-02/` (Archiv/Rechtliches) und
 `docs/reports/assets/MAYS-REPORTAGEN-03/` (Story-Kapitel, Interaktionen) sowie
@@ -51,9 +51,10 @@ Designregeln: `docs/DESIGN-SYSTEM.md`.
 
 ## Release-Status
 
-**NO-GO — technisch vorbereitet, nicht veröffentlichungsfähig.** Offen sind
-Betreiberangaben, Bildrechte, Domain/Hosting, Rechtstherapie-Prüfung und die
-Zielumgebung. Details: `docs/RELEASE-GATE.md`, `docs/RELEASE-CHECKLIST.md`.
+**NO-GO — Betreiber-/Hostingdaten und Domain sind konfiguriert; nicht veröffentlicht.**
+Offen sind die rechtliche Prüfung von Impressum/Datenschutz, die Bildrechte, die
+Bestätigung der Anschrift-Schreibweise und die Zielumgebung. Details:
+`docs/RELEASE-GATE.md`, `docs/RELEASE-CHECKLIST.md`.
 
 ## Struktur
 

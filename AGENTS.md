@@ -19,10 +19,10 @@ Bakteriophagen. Lizenz GPL-3.0.
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run verify     # ESLint + tsc + 31 Unit-Tests + Build
-npm run e2e        # 53/51 Tests × Chromium/Firefox/WebKit (4 Skips), Port 4317
+npm run verify     # ESLint + tsc + 33 Unit-Tests + Build
+npm run e2e        # 51/49 Tests × Chromium/Firefox/WebKit (4 Skips), Port 4317
 npx vitest run src/App.test.tsx -t "Archiv"   # einzelner Test
-SITE_URL=https://<domain> npm run sitemap      # Domain ist bewusst nicht gesetzt
+npm run sitemap    # nutzt site.config.json; EXCLUDE_LEGAL=true für Entwürfe
 ```
 
 Playwright-Screenshots landen in `docs/reports/assets/MAYS-REPORTAGEN-*/` und werden
