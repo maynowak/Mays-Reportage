@@ -202,6 +202,11 @@ export function PrivacyPage() {
               Vercel-Privacy-Notice
             </a>
           </p>
+          <p className="legal-page__note">
+            Vercel kann System- und Nutzungsdaten nach seiner Privacy Notice verarbeiten.
+            Die team- und projektspezifischen Data-Preferences (u. a. KI-Modelltraining)
+            sind vor der Veröffentlichung im Vercel-Konto zu prüfen.
+          </p>
         </section>
 
         <section className="legal-section" aria-labelledby="ds-keine-cookies">
@@ -274,7 +279,8 @@ export function ImageCreditsPage() {
             Angaben der Betreiberin mit OpenAI-Bildgenerierung erstellt. Modell, Prompt,
             Urheberschaft und Lizenz sind nicht dokumentiert. Eine Lizenzgarantie wird
             nicht behauptet; die Nutzungsrechte für eine öffentliche Veröffentlichung sind
-            vor dem Release zu klären.
+            vor dem Release zu klären. Die Einordnung der OpenAI-Nutzungsbedingungen
+            ersetzt keine Rechtefreigabe Dritter.
           </p>
           <p>
             Ausgeliefert werden ausschließlich optimierte WebP-Derivate (640/960/1280/1672

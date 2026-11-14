@@ -44,7 +44,8 @@ Ausgelieferte Derivate (Pillow, WebP Qualität 84 bzw. JPEG):
   Metadaten der Dateien enthalten dazu keine Angaben.
 - Eine Lizenzgarantie wird nicht behauptet. Ob eine öffentliche Veröffentlichung
   zulässig ist, muss vor dem Release geklärt werden (Nutzungsrechte, gegebenenfalls
-  KI-Kennzeichnung nach den anzuwendenden Regeln).
+  KI-Kennzeichnung nach den anzuwendenden Regeln). Details:
+  `docs/OPENAI-BILD-RECHTE.md`.
 - Die Designreferenzen werden **nicht ausgeliefert**. Sie dienen ausschließlich der
   Ableitung von Farben, Typografie und Layout.
 
