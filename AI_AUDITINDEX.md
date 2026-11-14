@@ -1,7 +1,7 @@
 # mays-reportage — AI Audit Index
 
 Current workspace: Git checkout at `/home/dci-student/projects/Mays-Reportage` (branch `main`)
-Remote: `maynowak/Mays-Reportage`, `main` = `5843ee2` (Stand 2026-11-14; 01A/02/03 gepusht)
+Remote: `maynowak/Mays-Reportage`; letzter Push-Stand: `git log -1 origin/main`
 Reports: `docs/reports/`, evidence in `docs/reports/assets/<TASK-ID>/`
 Last updated: 2026-11-14
 
