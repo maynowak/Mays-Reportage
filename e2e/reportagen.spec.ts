@@ -90,11 +90,10 @@ test.describe('reportage page', () => {
   test('shows all sections, 14 linked sources and the medical note', async ({ page }) => {
     await page.goto('/reportagen/bakteriophagen');
 
-    for (const id of ['biologie', 'militaer', 'forschung', 'dokumentation', 'quellen']) {
+    for (const id of ['bedrohung', 'biologie', 'teichwasser', 'militaer', 'forschung', 'zentren', 'faktencheck', 'quellen']) {
       await expect(page.locator(`#${id}`)).toBeAttached();
     }
 
-    await expect(page.getByRole('region', { name: 'Inhaltsverzeichnis' })).toHaveCount(0);
     await expect(page.locator('.source-list__item')).toHaveCount(14);
     await expect(page.getByRole('heading', { name: 'Medizinischer Hinweis' })).toBeVisible();
 

@@ -24,6 +24,26 @@ test.describe('performance fundamentals', () => {
     expect(cls).toBeLessThan(0.1);
   });
 
+  test('story page keeps cumulative layout shift below 0.1', async ({ page }) => {
+    await page.goto('/reportagen/bakteriophagen', { waitUntil: 'load' });
+
+    const cls = await page.evaluate(
+      () =>
+        new Promise<number>((resolve) => {
+          let value = 0;
+          new PerformanceObserver((list) => {
+            for (const entry of list.getEntries() as Array<PerformanceEntry & { value?: number; hadRecentInput?: boolean }>) {
+              if (!entry.hadRecentInput && typeof entry.value === 'number') value += entry.value;
+            }
+          }).observe({ type: 'layout-shift', buffered: true });
+          window.setTimeout(() => resolve(value), 2000);
+        }),
+    );
+
+    console.log(`CLS Story (lokal): ${cls.toFixed(4)}`);
+    expect(cls).toBeLessThan(0.1);
+  });
+
   test('JS and CSS bundles stay within budget', () => {
     const assets = fs.readdirSync('dist/assets');
     const js = assets.filter((file) => file.endsWith('.js'));
