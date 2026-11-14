@@ -51,10 +51,11 @@ Designregeln: `docs/DESIGN-SYSTEM.md`.
 
 ## Release-Status
 
-**NO-GO — lokal konfiguriert, Produktion veraltet, keine Freigabe.** Betreiber-,
-Hosting- und Domaindaten sind gesetzt. Offen sind Betreiberentscheidungen zu
-Hobby/kommerzieller Nutzung, DPA/KI-Training, Rechtstexten und Bildrechten sowie ein
-aktuelles Deployment. Details: `docs/RELEASE-GATE.md`, `docs/RELEASE-CHECKLIST.md`.
+**LIVE — MAIN INTEGRATED / PRODUCTION VERIFIED.** Betreiber-, Hosting- und
+Domaindaten sind gesetzt; die Produktion läuft unter
+`https://mays-reportage.vercel.app`. Restpunkte: Social-/No-JS-Metadaten, Soft-404,
+CSP, Search Console sowie Vercel-DPA/KI-Training. Keine Rechts- oder Ranking-Garantie.
+Details: `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 
 ## Struktur
 
