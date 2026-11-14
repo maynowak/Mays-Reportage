@@ -1,20 +1,19 @@
 /**
- * Rechtliche Angaben des Betreibers.
+ * Rechtliche Angaben der Betreiberin.
  *
- * Diese Werte werden bewusst NICHT erfunden. Sie müssen vor einer
- * Veröffentlichung durch die verantwortliche Person ergänzt und rechtlich
- * geprüft werden. `null` bedeutet: Angabe fehlt.
+ * Die Werte wurden von der Betreiberin bereitgestellt und dürfen nicht durch
+ * Dritte verändert oder ergänzt werden. Die Anschrift wurde am 14.11.2026 in
+ * der Schreibweise "Pestalozzistraße" bestätigt. Keine Handelsregister-,
+ * Umsatzsteuer- oder Aufsichtsbehördenangaben erfinden.
  */
 export const legalInfo = {
   updated: '14. November 2026',
-  operatorName: null as string | null,
-  operatorAddress: null as string | null,
-  contactEmail: null as string | null,
-  responsiblePerson: null as string | null,
-  responsibleAddress: null as string | null,
-  hostingProvider: null as string | null,
-  vatId: null as string | null,
-  supervisoryAuthority: null as string | null,
+  operatorName: 'Maymilly Nowak',
+  operatorAddress: 'Pestalozzistraße 16b, 64720 Michelstadt',
+  contactEmail: 'may-nowak@web.de',
+  responsiblePerson: 'Maymilly Nowak',
+  responsibleAddress: 'Pestalozzistraße 16b, 64720 Michelstadt',
+  hostingProvider: 'Vercel',
 };
 
 export const REQUIRED_LEGAL_FIELDS = [

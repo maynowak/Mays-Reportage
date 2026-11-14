@@ -102,23 +102,27 @@ describe('Mays-Reportagen app', () => {
     expect(screen.getByRole('heading', { name: 'In Vorbereitung' })).toBeInTheDocument();
   });
 
-  it('renders the legal draft pages with placeholders instead of invented data', () => {
+  it('renders the completed legal pages without a draft notice', () => {
     renderRoute('/impressum');
 
     expect(screen.getByRole('heading', { level: 1, name: 'Impressum' })).toBeInTheDocument();
-    expect(screen.getByText(/Entwurf – nicht veröffentlichungsfähig/)).toBeInTheDocument();
-    expect(screen.getAllByText('Wird vor Veröffentlichung ergänzt.').length).toBeGreaterThan(0);
-    expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute('content', 'noindex,follow');
+    expect(screen.queryByText(/Entwurf – nicht veröffentlichungsfähig/)).not.toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: /Verantwortlich im Sinne des § 18 Abs. 2 MStV/ }),
+    ).toBeInTheDocument();
+    expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute('content', 'index,follow');
   });
 
   it('renders privacy and image credit information', () => {
     renderRoute('/datenschutz');
     expect(screen.getByRole('heading', { level: 1, name: 'Datenschutz' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Keine Cookies, kein Tracking' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Hosting und Auslieferung' })).toBeInTheDocument();
+    expect(screen.queryByText(/Entwurf – nicht veröffentlichungsfähig/)).not.toBeInTheDocument();
 
     renderRoute('/bildnachweis');
     expect(screen.getByRole('heading', { level: 1, name: 'Bildnachweis' })).toBeInTheDocument();
-    expect(screen.getByText(/KI-generierte Illustration/)).toBeInTheDocument();
+    expect(screen.getByText(/OpenAI-Bildgenerierung/)).toBeInTheDocument();
   });
 
   it('sets per-reportage SEO metadata', () => {

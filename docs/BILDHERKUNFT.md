@@ -38,11 +38,13 @@ Ausgelieferte Derivate (Pillow, WebP Qualität 84 bzw. JPEG):
 
 ## Erzeugung und Rechte
 
-- Erzeugungswerkzeug, Modell, Prompt, Urheber und Lizenz sind **nicht dokumentiert**.
-  Die technischen Metadaten der Dateien enthalten dazu keine Angaben.
-- Ob eine öffentliche Veröffentlichung zulässig ist, ist **nicht belegt** und muss vor
-  dem Release geklärt werden (Nutzungsrechte, gegebenenfalls KI-Kennzeichnung nach
-  den anzuwendenden Regeln).
+- Nach Angaben der Betreiberin wurden das Titelmotiv und die Desktop-Designreferenz
+  mit **OpenAI-Bildgenerierung** erstellt.
+- Modell, Prompt, Urheber und Lizenz sind **nicht dokumentiert**; die technischen
+  Metadaten der Dateien enthalten dazu keine Angaben.
+- Eine Lizenzgarantie wird nicht behauptet. Ob eine öffentliche Veröffentlichung
+  zulässig ist, muss vor dem Release geklärt werden (Nutzungsrechte, gegebenenfalls
+  KI-Kennzeichnung nach den anzuwendenden Regeln).
 - Die Designreferenzen werden **nicht ausgeliefert**. Sie dienen ausschließlich der
   Ableitung von Farben, Typografie und Layout.
 

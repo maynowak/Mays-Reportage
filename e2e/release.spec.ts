@@ -30,23 +30,6 @@ test.describe('release readiness screenshots', () => {
     }
   });
 
-  test('impressum draft at 1440px', async ({ page }, testInfo) => {
-    await page.setViewportSize({ width: 1440, height: 1000 });
-    await page.goto('/impressum');
-    await expect(page.getByText(/Entwurf – nicht veröffentlichungsfähig/)).toBeVisible();
-    if (testInfo.project.name === 'chromium') {
-      await page.screenshot({ path: `${SHOT_DIR}/impressum-1440.png`, fullPage: true });
-    }
-  });
-
-  test('privacy draft at 1440px', async ({ page }, testInfo) => {
-    await page.setViewportSize({ width: 1440, height: 1000 });
-    await page.goto('/datenschutz');
-    if (testInfo.project.name === 'chromium') {
-      await page.screenshot({ path: `${SHOT_DIR}/datenschutz-1440.png`, fullPage: true });
-    }
-  });
-
   test('image credits at 1440px', async ({ page }, testInfo) => {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto('/bildnachweis');
