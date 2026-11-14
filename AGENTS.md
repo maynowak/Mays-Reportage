@@ -1,54 +1,63 @@
-# AGENTS.md — Mays-Reportage
+# AGENTS.md — Mays-Reportagen
 
-Central **report archive** for all May projects ("Maymilly's Reports"), GPL-3.0.
-There is no app code, package manifest, build, test suite, or CI here. Do not invent
-build/lint/test commands or add product code without an explicit task.
+Erweiterbares Online-Reportagemagazin (Vite 8, React 19, TypeScript, statisches
+Hosting). Kein Backend, keine Datenbank, kein Tracking. Erste Titelgeschichte:
+Bakteriophagen. Lizenz GPL-3.0.
 
 ## Read first
 
-1. `AI_AUDITLOG.md` — binding workflow: execution-log contract, subagent report duty,
-   status classes, read-only audit rule.
-2. `AI_AUDITINDEX.md` — index of all archived reports plus the recorded HEAD. Headers in
-   this archive go stale; verify with `git rev-parse --short HEAD` and refresh it when you
-   touch the file.
-3. `README.md` (one line) and `LICENSE` (GPL-3.0 — do not relicense).
+1. `AI_AUDITLOG.md` — verbindlicher Report- und Recovery-Workflow.
+2. `AI_AUDITINDEX.md` — alle Reports; Header mit `git rev-parse --short HEAD` abgleichen.
+3. `docs/RELEASE-CHECKLIST.md` — offene Blocker (Recht, Bildrechte, Domain).
+4. `docs/WISSENSCHAFTLICHER-QUELLEN-AUDIT.md` — bevor du Inhalte oder Zahlen änderst.
+5. `docs/REPORTAGEN-ARCHITEKTUR.md`, `docs/BILDHERKUNFT.md`.
 
-## Git
+## Commands (verifiziert)
 
-- Single branch `main`, single checkout at this path, remote
-  `https://github.com/maynowak/Mays-Reportage.git` (HTTPS, account `maynowak`).
-- Commit report work as `docs: …`; one commit per task/report is the norm in sibling repos.
-- No `.github/workflows`, no hooks — "green" only means you verified it yourself.
+```bash
+npm install
+npm run dev        # http://localhost:5173
+npm run verify     # ESLint + tsc + 25 Unit-Tests + Build
+npm run e2e        # 39 Tests × Chromium/Firefox/WebKit, Port 4317
+npx vitest run src/App.test.tsx -t "Archiv"   # einzelner Test
+SITE_URL=https://<domain> npm run sitemap      # Domain ist bewusst nicht gesetzt
+```
 
-## Report contract (from `AI_AUDITLOG.md`)
+Playwright-Screenshots landen in `docs/reports/assets/MAYS-REPORTAGEN-*/` und werden
+nur im Chromium-Projekt geschrieben, damit Browserläufe sie nicht überschreiben.
 
-- Write reports to `docs/reports/<NN>-<SUBWORKING>-<TASK>-EXECUTION_LOG.md`.
-  Evidence images live in `docs/reports/assets/<TASK-ID>/`.
-- Update the log **continuously after each milestone**, not just at the end. The file is
-  the only crash-recovery source; the chat history is not.
-- Keep all 16 mandatory points: status; audit date/time; branch + HEAD; scope; completed
-  sections; findings; evidence/file references; GREEN/YELLOW/ORANGE/RED/GRAY class;
-  Terraform checks actually executed + results; `git status`; files changed (or an explicit
-  "no files changed"); open questions; risks; recommended next actions; resume point.
-- Reports are written in **German**; task IDs uppercase, status vocabulary as in
-  `AI_AUDITLOG.md` (e.g. VERIFIED, BLOCKED, NOT VERIFIED).
-- Add one row per report to the `AI_AUDITINDEX.md` table (`Task ID | Report | Status`)
-  in the same change.
+## Struktur
 
-## Subagents (binding user directive)
+- `src/content/reportagen.ts` — Registry, Status (`published`/`draft`), Featured-Priorität.
+- `src/content/bakteriophagen.ts` — Inhalt, 14 Quellen, Akzentfarben.
+- `src/content/legal.ts` — Betreiberangaben; `null` heißt „fehlt“, niemals erfinden.
+- `src/pages/` — Start, Archiv `/reportagen`, Reportage, Über uns, Impressum,
+  Datenschutz, Bildnachweis, 404.
+- `public/media/phagen/` — ausgelieferte WebP-Derivate + OG-Bild.
+- `assets/source/` — unveränderte Originalbilder (nicht im Build).
+- `docs/reports/` — Audit-/Abnahmebelege; `docs/reports/assets/<TASK-ID>/` Screenshots.
 
-- Every subagent prompt **must** state that the subagent delivers a structured report
-  following the 16 points above.
-- The orchestrator files each subagent report **here**, under `docs/reports/`, and indexes
-  it in `AI_AUDITINDEX.md` — including work done in other project checkouts. Do not leave
-  the report only in the audited repo.
-- Audit tasks are READ-ONLY for the audited code: only write the execution log and index
-  here. Never claim PASS/GREEN/VERIFIED without the executed command, its output, and the
-  HEAD SHA; otherwise use NOT VERIFIED.
+## Hard rules
+
+- **Kein Push, Merge oder Deployment ohne ausdrückliche Freigabe.** Nur lokale Commits.
+- Keine Änderungen an anderen Projekten unter `/home/dci-student/projects/`.
+- Reports auf Deutsch unter `docs/reports/<NN>-<MM>-<TASK>-EXECUTION_LOG.md`, mit allen
+  16 Pflichtpunkten und einer Zeile in `AI_AUDITINDEX.md`.
+- Jeder Subagent erhält die Reportpflicht in den Prompt; der Orchestrator legt den
+  Report hier ab und indiziert ihn.
+- Keine Ergebnisse behaupten, die nicht mit Befehl, Output und HEAD-SHA belegt sind.
+- Rechtliche Platzhalter nicht mit erfundenen Namen/Adressen füllen. Impressum und
+  Datenschutz bleiben `noindex`, solange `isLegalComplete === false`.
+- KI-Bilder immer als Illustration kennzeichnen; niemals als Mikroskopaufnahme ausgeben.
+- Keine Cookies, Analytics oder externen Font-/Tracking-Dienste ergänzen.
+- Bestehende Reportage-URLs müssen dauerhaft erreichbar bleiben; Entwürfe über
+  `status: 'draft'` ausschließen, nicht durch Löschen der Route.
 
 ## Gotchas
 
-- Git does not track empty directories: `docs/reports/assets/` only survives via a
-  committed file (`.gitkeep`).
-- Filenames and index entries are the retrieval key for follow-up tasks — no free-form
-  names, no duplicate report files for the same task.
+- Ports 4173/4180 sind oft von Schwesterprojekten belegt; dieses Projekt nutzt 4317.
+- WebKit braucht Systembibliotheken (`libavif16` u. a.). Ohne sudo:
+  `npx playwright install --with-deps` auf einem Rechner mit Rechten; sonst WebKit als
+  „nicht verfügbar“ dokumentieren.
+- Zahlen und Quellen sind datiert (14.11.2026). Bei Änderungen Audit aktualisieren.
+- `vercel.json` ist vorbereitet, aber nicht deployt; Domain-abhängige Werte fehlen.

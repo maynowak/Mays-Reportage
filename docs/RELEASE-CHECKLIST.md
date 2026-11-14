@@ -1,0 +1,54 @@
+# Release-Checkliste — Mays-Reportagen
+
+Stand: 14. November 2026. Diese Checkliste ist vorbereitet, aber **nicht aktiviert**.
+Kein Deployment, kein Push, keine Domainkonfiguration wurde ausgeführt.
+
+## 1. Rechtliche Pflichtangaben (Blocker)
+
+- [ ] `src/content/legal.ts` ausfüllen: Betreibername, Anschrift, E-Mail,
+      redaktionell verantwortliche Person, Hosting-Anbieter.
+- [ ] Impressum und Datenschutz rechtlich prüfen lassen.
+- [ ] Hosting-Vertrag (AVV), Log-Aufbewahrung und Serverstandort im Datenschutz ergänzen.
+- [ ] Aufsichtsbehörde eintragen.
+- [ ] Solange Angaben fehlen, bleiben `/impressum` und `/datenschutz` auf `noindex`.
+
+## 2. Bildrechte
+
+- [ ] Nutzungsrechte für die gelieferten KI-Illustrationen klären.
+- [ ] KI-Kennzeichnung gemäß den anzuwendenden Regeln bestätigen.
+- [ ] Herkunft/Erzeugungswerkzeug in `docs/BILDHERKUNFT.md` ergänzen.
+- [ ] Designreferenzen weiterhin nicht ausliefern.
+
+## 3. Domain und SEO
+
+- [ ] Produktive Domain festlegen.
+- [ ] `SITE_URL=https://<domain> npm run sitemap` ausführen und
+      `public/sitemap.xml` committen.
+- [ ] `Sitemap: https://<domain>/sitemap.xml` in `public/robots.txt` ergänzen.
+- [ ] Canonical/OG-URLs prüfen: `useSeo` löst sie zur Laufzeit gegen die Origin auf.
+- [ ] `vercel.json` prüfen (SPA-Rewrite, Security-Header, Cache-Header).
+- [ ] Nach dem Deployment: Statuscodes, 404-Verhalten, `robots.txt`, Sitemap und
+      Rich-Results-Test prüfen.
+
+## 4. Deployment (separate Freigabe)
+
+- [ ] Vercel-Projekt verbinden, Build `npm run build`, Output `dist`.
+- [ ] Rewrite für `/reportagen/*`, `/ueber-uns`, `/impressum`, `/datenschutz`,
+      `/bildnachweis` verifizieren.
+- [ ] Keine Analytics-/Tracking-Skripte ohne Einwilligungskonzept ergänzen.
+- [ ] Produktions-Smoke: Startseite, Reportage, Archiv, alle Rechtsseiten.
+
+## 5. Qualität
+
+- [x] TypeScript, Unit-Tests, Production Build.
+- [x] Chromium-E2E, Responsive 320–1440 px, Reduced Motion.
+- [ ] Firefox/WebKit auf der Zielumgebung bestätigen (siehe Audit-Report).
+- [ ] Lighthouse-LCP/CLS auf dem Zielhost messen.
+- [ ] Externe Quellenlinks periodisch prüfen (Redirects, Zugriffsbeschränkungen).
+
+## 6. Inhalt
+
+- [ ] Quellen-Audit bei jeder inhaltlichen Änderung aktualisieren:
+      `docs/WISSENSCHAFTLICHER-QUELLEN-AUDIT.md`.
+- [ ] Keine Heilversprechen, keine Therapieempfehlungen.
+- [ ] Medizinischen Hinweis sichtbar lassen.

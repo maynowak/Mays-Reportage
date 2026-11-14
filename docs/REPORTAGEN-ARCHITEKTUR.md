@@ -9,12 +9,16 @@ Das Magazin ist datengetrieben. Die Hero-Komponente, die Startseite und die Rout
    `hero-640.webp`, `hero-960.webp`, `hero-1280.webp`, `hero-1672.webp` sowie
    ein OG-Bild (1200 × 630). Originale bleiben in `assets/source/`.
 2. In `src/content/bakteriophagen.ts` (oder einer neuen Datei) ein `Reportage`-Objekt
-   anlegen: `slug`, `title`, `headlineLead`, `headlineAccent`, `subheadline`, `teaser`,
-   `priority`, `accent`, `hero`, `facts`, `sections`, `sources`, `medicalNote`.
+   anlegen: `slug`, `status: 'published'`, `title`, `headlineLead`, `headlineAccent`,
+   `subheadline`, `teaser`, `priority`, `accent`, `hero`, `facts`, `sections`, `sources`,
+   `medicalNote`.
 3. Das Objekt in `src/content/reportagen.ts` zu `publishedReportagen` hinzufügen.
    Die höchste `priority` wird automatisch zum Startseiten-Hero; alle anderen
-   Reportagen bleiben über `/reportagen/<slug>` erreichbar.
+   Reportagen bleiben über `/reportagen/<slug>` erreichbar. `status: 'draft'` schließt
+   eine Reportage aus Hero, Archiv und Routing aus.
 4. Optional `upcomingReportagen` für angekündigte Themen pflegen (nicht verlinkt).
+5. Neue Route in `scripts/generate-sitemap.mjs` ergänzen und den Quellen-Audit
+   aktualisieren.
 
 ## Abschnittstypen (`Section.blocks`)
 
@@ -41,3 +45,19 @@ Partikel, Zoom, Sheen und Scroll-Reveals; ohne JavaScript bleiben alle Inhalte s
 
 `useSeo` setzt Titel, Description, Canonical, Open Graph, Twitter Cards und
 JSON-LD (`NewsArticle`). Das Hero-Bild wird per `<link rel="preload">` vorgeladen.
+
+## Veröffentlichungsstatus und Archiv
+
+`Reportage.status` (`published`/`draft`) steuert alles: `selectPublished()` filtert
+Entwürfe aus Hero, Archiv und Related-Liste; `getReportage()` liefert Entwürfe nicht aus.
+Das Archiv `/reportagen` listet veröffentlichte Geschichten und getrennt die geplanten
+Themen. Unbekannte Slugs rendern die 404-Seite mit `noindex`.
+
+## Recht und SEO
+
+`/impressum`, `/datenschutz` und `/bildnachweis` sind vorhanden. Solange
+`src/content/legal.ts` Pflichtfelder als `null` enthält, zeigen die Seiten einen
+Entwurfshinweis und setzen `robots: noindex,follow`. Canonical-, OG- und Twitter-URLs
+werden zur Laufzeit gegen die Origin absolut aufgelöst; `vercel.json` enthält den
+SPA-Rewrite, `scripts/generate-sitemap.mjs` erzeugt die Sitemap erst mit gesetzter
+`SITE_URL`.
