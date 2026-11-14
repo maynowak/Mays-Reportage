@@ -47,14 +47,19 @@ describe('Mays-Reportagen app', () => {
     expect(Element.prototype.scrollIntoView).toHaveBeenCalled();
   });
 
-  it('renders the full reportage including sources and medical note', () => {
+  it('renders the interactive reportage with all chapters, sources and medical note', () => {
     renderRoute('/reportagen/bakteriophagen');
 
-    expect(screen.getByRole('heading', { level: 2, name: 'Die Biologie hinter der Phagentherapie' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 2, name: 'Wie ein Phage ein Bakterium angreift' }),
+    ).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 2, name: 'Quellen und weiterführende Links' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 2, name: 'Medizinischer Hinweis' })).toBeInTheDocument();
     expect(screen.getByText('77,2 %')).toBeInTheDocument();
     expect(screen.getByText('61,3 %')).toBeInTheDocument();
+
+    const chapterNav = screen.getByRole('navigation', { name: 'Kapitel dieser Reportage' });
+    expect(within(chapterNav).getAllByRole('link')).toHaveLength(8);
 
     const article = screen.getByRole('article', { name: 'Reportagetext' });
     const sourceLinks = within(article).getAllByRole('link', { name: /Originalquelle öffnen/i });

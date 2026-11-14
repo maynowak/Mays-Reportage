@@ -7,6 +7,8 @@ import { ArticleToc } from '../components/reportage/ArticleToc';
 import { RelatedReportagen } from '../components/reportage/RelatedReportagen';
 import { ReportageHero } from '../components/reportage/ReportageHero';
 import { getReportage } from '../content/reportagen';
+import { getStory } from '../content/stories';
+import { StoryReader } from '../story/StoryReader';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { buildArticleJsonLd, useSeo } from '../lib/seo';
@@ -15,6 +17,7 @@ import { NotFoundPage } from './NotFoundPage';
 export function ReportagePage() {
   const { slug } = useParams();
   const reportage = getReportage(slug);
+  const story = getStory(reportage?.slug);
   const reducedMotion = usePrefersReducedMotion();
   useScrollReveal(!reducedMotion);
 
@@ -49,36 +52,40 @@ export function ReportagePage() {
       <ReadingProgress />
       <ReportageHero reportage={reportage} />
 
-      <div className="container article-layout">
-        <ArticleToc sections={reportage.sections} />
+      {story ? (
+        <StoryReader story={story} researchDate={reportage.researchDate} />
+      ) : (
+        <div className="container article-layout">
+          <ArticleToc sections={reportage.sections} />
 
-        <article className="article-body" aria-label="Reportagetext">
-          {reportage.sections.map((section) => (
-            <ArticleSection key={section.id} section={section} />
-          ))}
+          <article className="article-body" aria-label="Reportagetext">
+            {reportage.sections.map((section) => (
+              <ArticleSection key={section.id} section={section} />
+            ))}
 
-          <aside className="medical-note" id="hinweis" aria-labelledby="medical-note-title">
-            <span className="medical-note__icon" aria-hidden="true">
-              +
-            </span>
-            <div>
-              <h2 id="medical-note-title">Medizinischer Hinweis</h2>
-              <p>{reportage.medicalNote}</p>
-            </div>
-          </aside>
+            <aside className="medical-note" id="hinweis" aria-labelledby="medical-note-title">
+              <span className="medical-note__icon" aria-hidden="true">
+                +
+              </span>
+              <div>
+                <h2 id="medical-note-title">Medizinischer Hinweis</h2>
+                <p>{reportage.medicalNote}</p>
+              </div>
+            </aside>
 
-          <footer className="article-footer">
-            <p>
-              Recherche und Quellenprüfung: {reportage.researchDate}. Erstellt als strukturierte
-              Zusammenfassung einer Recherche zur Phagentherapie.
-            </p>
-            <NeonButton variant="ghost" to="/#reportagen">
-              Alle Reportagen
-              <IconArrow className="btn__icon" />
-            </NeonButton>
-          </footer>
-        </article>
-      </div>
+            <footer className="article-footer">
+              <p>
+                Recherche und Quellenprüfung: {reportage.researchDate}. Erstellt als strukturierte
+                Zusammenfassung einer Recherche zur Phagentherapie.
+              </p>
+              <NeonButton variant="ghost" to="/#reportagen">
+                Alle Reportagen
+                <IconArrow className="btn__icon" />
+              </NeonButton>
+            </footer>
+          </article>
+        </div>
+      )}
 
       <RelatedReportagen slug={reportage.slug} />
     </div>
