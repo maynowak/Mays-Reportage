@@ -2,6 +2,7 @@
 
 Stand: 14. November 2026. Diese Checkliste ist vorbereitet, aber **nicht aktiviert**.
 Kein Deployment, kein Push, keine Domainkonfiguration wurde ausgeführt.
+Die verbindliche Go/No-Go-Matrix steht in `docs/RELEASE-GATE.md`.
 
 ## 1. Rechtliche Pflichtangaben (Blocker)
 
@@ -22,11 +23,14 @@ Kein Deployment, kein Push, keine Domainkonfiguration wurde ausgeführt.
 ## 3. Domain und SEO
 
 - [ ] Produktive Domain festlegen.
-- [ ] `SITE_URL=https://<domain> npm run sitemap` ausführen und
-      `public/sitemap.xml` committen.
+- [ ] Zuerst `SITE_URL=https://<domain> npm run sitemap` (5 öffentliche URLs) ausführen.
+- [ ] Nach rechtlicher Freigabe `INCLUDE_LEGAL=true SITE_URL=https://<domain> npm run sitemap`
+      erneut ausführen und `public/sitemap.xml` committen.
 - [ ] `Sitemap: https://<domain>/sitemap.xml` in `public/robots.txt` ergänzen.
 - [ ] Canonical/OG-URLs prüfen: `useSeo` löst sie zur Laufzeit gegen die Origin auf.
-- [ ] `vercel.json` prüfen (SPA-Rewrite, Security-Header, Cache-Header).
+- [ ] `vercel.json` prüfen (Framework/Build, SPA-Rewrite, Security-/Cache-Header,
+      `X-Robots-Tag` für Rechtsentwürfe).
+- [ ] CSP/HSTS-Entscheidung dokumentieren (bewusst noch nicht gesetzt).
 - [ ] Nach dem Deployment: Statuscodes, 404-Verhalten, `robots.txt`, Sitemap und
       Rich-Results-Test prüfen.
 
@@ -37,13 +41,17 @@ Kein Deployment, kein Push, keine Domainkonfiguration wurde ausgeführt.
       `/bildnachweis` verifizieren.
 - [ ] Keine Analytics-/Tracking-Skripte ohne Einwilligungskonzept ergänzen.
 - [ ] Produktions-Smoke: Startseite, Reportage, Archiv, alle Rechtsseiten.
+- [ ] Soft-404-Verhalten akzeptieren oder Edge-Routing nachrüsten.
 
-## 5. Qualität
+## 5. CI und Qualität
+
+- [x] GitHub-Actions-Workflow `.github/workflows/ci.yml` angelegt (verify + 3 Browser).
+- [ ] Ersten CI-Lauf nach Push abwarten.
 
 - [x] TypeScript, Unit-Tests, Production Build.
 - [x] Chromium/Firefox/WebKit lokal, Responsive 320–1440 px, Reduced Motion.
 - [x] axe-core WCAG 2.1 A/AA ohne Violations (inkl. Dialog/Faktencheck).
-- [x] Lighthouse mobil lokal: 100/100/100/100 auf Home und Story.
+- [x] Lighthouse mobil lokal: 99–100 Performance, 100 A11y/Best Practices/SEO.
 - [ ] Firefox/WebKit und Lighthouse auf dem Zielhost/echten Geräten bestätigen.
 - [ ] Externe Quellenlinks periodisch prüfen (Redirects, Zugriffsbeschränkungen).
 

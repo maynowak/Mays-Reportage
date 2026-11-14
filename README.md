@@ -18,7 +18,7 @@ npm run e2e        # Playwright: Chromium, Firefox, WebKit; Port 4317
 SITE_URL=https://<domain> npm run sitemap
 ```
 
-`npm run e2e` (52 Chromium- bzw. 50 Firefox/WebKit-Tests, 4 Skips) schreibt Abnahme-Screenshots nach
+`npm run e2e` (53 Chromium- bzw. 51 Firefox/WebKit-Tests, 4 Skips) schreibt Abnahme-Screenshots nach
 `docs/reports/assets/MAYS-REPORTAGEN-01A/` (Hero/Reportage) und
 `docs/reports/assets/MAYS-REPORTAGEN-02/` (Archiv/Rechtliches) und
 `docs/reports/assets/MAYS-REPORTAGEN-03/` (Story-Kapitel, Interaktionen) sowie
@@ -51,9 +51,9 @@ Designregeln: `docs/DESIGN-SYSTEM.md`.
 
 ## Release-Status
 
-**YELLOW — lokal verifiziert, nicht veröffentlichungsfähig.** Offen sind Betreiberangaben,
-Bildrechte, Hosting/Domain und die rechtliche Prüfung. Details:
-`docs/RELEASE-CHECKLIST.md`, `docs/reports/02-01-MAYS-REPORTAGEN-02-EXECUTION_LOG.md`.
+**NO-GO — technisch vorbereitet, nicht veröffentlichungsfähig.** Offen sind
+Betreiberangaben, Bildrechte, Domain/Hosting, Rechtstherapie-Prüfung und die
+Zielumgebung. Details: `docs/RELEASE-GATE.md`, `docs/RELEASE-CHECKLIST.md`.
 
 ## Struktur
 

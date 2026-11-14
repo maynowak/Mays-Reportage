@@ -8,9 +8,10 @@ Bakteriophagen. Lizenz GPL-3.0.
 
 1. `AI_AUDITLOG.md` — verbindlicher Report- und Recovery-Workflow.
 2. `AI_AUDITINDEX.md` — alle Reports; Header mit `git rev-parse --short HEAD` abgleichen.
-3. `docs/RELEASE-CHECKLIST.md` — offene Blocker (Recht, Bildrechte, Domain).
-4. `docs/WISSENSCHAFTLICHER-QUELLEN-AUDIT.md` — bevor du Inhalte oder Zahlen änderst.
-5. `docs/REPORTAGEN-ARCHITEKTUR.md`, `docs/STORYTELLING-ENGINE.md`,
+3. `docs/RELEASE-GATE.md` — Go/No-Go-Matrix, Blocker, Domain-/Rechtsstand.
+4. `docs/RELEASE-CHECKLIST.md` — operative Release-Schritte.
+5. `docs/WISSENSCHAFTLICHER-QUELLEN-AUDIT.md` — bevor du Inhalte oder Zahlen änderst.
+6. `docs/REPORTAGEN-ARCHITEKTUR.md`, `docs/STORYTELLING-ENGINE.md`,
    `docs/DESIGN-SYSTEM.md`, `docs/BILDHERKUNFT.md`.
 
 ## Commands (verifiziert)
@@ -19,7 +20,7 @@ Bakteriophagen. Lizenz GPL-3.0.
 npm install
 npm run dev        # http://localhost:5173
 npm run verify     # ESLint + tsc + 31 Unit-Tests + Build
-npm run e2e        # 52/50 Tests × Chromium/Firefox/WebKit (4 Skips), Port 4317
+npm run e2e        # 53/51 Tests × Chromium/Firefox/WebKit (4 Skips), Port 4317
 npx vitest run src/App.test.tsx -t "Archiv"   # einzelner Test
 SITE_URL=https://<domain> npm run sitemap      # Domain ist bewusst nicht gesetzt
 ```
