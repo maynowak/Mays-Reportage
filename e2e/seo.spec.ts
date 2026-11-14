@@ -36,15 +36,35 @@ test.describe('SEO release preparation', () => {
     expect(body).toContain('Allow: /');
   });
 
-  test('sitemap generator emits valid XML for a configured domain', async () => {
+  test('sitemap excludes legal drafts but can include them after approval', async () => {
     const { execFileSync } = await import('node:child_process');
     const out = '/tmp/mays-reportagen-sitemap.xml';
+    const baseEnv = { ...process.env, SITE_URL: 'https://example.org', OUT: out };
+
+    execFileSync('node', ['scripts/generate-sitemap.mjs'], { env: baseEnv });
+    const draftXml = fs.readFileSync(out, 'utf8');
+    expect(draftXml).toContain('<loc>https://example.org/reportagen/bakteriophagen</loc>');
+    expect(draftXml.match(/<url>/g)?.length).toBe(5);
+    expect(draftXml).not.toContain('/impressum');
+    expect(draftXml).not.toContain('/datenschutz');
+
     execFileSync('node', ['scripts/generate-sitemap.mjs'], {
-      env: { ...process.env, SITE_URL: 'https://example.org', OUT: out },
+      env: { ...baseEnv, INCLUDE_LEGAL: 'true' },
     });
-    const xml = fs.readFileSync(out, 'utf8');
-    expect(xml).toContain('<loc>https://example.org/reportagen/bakteriophagen</loc>');
-    expect(xml.match(/<url>/g)?.length).toBe(7);
+    const legalXml = fs.readFileSync(out, 'utf8');
+    expect(legalXml.match(/<url>/g)?.length).toBe(7);
+    expect(legalXml).toContain('<loc>https://example.org/impressum</loc>');
+    expect(legalXml).toContain('<loc>https://example.org/datenschutz</loc>');
+  });
+
+  test('sitemap rejects a missing or non-HTTPS domain', async () => {
+    const { execFileSync } = await import('node:child_process');
+    expect(() =>
+      execFileSync('node', ['scripts/generate-sitemap.mjs'], {
+        env: { ...process.env, SITE_URL: 'http://example.org', OUT: '/tmp/invalid-sitemap.xml' },
+        stdio: 'ignore',
+      }),
+    ).toThrow();
   });
 
   test('hero image stays below the LCP budget', () => {
