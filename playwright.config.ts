@@ -17,7 +17,7 @@ export default defineConfig({
     command: 'npm run build && npm run preview',
     url: 'http://127.0.0.1:4317',
     reuseExistingServer: true,
-    timeout: 180_000,
+    timeout: 300_000,
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
