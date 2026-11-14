@@ -195,20 +195,6 @@
   max-width: 780px;
 }
 
-.story-chapter__number {
-  position: absolute;
-  right: -0.4rem;
-  top: -1.6rem;
-  color: rgba(0, 139, 132, 0.12);
-  font-family: var(--font-serif);
-  font-size: clamp(4rem, 9vw, 7rem);
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  pointer-events: none;
-  user-select: none;
-}
-
 .story-chapter__question {
   max-width: 36ch;
   margin-bottom: 0.9rem;
@@ -1545,10 +1531,6 @@
 
   .story-chapter + .story-chapter {
     margin-top: 1rem;
-  }
-
-  .story-chapter__number {
-    display: none;
   }
 
   .story-chapter__question {

@@ -21,11 +21,10 @@ export function StoryReader({
       <StoryChapterNav chapters={story.chapters} />
 
       <article className="story" aria-label="Reportagetext">
-        {story.chapters.map((chapter, index) => (
+        {story.chapters.map((chapter) => (
           <StoryChapterFrame
             key={chapter.id}
             chapter={chapter}
-            index={index}
             sources={story.sources}
             reducedMotion={reducedMotion}
           />

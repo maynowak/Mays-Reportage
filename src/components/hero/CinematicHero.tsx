@@ -63,7 +63,7 @@ export function CinematicHero({ reportage }: { reportage: Reportage }) {
           </p>
 
           <h1 className="hero__title" id="hero-title">
-            <span className="hero__line">{reportage.headlineLead}</span>
+            <span className="hero__line">{reportage.headlineLead}</span>{' '}
             <span className="hero__line hero__line--accent">{reportage.headlineAccent}</span>
           </h1>
 
