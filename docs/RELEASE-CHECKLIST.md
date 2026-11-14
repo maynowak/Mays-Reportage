@@ -1,66 +1,72 @@
 # Release-Checkliste — Mays-Reportagen
 
-Stand: 14. November 2026. Diese Checkliste ist vorbereitet, aber **nicht aktiviert**.
-Kein Deployment, kein Push. Die verbindliche Go/No-Go-Matrix steht in
-`docs/RELEASE-GATE.md`.
+Stand: 14. November 2026. **Kein Push, kein Deployment.** Die verbindliche
+Go/No-Go-Matrix steht in `docs/RELEASE-GATE.md`.
 
-## 1. Rechtliche Pflichtangaben
+## 1. Vercel-Konto (read-only geprüft)
 
-- [x] Betreiberin, Anschrift, E-Mail, verantwortliche Person und Hoster in
-      `src/content/legal.ts` eingetragen.
-- [x] Impressum um § 18 Abs. 1 und Abs. 2 MStV ergänzt.
-- [x] Datenschutz auf statisches Vercel-Hosting, Logs, DPA und internationale
-      Übermittlung geprüft.
-- [x] Schreibweise der Anschrift von der Betreiberin bestätigen lassen.
-- [ ] Impressum und Datenschutz rechtlich prüfen und freigeben.
-- [ ] Vercel-Tarif, DPA-Status, Log-Aufbewahrung und Serverregion im Konto prüfen.
-- [ ] Anwaltliche Entscheidung zur Verbraucherstreitbeilegung dokumentieren.
+- [x] Projekt/Plan: `mays-reportage` / **Hobby** (Vercel-Team verifiziert).
+- [x] Domain verbunden, `/` liefert HTTP 200.
+- [ ] Produktion ist veraltet: SPA-Routen und Sitemap liefern 404; aktuellen Stand
+      erst nach Freigabe deployen.
+- [ ] Hobby ist laut Vercel Terms § 4 nur für persönliche/nicht-kommerzielle Nutzung.
+      Nicht-kommerziell bestätigen oder auf Pro wechseln.
+- [ ] DPA-Status für Hobby klären (Vercel-DPA gilt für Enterprise/Pro) oder Pro
+      abschließen.
+- [ ] KI-Modelltraining für Hobby prüfen und in
+      `https://vercel.fyi/team-data-preferences` sowie den Projekteinstellungen
+      deaktivieren.
+- [x] Runtime-Logs Hobby = 1 Stunde; Region `iad1` für Functions; statische
+      Auslieferung über Edge.
+- [ ] CSP/HSTS-Entscheidung (HSTS ist in Produktion vorhanden, CSP fehlt).
 
-## 2. Bildrechte
+## 2. Rechtliche Pflichtangaben
 
-- [x] Herkunft als OpenAI-Bildgenerierung dokumentiert.
-- [x] KI-Kennzeichnung in Alt-Text, Bildunterschrift, Hero-Meta und `/bildnachweis`.
-- [ ] Nutzungsrechte/Lizenz für die öffentliche Verwendung klären.
-- [ ] Keine Lizenzgarantie behaupten, solange sie nicht belegt ist.
-- [x] Designreferenzen werden nicht ausgeliefert.
+- [x] Betreiberin, Anschrift, E-Mail, verantwortliche Person und Hoster eingetragen.
+- [x] Anschrift-Schreibweise bestätigt.
+- [x] Impressum: § 5 DDG, § 18 Abs. 1 und Abs. 2 MStV; Anschrift nur einmal öffentlich.
+- [x] Datenschutz gegen statische Vercel-Konfiguration geprüft.
+- [x] Keine Register-, Steuer- oder Aufsichtsangaben erfunden.
+- [ ] Betreiberin entscheidet über Umfang einer rechtlichen Prüfung (nicht gesetzlich
+      vorgeschrieben; externe Beratung optional).
+- [ ] Offene Unsicherheiten bewerten: Hobby-DPA, Logs/Region, internationale
+      Übermittlung, Verbraucherstreitbeilegung.
 
-## 3. Domain und SEO
+## 3. Bildrechte
 
-Bestätigte Domain: `https://mays-reportage.vercel.app` (`site.config.json`).
+- [x] OpenAI-Herkunft dokumentiert; Rechte gegenüber OpenAI eingeordnet.
+- [x] Keine Lizenzgarantie; mögliche Rechte Dritter benannt.
+- [x] KI-Kennzeichnung in Alt-Text, Caption, Hero-Meta und `/bildnachweis`.
+- [ ] Betreiberin gibt die Bildnutzung frei.
+- [ ] Mögliche Ähnlichkeiten zu Personen/Marken redaktionell prüfen.
 
-- [x] Canonical, OG, Twitter und JSON-LD gegen die Domain absolut aufgelöst.
-- [x] `public/sitemap.xml` mit 7 URLs erzeugt.
-- [x] `robots.txt` mit Sitemap-Zeile aktualisiert.
-- [x] Vercel-Konfiguration geprüft (SPA-Rewrite, Security-/Cache-Header).
-- [x] `X-Robots-Tag: noindex` für Rechtsseiten entfernt.
-- [ ] Nach dem Deploy Statuscodes, Sitemap, robots, Canonical und Rich Results prüfen.
-- [ ] Social-Preview/Pre-Rendering-Entscheidung dokumentieren.
-- [ ] Suchmaschinen-Anbindung nur nach Freigabe.
+## 4. Domain und SEO
 
-## 4. Deployment (separate Freigabe)
+Bestätigte Domain: `https://mays-reportage.vercel.app`.
 
-- [ ] Vercel-Projekt verbinden, Build `npm run build`, Output `dist`.
-- [ ] Rewrite für `/reportagen/*`, `/ueber-uns`, `/impressum`, `/datenschutz`,
-      `/bildnachweis` verifizieren.
-- [ ] Keine Analytics-/Tracking-Skripte ohne Einwilligungskonzept ergänzen.
-- [ ] Produktions-Smoke: Startseite, Reportage, Archiv, alle Rechtsseiten.
-- [ ] Soft-404-Verhalten akzeptieren oder Edge-Routing nachrüsten.
-- [ ] CSP/HSTS-Entscheidung treffen.
+- [x] Canonical, OG, Twitter und JSON-LD absolut auf die Domain.
+- [x] `public/sitemap.xml` mit 7 URLs.
+- [x] `robots.txt` mit Sitemap-Zeile.
+- [x] Vercel-Konfiguration valide.
+- [ ] Nach dem Deploy `/`, Reportage, Archiv, Rechtsseiten, Sitemap und robots prüfen.
+- [ ] Canonical/OG/JSON-LD in Produktion prüfen.
+- [ ] Soft-404-Entscheidung.
+- [ ] Social-Preview/Pre-Rendering-Entscheidung.
 
-## 5. CI und Qualität
+## 5. Deployment (separate Freigabe)
 
-- [x] GitHub-Actions-Workflow `.github/workflows/ci.yml` angelegt (verify + 3 Browser).
-- [x] TypeScript, Unit-Tests, Production Build.
-- [x] Chromium/Firefox/WebKit lokal, Responsive 320–1440 px, Reduced Motion.
-- [x] axe-core WCAG 2.1 A/AA ohne Violations (inkl. Dialog/Faktencheck).
-- [x] Lighthouse mobil lokal: 99–100 Performance, 100 A11y/Best Practices/SEO.
-- [ ] Ersten CI-Lauf nach Push abwarten.
-- [ ] Firefox/WebKit und Lighthouse auf dem Zielhost/echten Geräten bestätigen.
-- [ ] Externe Quellenlinks periodisch prüfen (Redirects, Zugriffsbeschränkungen).
+- [ ] Push freigeben.
+- [ ] CI grün.
+- [ ] Deploy freigeben.
+- [ ] Produktions-Smoke und Header prüfen.
+- [ ] Keine Analytics/Tracking ohne Einwilligungskonzept.
 
-## 6. Inhalt
+## 6. Qualität
 
-- [ ] Quellen-Audit bei jeder inhaltlichen Änderung aktualisieren:
-      `docs/WISSENSCHAFTLICHER-QUELLEN-AUDIT.md`.
-- [ ] Keine Heilversprechen, keine Therapieempfehlungen.
-- [ ] Medizinischen Hinweis sichtbar lassen.
+- [x] ESLint, TypeScript, 33 Unit-Tests, Build.
+- [x] Chromium/Firefox/WebKit lokal, 149 Tests / 4 Skips.
+- [x] axe WCAG 2.1 A/AA ohne Violations.
+- [x] Lighthouse lokal 99/100/100/100.
+- [ ] Erster CI-Lauf.
+- [ ] Firefox/WebKit und Lighthouse auf Zielhost/echten Geräten.
+- [ ] Externe Quellenlinks periodisch prüfen.

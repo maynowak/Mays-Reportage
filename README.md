@@ -51,10 +51,10 @@ Designregeln: `docs/DESIGN-SYSTEM.md`.
 
 ## Release-Status
 
-**NO-GO — Betreiber-/Hostingdaten und Domain sind konfiguriert; nicht veröffentlicht.**
-Offen sind die rechtliche Prüfung von Impressum/Datenschutz, die Bildrechte, die
-Bestätigung der Anschrift-Schreibweise und die Zielumgebung. Details:
-`docs/RELEASE-GATE.md`, `docs/RELEASE-CHECKLIST.md`.
+**NO-GO — lokal konfiguriert, Produktion veraltet, keine Freigabe.** Betreiber-,
+Hosting- und Domaindaten sind gesetzt. Offen sind Betreiberentscheidungen zu
+Hobby/kommerzieller Nutzung, DPA/KI-Training, Rechtstexten und Bildrechten sowie ein
+aktuelles Deployment. Details: `docs/RELEASE-GATE.md`, `docs/RELEASE-CHECKLIST.md`.
 
 ## Struktur
 
