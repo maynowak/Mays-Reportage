@@ -8,32 +8,32 @@ const sources = [
   },
   {
     id: 'S2',
-    label: 'Djebara et al., Viruses 2019 – Militärkrankenhaus Brüssel, 260 Anfragen',
+    label: 'Djebara et al., Viruses 2019;11(3):265 – Militärkrankenhaus Brüssel, 260 Anfragen',
     url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6466067/',
   },
   {
     id: 'S3',
-    label: 'Pirnay et al., Nature Microbiology 2024 – 100 individualisierte Fälle',
+    label: 'Pirnay et al., Nature Microbiology 2024 – 100 konsekutive Fälle, 35 Kliniken',
     url: 'https://www.nature.com/articles/s41564-024-01705-x',
   },
   {
     id: 'S4',
-    label: 'Würstle et al., Nature Medicine 2026 – Konsensleitlinie',
+    label: 'Würstle et al., Nature Medicine, 21.09.2026 – Konsensleitlinie',
     url: 'https://www.nature.com/articles/s41591-026-04654-6',
   },
   {
     id: 'S5',
-    label: 'EMA – Qualitätsanforderungen für Phagenarzneimittel, Leitlinienentwurf',
+    label: 'EMA – Qualitätsanforderungen für Phagenarzneimittel (Entwurf, Konsultation bis 30.04.2026)',
     url: 'https://www.ema.europa.eu/en/scientific-guidelines/quality-aspects-phage-therapy-medicinal-products',
   },
   {
     id: 'S6',
-    label: 'G-BA Innovationsfonds – PhagoFlow, Bundeswehrkrankenhaus Berlin',
+    label: 'G-BA Innovationsfonds – PhagoFlow, Beschluss vom 20.06.2025',
     url: 'https://innovationsfonds.g-ba.de/projekte/ptmhbp.251',
   },
   {
     id: 'S7',
-    label: 'Hirszfeld-Institut, Polen – Phage Therapy Unit',
+    label: 'Hirszfeld-Institut, Polen – Phage Therapy Unit (seit 2005)',
     url: 'https://hirszfeld.pl/en/structure/iitd-pan-medical-center/phage-therapy-unit/',
   },
   {
@@ -48,12 +48,12 @@ const sources = [
   },
   {
     id: 'S10',
-    label: 'ARTE Re: – „Hoffnung auf Heilung – Phagentherapie in Georgien“',
+    label: 'ARTE Re: – „Hoffnung auf Heilung – Phagentherapie in Georgien“ (TV-Premiere 28.09.2022)',
     url: 'https://www.fernsehserien.de/arte-re/folgen/938-hoffnung-auf-heilung-phagentherapie-in-georgien-1583573',
   },
   {
     id: 'S11',
-    label: 'Bundestag, Wissenschaftliche Dienste – Rechtliche Grundlagen (2024)',
+    label: 'Bundestag, Wissenschaftliche Dienste – Rechtliche Grundlagen der Phagentherapie (Sachstand, Januar 2025)',
     url: 'https://www.bundestag.de/resource/blob/1038326/WD-8-086-24-pdf.pdf',
   },
   {
@@ -68,13 +68,14 @@ const sources = [
   },
   {
     id: 'S14',
-    label: 'Springer, Bundesgesundheitsblatt 2025 – Phagentherapie in Deutschland',
+    label: 'Willy & Bröcker, Bundesgesundheitsblatt 2025 – Phagentherapie in Deutschland, Update 2025',
     url: 'https://link.springer.com/article/10.1007/s00103-025-04063-z',
   },
 ];
 
 export const phagenReportage: Reportage = {
   slug: 'bakteriophagen',
+  status: 'published',
   title: 'Bakteriophagen gegen resistente Bakterien',
   eyebrow: 'Die spektakuläre Reportage',
   headlineLead: 'Bacteria can be',
@@ -95,16 +96,16 @@ export const phagenReportage: Reportage = {
     sizes: '100vw',
     width: 1672,
     height: 941,
-    alt: 'Eine erschrockene Frau links blickt auf eine riesige, pink leuchtende Bakterie rechts, die von mehreren leuchtenden Bakteriophagen angegriffen wird.',
+    alt: 'KI-generierte Illustration: Eine erschrockene Frau links blickt auf eine riesige, pink leuchtende Bakterie rechts, die von mehreren leuchtenden Bakteriophagen angegriffen wird.',
     ogImage: '/media/phagen/og-phagen.jpg',
     caption:
-      'Illustration: Bakteriophagen attackieren ein resistentes Bakterium. Bild: Mays-Reportagen.',
+      'KI-generierte Illustration: Bakteriophagen attackieren ein resistentes Bakterium. Keine Mikroskopaufnahme. Bild: Mays-Reportagen.',
   },
   facts: [
     { value: '> 100', label: 'Jahre Forschung' },
-    { value: '77,2 %', label: 'klinische Verbesserung', note: 'auswertbare Infektionen' },
-    { value: '61,3 %', label: 'Erreger nicht mehr nachweisbar', note: 'bakteriologisch nachverfolgt' },
-    { value: '35', label: 'Kliniken in 12 Ländern', note: 'internationale Fallserie 2024' },
+    { value: '77,2 %', label: 'klinische Verbesserung', note: 'der dokumentierten Infektionen' },
+    { value: '61,3 %', label: 'Erreger nicht mehr nachweisbar', note: 'der dokumentierten Infektionen' },
+    { value: '35', label: 'Kliniken in 12 Ländern', note: 'Fallserie 2008–2022' },
   ],
   sections: [
     {
@@ -115,6 +116,13 @@ export const phagenReportage: Reportage = {
         'Bakteriophagen sind Viren, keine Würmer. Sie docken an geeignete Bakterien an und können sich in deren Zellen vermehren. Bei lytischen Phagen wird das Wirtsbakterium dabei zerstört. Sie wirken meist sehr spezifisch gegen bestimmte Bakterienarten oder sogar einzelne Stämme.',
       ],
       blocks: [
+        {
+          kind: 'callout',
+          tone: 'info',
+          title: 'Warum die Suche wieder aktuell ist',
+          text: 'Die Entdeckung des Penicillins war ein Wendepunkt der Medizin. Doch der Erfolg gegen Bakterien ist nicht von Dauer: Resistenzen machen die einstigen Wunderwaffen stumpf. Die Deutschlandfunk-Reportage beschreibt genau diese Ausgangslage – und warum man sich wieder auf Bakteriophagen besinnt.',
+          source: 'S1',
+        },
         {
           kind: 'steps',
           title: 'Wie eine individuell angepasste Behandlung abläuft',
@@ -165,7 +173,7 @@ export const phagenReportage: Reportage = {
           kind: 'callout',
           tone: 'info',
           title: 'Belgien · Königin-Astrid-Militärkrankenhaus (Brüssel)',
-          text: 'Seit 2007 setzte das Krankenhaus Phagen in ausgewählten Fällen ein. Eine 2019 veröffentlichte Auswertung dokumentierte 260 Therapieanfragen von April 2013 bis April 2018, aus denen 15 Behandlungen hervorgingen. Unter den Anfragenden waren auch Zivilpersonen und Menschen aus Deutschland. Belgien etablierte 2018 einen besonderen Rahmen für patientenindividuelle, sogenannte magistrale Phagenzubereitungen.',
+          text: 'Seit 2007 setzte das Krankenhaus Phagen in ausgewählten Fällen ein. Eine 2019 veröffentlichte Auswertung dokumentierte 260 Therapieanfragen von April 2013 bis April 2018, aus denen 15 Behandlungen hervorgingen. Die Anfragen kamen überwiegend aus den Niederlanden, Belgien und Frankreich; 2,3 % der Anfragenden stammten aus Deutschland. Belgien etablierte einen besonderen Rahmen für patientenindividuelle, sogenannte magistrale Phagenzubereitungen.',
           source: 'S2',
         },
         {
@@ -177,12 +185,12 @@ export const phagenReportage: Reportage = {
         },
         {
           kind: 'table',
-          caption: 'Weitere bekannte Anlaufstellen',
+          caption: 'Weitere bekannte Anlaufstellen (Stand: 14. November 2026)',
           head: ['Standort', 'Charakter der Behandlung / des Angebots'],
           rows: [
             [
               'Polen, Wrocław · Hirszfeld-Institut',
-              'Phage Therapy Unit seit 2005. Behandlung unter genehmigtem experimentellem Protokoll; Einzelfallprüfung. [S7]',
+              'Phage Therapy Unit seit 2005. Behandlung nach einem von einer Bioethik-Kommission genehmigten Protokoll; Einzelfallprüfung. [S7]',
             ],
             [
               'Deutschland, Regensburg · Phage Center',
@@ -207,7 +215,7 @@ export const phagenReportage: Reportage = {
       kicker: '03 · Forschung',
       title: 'Forschung, Erfolgschancen und Grenzen',
       paragraphs: [
-        'Eine viel zitierte internationale Untersuchung analysierte 100 aufeinanderfolgende Patientenfälle mit insgesamt mehreren behandelten Infektionen in 35 Krankenhäusern aus zwölf Ländern. Die Ergebnisse wurden 2024 in Nature Microbiology veröffentlicht.',
+        'Eine viel zitierte internationale Untersuchung analysierte 100 aufeinanderfolgende Patientenfälle mit insgesamt mehreren behandelten Infektionen in 35 Krankenhäusern in 29 Städten und zwölf Ländern. Der Beobachtungszeitraum reichte vom 1. Januar 2008 bis 30. April 2022; koordiniert wurde die Fallserie von einem belgischen Konsortium. Die Ergebnisse wurden 2024 in Nature Microbiology veröffentlicht.',
       ],
       blocks: [
         {
@@ -215,11 +223,11 @@ export const phagenReportage: Reportage = {
           items: [
             {
               value: '77,2 %',
-              label: 'der auswertbaren behandelten Infektionen zeigten eine klinische Verbesserung',
+              label: 'der dokumentierten Infektionen zeigten eine klinische Verbesserung',
             },
             {
               value: '61,3 %',
-              label: 'der bakteriologisch nachverfolgten Infektionen wiesen den Erreger nicht mehr nach',
+              label: 'der dokumentierten Infektionen wiesen den Zielerreger nicht mehr nach',
             },
           ],
         },
@@ -227,7 +235,7 @@ export const phagenReportage: Reportage = {
           kind: 'callout',
           tone: 'warning',
           title: 'Diese Zahlen sind keine allgemeine Heilungswahrscheinlichkeit',
-          text: 'Es handelte sich um eine retrospektive Beobachtungsstudie ohne randomisierte Kontrollgruppe. Phagen wurden häufig zusammen mit Antibiotika angewendet. Die Prozentwerte beziehen sich auf auswertbare Infektionen, nicht auf alle Patientinnen und Patienten.',
+          text: 'Es handelte sich um eine retrospektive Beobachtungsstudie ohne randomisierte Kontrollgruppe. Phagen wurden häufig zusammen mit Antibiotika angewendet; die Autoren betonen die unkontrollierte Natur der Daten. In der Fallserie wurden 15 unerwünschte Ereignisse berichtet, darunter sieben nicht-schwere vermutete Arzneimittelreaktionen. Die Prozentwerte beziehen sich auf dokumentierte Infektionen, nicht auf alle Patientinnen und Patienten.',
           source: 'S3',
         },
         {
@@ -244,7 +252,7 @@ export const phagenReportage: Reportage = {
           kind: 'callout',
           tone: 'fact',
           title: 'Was ist 2026 neu?',
-          text: 'Am 21. September 2026 wurde in Nature Medicine eine internationale Konsensleitlinie zur personalisierten Phagentherapie publiziert. Sie enthält praxisorientierte Empfehlungen zur Phagenauswahl, Herstellung, Anwendung, Kontrolle und Dokumentation. Die EMA hatte einen Entwurf für Qualitätsanforderungen veröffentlicht; dessen Konsultation endete am 30. April 2026. Beides sind wichtige Standardisierungsschritte, keine pauschale Zulassung aller Phagenpräparate.',
+          text: 'Am 21. September 2026 wurde in Nature Medicine eine internationale Konsensleitlinie zur personalisierten Phagentherapie publiziert. Sie wurde unter Federführung der Deutschen Gesellschaft für Infektiologie im methodischen Rahmen der AWMF erarbeitet und enthält mehr als 60 Empfehlungen zu Grundprinzipien, Infrastruktur, Herstellung, Qualitätskontrolle, Anwendung und Forschung. Die EMA hatte einen Entwurf für Qualitätsanforderungen veröffentlicht; dessen Konsultation lief vom 23. Oktober 2025 bis 30. April 2026. Beides sind wichtige Standardisierungsschritte, keine pauschale Zulassung aller Phagenpräparate.',
           source: 'S4–S5, S12',
         },
       ],
@@ -306,7 +314,7 @@ export const phagenReportage: Reportage = {
       kicker: '05 · Quellen',
       title: 'Quellen und weiterführende Links',
       paragraphs: [
-        'Die folgenden wissenschaftlichen, behördlichen und journalistischen Quellen wurden für den Bericht herangezogen. Alle Einträge sind anklickbar. Stand der Recherche: 14. November 2026.',
+        'Die folgenden wissenschaftlichen, behördlichen und journalistischen Quellen wurden für den Bericht herangezogen. Alle Einträge sind anklickbar. Stand der Recherche: 14. November 2026. Die Quellen wurden für diesen Stand auf Existenz, Metadaten und die jeweils verwendete Aussage geprüft.',
       ],
       blocks: [{ kind: 'sources', items: sources }],
     },

@@ -37,15 +37,28 @@ export const upcomingReportagen: UpcomingReportage[] = [
 ];
 
 export function listPublishedReportagen(): Reportage[] {
-  return [...publishedReportagen].sort((a, b) => b.priority - a.priority);
+  return selectPublished(publishedReportagen);
+}
+
+/** Published-only selection keeps drafts out of hero, archive and routing. */
+export function selectPublished<T extends { status: 'published' | 'draft'; priority: number; slug: string }>(
+  reportagen: T[],
+): T[] {
+  return reportagen
+    .filter((reportage) => reportage.status === 'published')
+    .sort((a, b) => b.priority - a.priority || a.slug.localeCompare(b.slug));
 }
 
 export function getFeaturedReportage(): Reportage {
-  return listPublishedReportagen()[0];
+  const [featured] = listPublishedReportagen();
+  if (!featured) throw new Error('Keine veröffentlichte Reportage vorhanden.');
+  return featured;
 }
 
 export function getReportage(slug: string | undefined): Reportage | undefined {
-  return publishedReportagen.find((reportage) => reportage.slug === slug);
+  return publishedReportagen.find(
+    (reportage) => reportage.slug === slug && reportage.status === 'published',
+  );
 }
 
 export function getOtherReportagen(slug: string): Reportage[] {

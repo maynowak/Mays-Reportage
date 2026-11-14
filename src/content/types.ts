@@ -41,6 +41,7 @@ export interface HeroImage {
 
 export interface Reportage {
   slug: string;
+  status: 'published' | 'draft';
   title: string;
   eyebrow: string;
   headlineLead: string;
