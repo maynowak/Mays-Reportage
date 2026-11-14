@@ -122,6 +122,28 @@ test.describe('cinematic story engine', () => {
     await expect(page).toHaveURL(/#faktencheck$/);
   });
 
+  test('light theme keeps every chapter visible before scrolling', async ({ page }) => {
+    await page.goto('/reportagen/bakteriophagen');
+
+    const state = await page.evaluate(() => {
+      const chapters = [...document.querySelectorAll<HTMLElement>('.story-chapter')];
+      const last = chapters[chapters.length - 1]?.getBoundingClientRect();
+      const sources = document.querySelector('#quellen')?.getBoundingClientRect();
+      return {
+        opacities: chapters.map((chapter) => getComputedStyle(chapter).opacity),
+        gap: last && sources ? Math.round(sources.top - last.bottom) : -1,
+        bodyBackground: getComputedStyle(document.body).backgroundColor,
+        timelineBackground: getComputedStyle(document.querySelector('.story-chapter--timeline') as HTMLElement).backgroundColor,
+      };
+    });
+
+    expect(state.opacities.every((opacity) => opacity === '1')).toBe(true);
+    expect(state.gap).toBeGreaterThanOrEqual(0);
+    expect(state.gap).toBeLessThan(120);
+    expect(state.bodyBackground).toBe('rgb(248, 250, 252)');
+    expect(state.timelineBackground).not.toBe(state.bodyBackground);
+  });
+
   test('works with reduced motion and keeps all content', async ({ page }) => {
     await page.goto('/reportagen/bakteriophagen');
     await expect(page.locator('.phage-visual')).toHaveClass(/is-reduced/);
