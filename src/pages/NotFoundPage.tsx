@@ -8,6 +8,7 @@ export function NotFoundPage() {
     canonicalPath: '/404',
     image: '/media/phagen/og-phagen.jpg',
     imageAlt: 'Mays-Reportagen',
+    noIndex: true,
   });
 
   return (

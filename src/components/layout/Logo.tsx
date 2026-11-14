@@ -3,7 +3,7 @@ import { PhageGlyph } from '../ui/icons';
 
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <Link to="/" className={`logo${compact ? ' logo--compact' : ''}`} aria-label="Mays-Reportagen — Startseite">
+    <Link to="/" className={`logo${compact ? ' logo--compact' : ''}`}>
       <span className="logo__mark" aria-hidden="true">
         <PhageGlyph />
       </span>
@@ -13,6 +13,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
         </span>
         <span className="logo__claim">Die Wissenschaft des Möglichen</span>
       </span>
+      <span className="visually-hidden">Startseite</span>
     </Link>
   );
 }

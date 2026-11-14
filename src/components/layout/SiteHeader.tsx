@@ -4,7 +4,7 @@ import { Logo } from './Logo';
 
 const NAVIGATION = [
   { label: 'Start', to: '/' },
-  { label: 'Reportagen', to: '/#reportagen' },
+  { label: 'Reportagen', to: '/reportagen' },
   { label: 'Forschung', to: '/reportagen/bakteriophagen#forschung' },
   { label: 'Über uns', to: '/ueber-uns' },
 ];
@@ -20,10 +20,6 @@ export function SiteHeader() {
     if (hash) return location.hash === `#${hash}`;
     return location.hash === '';
   };
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -86,11 +82,20 @@ export function SiteHeader() {
         <div className="mobile-menu" id="mobile-menu">
           <nav className="mobile-menu__nav" aria-label="Mobile Navigation">
             {NAVIGATION.map((item) => (
-              <Link key={item.to} to={item.to} className="mobile-menu__link">
+              <Link
+                key={item.to}
+                to={item.to}
+                className="mobile-menu__link"
+                onClick={() => setMenuOpen(false)}
+              >
                 {item.label}
               </Link>
             ))}
-            <Link className="btn btn--primary mobile-menu__cta" to="/reportagen/bakteriophagen">
+            <Link
+              className="btn btn--primary mobile-menu__cta"
+              to="/reportagen/bakteriophagen"
+              onClick={() => setMenuOpen(false)}
+            >
               Titelgeschichte lesen
             </Link>
           </nav>

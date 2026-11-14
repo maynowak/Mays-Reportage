@@ -27,6 +27,7 @@ export function ReportagePage() {
     type: 'article',
     preloadImage: reportage?.hero.src,
     preloadSrcSet: reportage?.hero.srcSet,
+    noIndex: !reportage,
     jsonLd: reportage
       ? buildArticleJsonLd({
           title: reportage.title,

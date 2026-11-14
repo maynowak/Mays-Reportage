@@ -1,8 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import '@fontsource-variable/inter';
-import '@fontsource/archivo-black';
 import App from './App';
+import './styles/fonts.css';
 import './styles/tokens.css';
 import './styles/layout.css';
 import './styles/hero.css';

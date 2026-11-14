@@ -84,6 +84,8 @@ export function CinematicHero({ reportage }: { reportage: Reportage }) {
             <span>Forschung: {reportage.researchDate}</span>
             <span className="hero__meta-sep" aria-hidden="true" />
             <span>Lesezeit {reportage.readingTime}</span>
+            <span className="hero__meta-sep" aria-hidden="true" />
+            <span>Titelmotiv: KI-Illustration</span>
           </p>
         </div>
       </div>

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Die Sitemap wird erst mit der produktiven Domain erzeugt:
+#   SITE_URL=https://<domain> npm run sitemap
+# Danach hier ergänzen: Sitemap: https://<domain>/sitemap.xml

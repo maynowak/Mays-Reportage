@@ -15,8 +15,13 @@ function setMeta(attribute: 'name' | 'property', key: string, content: string): 
   element.setAttribute('content', content);
 }
 
-function setLink(rel: string, href: string, extra?: Record<string, string>): void {
-  let element = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
+function setLink(
+  rel: string,
+  href: string,
+  extra?: Record<string, string>,
+  selector = `link[rel="${rel}"]`,
+): void {
+  let element = document.head.querySelector<HTMLLinkElement>(selector);
   if (!element) {
     element = document.createElement('link');
     element.rel = rel;
@@ -37,6 +42,7 @@ export interface SeoInput {
   preloadImage?: string;
   preloadSrcSet?: string;
   jsonLd?: Record<string, unknown>;
+  noIndex?: boolean;
 }
 
 export function useSeo(input: SeoInput): void {
@@ -50,6 +56,7 @@ export function useSeo(input: SeoInput): void {
     preloadImage,
     preloadSrcSet,
     jsonLd,
+    noIndex = false,
   } = input;
 
   useEffect(() => {
@@ -58,6 +65,7 @@ export function useSeo(input: SeoInput): void {
       typeof window === 'undefined' ? path : new URL(path, window.location.origin).href;
 
     setMeta('name', 'description', description);
+    setMeta('name', 'robots', noIndex ? 'noindex,follow' : 'index,follow');
     setLink('canonical', absolute(canonicalPath));
     setMeta('property', 'og:title', title);
     setMeta('property', 'og:description', description);
@@ -72,10 +80,15 @@ export function useSeo(input: SeoInput): void {
     setMeta('name', 'twitter:image:alt', imageAlt);
 
     if (preloadImage) {
-      setLink('preload', absolute(preloadImage), {
-        as: 'image',
-        ...(preloadSrcSet ? { imagesrcset: preloadSrcSet, imagesizes: '100vw' } : {}),
-      });
+      setLink(
+        'preload',
+        absolute(preloadImage),
+        {
+          as: 'image',
+          ...(preloadSrcSet ? { imagesrcset: preloadSrcSet, imagesizes: '100vw' } : {}),
+        },
+        'link[rel="preload"][as="image"]',
+      );
     }
 
     let script: HTMLScriptElement | null = null;
@@ -100,6 +113,7 @@ export function useSeo(input: SeoInput): void {
     preloadImage,
     preloadSrcSet,
     jsonLd,
+    noIndex,
   ]);
 }
 

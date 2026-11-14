@@ -17,7 +17,7 @@ export function SiteFooter() {
         <nav className="site-footer__column" aria-label="Magazin">
           <h2>Magazin</h2>
           <Link to="/">Startseite</Link>
-          <Link to="/#reportagen">Alle Reportagen</Link>
+          <Link to="/reportagen">Alle Reportagen</Link>
           <Link to="/ueber-uns">Über uns</Link>
         </nav>
 
@@ -30,6 +30,8 @@ export function SiteFooter() {
 
         <div className="site-footer__column">
           <h2>Transparenz</h2>
+          <Link to="/bildnachweis">Bildnachweis</Link>
+          <Link to="/ueber-uns#hinweis">Medizinischer Hinweis</Link>
           <a href="https://github.com/maynowak/Mays-Reportage" target="_blank" rel="noreferrer noopener">
             Quellcode
           </a>
@@ -40,8 +42,13 @@ export function SiteFooter() {
           >
             Lizenz (GPL-3.0)
           </a>
-          <Link to="/ueber-uns#hinweis">Medizinischer Hinweis</Link>
         </div>
+
+        <nav className="site-footer__column" aria-label="Rechtliches">
+          <h2>Rechtliches</h2>
+          <Link to="/impressum">Impressum</Link>
+          <Link to="/datenschutz">Datenschutz</Link>
+        </nav>
       </div>
 
       <div className="container site-footer__bottom">
