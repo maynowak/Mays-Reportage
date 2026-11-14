@@ -3,7 +3,8 @@
 **Status:** ABGESCHLOSSEN / LOKAL VERIFIZIERT / **KEIN PUSH / KEIN MERGE / KEIN DEPLOY**
 **Audit-Zeitpunkt:** 2026-11-14, Europe/Berlin
 **Git-Baseline:** Branch `main`, HEAD `9522451` (4 Commits nach `de6616b`).
-Neue Commits: `c05c4e6` (Inhalt), `e7640d4` (Architektur/Recht/SEO), `2ab6be3` (Tests).
+Neue Commits: `c05c4e6` (Inhalt), `e7640d4` (Architektur/Recht/SEO), `2ab6be3` (Tests),
+`f606a4d` (Audit/Belege), `744b0b9` (unused PNG entfernt).
 **Scope:** Wissenschaftliches Quellen-Review, Magazinarchitektur, rechtlich-redaktionelle
 Grundlagen, technische Qualität inkl. axe/Firefox/WebKit, SEO-Releasevorbereitung.
 **Freigabe:** Keine. Veröffentlichung bleibt separater menschlicher Entscheidung vorbehalten.
