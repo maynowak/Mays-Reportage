@@ -69,5 +69,6 @@ klassischen Artikelpfad. Die Engine ist inhaltsunabhängig; Kapiteltypen, Naviga
 Quellen-Chips und Dialoge sind in `docs/STORYTELLING-ENGINE.md` dokumentiert.
 
 Story-Daten liegen unter `src/content/stories/` und müssen denselben Quellen-Audit
-verwenden wie der Artikel. `getStory(slug)` entscheidet in `ReportagePage`, ob interaktiv
+verwenden wie der Artikel. Die Darstellung folgt dem hellen Editorial-Design
+(`docs/DESIGN-SYSTEM.md`); der Hero bleibt dunkel. `getStory(slug)` entscheidet in `ReportagePage`, ob interaktiv
 oder langformig gerendert wird; die Startseite importiert keine Story-Renderer.

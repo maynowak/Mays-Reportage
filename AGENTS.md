@@ -10,7 +10,8 @@ Bakteriophagen. Lizenz GPL-3.0.
 2. `AI_AUDITINDEX.md` — alle Reports; Header mit `git rev-parse --short HEAD` abgleichen.
 3. `docs/RELEASE-CHECKLIST.md` — offene Blocker (Recht, Bildrechte, Domain).
 4. `docs/WISSENSCHAFTLICHER-QUELLEN-AUDIT.md` — bevor du Inhalte oder Zahlen änderst.
-5. `docs/REPORTAGEN-ARCHITEKTUR.md`, `docs/STORYTELLING-ENGINE.md`, `docs/BILDHERKUNFT.md`.
+5. `docs/REPORTAGEN-ARCHITEKTUR.md`, `docs/STORYTELLING-ENGINE.md`,
+   `docs/DESIGN-SYSTEM.md`, `docs/BILDHERKUNFT.md`.
 
 ## Commands (verifiziert)
 
@@ -18,7 +19,7 @@ Bakteriophagen. Lizenz GPL-3.0.
 npm install
 npm run dev        # http://localhost:5173
 npm run verify     # ESLint + tsc + 31 Unit-Tests + Build
-npm run e2e        # 51/49 Tests × Chromium/Firefox/WebKit (4 Skips), Port 4317
+npm run e2e        # 52/50 Tests × Chromium/Firefox/WebKit (4 Skips), Port 4317
 npx vitest run src/App.test.tsx -t "Archiv"   # einzelner Test
 SITE_URL=https://<domain> npm run sitemap      # Domain ist bewusst nicht gesetzt
 ```
@@ -53,6 +54,10 @@ nur im Chromium-Projekt geschrieben, damit Browserläufe sie nicht überschreibe
 - KI-Bilder immer als Illustration kennzeichnen; niemals als Mikroskopaufnahme ausgeben.
 - Story-Animationen nie automatisch starten; Inhalte müssen ohne Animation lesbar sein
   und `prefers-reduced-motion` respektieren.
+- Ganze Kapitel/Sections nie per `opacity: 0` verstecken. Scroll-Effekte dürfen nur
+  dekorativ sein (Transform) und müssen Inhalte ohne JS sichtbar lassen.
+- Helles Editorial-Design beibehalten: Marineblau auf Off-White/Pastell, Text-Akzente
+  dunkler als Flächen-Akzente, Hero bleibt der einzige dunkle Block.
 - Keine Cookies, Analytics oder externen Font-/Tracking-Dienste ergänzen.
 - Bestehende Reportage-URLs müssen dauerhaft erreichbar bleiben; Entwürfe über
   `status: 'draft'` ausschließen, nicht durch Löschen der Route.

@@ -37,6 +37,14 @@ einen Fall in `StoryChapterFrame`. Neue Reportagen dagegen nur eine Story-Datei 
 einen Eintrag in `src/content/stories/index.ts` – Engine und Startseite bleiben
 unberührt.
 
+## Kapitel, Licht und Rhythmus
+
+Seit MAYS-REPORTAGEN-DESIGN-01 nutzt die Story das helle Editorial-Design
+(`docs/DESIGN-SYSTEM.md`). Jedes Kapitel hat eine optionale `question`, eine farbige
+Fläche und serifenbetonte Überschriften. Ganze Kapitel werden **nicht** per
+`opacity: 0` versteckt; Scroll-Effekte sind rein dekorative Transforms. Dadurch bleiben
+Inhalte in Full-Page-Screenshots, ohne JS und bei schnellem Scrollen sichtbar.
+
 ## Navigation und Fortschritt
 
 - `useActiveChapter` beobachtet die Kapitel per `IntersectionObserver`.

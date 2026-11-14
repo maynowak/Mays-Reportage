@@ -18,10 +18,11 @@ npm run e2e        # Playwright: Chromium, Firefox, WebKit; Port 4317
 SITE_URL=https://<domain> npm run sitemap
 ```
 
-`npm run e2e` (51 Chromium- bzw. 49 Firefox/WebKit-Tests, 4 Skips) schreibt Abnahme-Screenshots nach
+`npm run e2e` (52 Chromium- bzw. 50 Firefox/WebKit-Tests, 4 Skips) schreibt Abnahme-Screenshots nach
 `docs/reports/assets/MAYS-REPORTAGEN-01A/` (Hero/Reportage) und
 `docs/reports/assets/MAYS-REPORTAGEN-02/` (Archiv/Rechtliches) und
-`docs/reports/assets/MAYS-REPORTAGEN-03/` (Story-Kapitel, Interaktionen).
+`docs/reports/assets/MAYS-REPORTAGEN-03/` (Story-Kapitel, Interaktionen) sowie
+`docs/reports/assets/MAYS-REPORTAGEN-DESIGN-01/` (Vorher/Nachher, Light Design).
 
 ## Seiten
 
@@ -40,6 +41,13 @@ Die Titelgeschichte nutzt die Storytelling-Engine: scrollgesteuerte Kapitel, ein
 manuell bedienbaren Phagen-Zyklus, Zeitleiste, Kennzahlen mit Methodik, Einrichtungs-
 filter, Faktencheck, Kapitelnavigation, Quellen-Chips und Teilen ohne Tracking.
 Technische Dokumentation: `docs/STORYTELLING-ENGINE.md`.
+
+## Gestaltung
+
+Helles Editorial-Design mit Off-White, Türkis und Lavendel, Serif-Überschriften
+(Fraunces), farbigen Kapitelflächen und großzügigen journalistischen Fragen. Der
+filmische Hero bleibt dunkel und bildet den bewussten Kontrast zur Lesewelt.
+Designregeln: `docs/DESIGN-SYSTEM.md`.
 
 ## Release-Status
 
