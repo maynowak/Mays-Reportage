@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 /**
- * Erzeugt public/sitemap.xml aus einer produktiven Domain.
+ * Erzeugt public/sitemap.xml aus der bestätigten Produktionsdomain.
  *
- * Die Domain wird bewusst nicht im Repository erfunden:
- *   SITE_URL=https://example.org npm run sitemap
- *
- * Rechtliche Seiten sind bis zur Vervollständigung absichtlich nicht enthalten
- * (sie sind aktuell noindex):
- *   INCLUDE_LEGAL=true SITE_URL=https://example.org npm run sitemap
- *
- * Optional: OUT=/tmp/sitemap.xml
+ * Standard: alle öffentlichen Seiten inklusive Impressum/Datenschutz.
+ * Während die Rechtsseiten noch noindex sind:
+ *   EXCLUDE_LEGAL=true npm run sitemap
+ * Abweichende Domain (nur für Tests/Preview):
+ *   SITE_URL=https://example.org OUT=/tmp/sitemap.xml node scripts/generate-sitemap.mjs
  */
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 
-const siteUrl = process.env.SITE_URL?.replace(/\/+$/, '');
+const siteConfig = JSON.parse(
+  readFileSync(new URL('../site.config.json', import.meta.url), 'utf8'),
+);
+const siteUrl = (process.env.SITE_URL ?? siteConfig.url).replace(/\/+$/, '');
 const out = process.env.OUT ?? 'public/sitemap.xml';
-const includeLegal = process.env.INCLUDE_LEGAL === 'true';
+const excludeLegal = process.env.EXCLUDE_LEGAL === 'true';
 
 if (!siteUrl || !/^https:\/\/[^/]+$/.test(siteUrl)) {
   console.error(
@@ -30,12 +30,12 @@ const routes = [
   { path: '/reportagen/bakteriophagen', priority: '0.9' },
   { path: '/ueber-uns', priority: '0.5' },
   { path: '/bildnachweis', priority: '0.3' },
-  ...(includeLegal
-    ? [
+  ...(excludeLegal
+    ? []
+    : [
         { path: '/impressum', priority: '0.2' },
         { path: '/datenschutz', priority: '0.2' },
-      ]
-    : []),
+      ]),
 ];
 
 const lastmod = new Date().toISOString().slice(0, 10);
@@ -58,6 +58,6 @@ ${routes
 writeFileSync(out, xml, 'utf8');
 console.log(
   `Sitemap geschrieben: ${out} (${routes.length} URLs, Basis ${siteUrl}, rechtliche Seiten: ${
-    includeLegal ? 'enthalten' : 'ausgeschlossen'
+    excludeLegal ? 'ausgeschlossen' : 'enthalten'
   })`,
 );

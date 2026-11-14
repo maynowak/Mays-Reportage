@@ -7,10 +7,10 @@ test.describe('SEO release preparation', () => {
 
     await expect(page).toHaveTitle('Mays-Reportagen — Wissenschaft statt Wunder');
     const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
-    expect(canonical).toMatch(/^https?:\/\/.+\/$/);
+    expect(canonical).toBe('https://mays-reportage.vercel.app/');
 
     await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'website');
-    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /og-phagen\.jpg$/);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://mays-reportage.vercel.app/media/phagen/og-phagen.jpg');
     await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index,follow');
   });
@@ -22,6 +22,8 @@ test.describe('SEO release preparation', () => {
     expect(jsonLd['@type']).toBe('NewsArticle');
     expect(jsonLd.inLanguage).toBe('de');
     expect(jsonLd.headline).toContain('Bakteriophagen');
+    expect(jsonLd.url).toBe('https://mays-reportage.vercel.app/reportagen/bakteriophagen');
+    expect(jsonLd.image[0]).toMatch(/^https:\/\/mays-reportage\.vercel\.app\/media\//);
 
     const preload = page.locator('link[rel="preload"][as="image"]');
     await expect(preload).toHaveAttribute('href', /phagen-hero-1280\.webp$/);
@@ -34,27 +36,28 @@ test.describe('SEO release preparation', () => {
     const body = await response.text();
     expect(body).toContain('User-agent: *');
     expect(body).toContain('Allow: /');
+    expect(body).toContain('Sitemap: https://mays-reportage.vercel.app/sitemap.xml');
   });
 
-  test('sitemap excludes legal drafts but can include them after approval', async () => {
+  test('sitemap includes legal pages and can exclude drafts', async () => {
     const { execFileSync } = await import('node:child_process');
     const out = '/tmp/mays-reportagen-sitemap.xml';
     const baseEnv = { ...process.env, SITE_URL: 'https://example.org', OUT: out };
 
     execFileSync('node', ['scripts/generate-sitemap.mjs'], { env: baseEnv });
-    const draftXml = fs.readFileSync(out, 'utf8');
-    expect(draftXml).toContain('<loc>https://example.org/reportagen/bakteriophagen</loc>');
-    expect(draftXml.match(/<url>/g)?.length).toBe(5);
-    expect(draftXml).not.toContain('/impressum');
-    expect(draftXml).not.toContain('/datenschutz');
-
-    execFileSync('node', ['scripts/generate-sitemap.mjs'], {
-      env: { ...baseEnv, INCLUDE_LEGAL: 'true' },
-    });
     const legalXml = fs.readFileSync(out, 'utf8');
+    expect(legalXml).toContain('<loc>https://example.org/reportagen/bakteriophagen</loc>');
     expect(legalXml.match(/<url>/g)?.length).toBe(7);
     expect(legalXml).toContain('<loc>https://example.org/impressum</loc>');
     expect(legalXml).toContain('<loc>https://example.org/datenschutz</loc>');
+
+    execFileSync('node', ['scripts/generate-sitemap.mjs'], {
+      env: { ...baseEnv, EXCLUDE_LEGAL: 'true' },
+    });
+    const draftXml = fs.readFileSync(out, 'utf8');
+    expect(draftXml.match(/<url>/g)?.length).toBe(5);
+    expect(draftXml).not.toContain('/impressum');
+    expect(draftXml).not.toContain('/datenschutz');
   });
 
   test('sitemap rejects a missing or non-HTTPS domain', async () => {

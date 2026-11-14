@@ -1,8 +1,10 @@
 import { phagenReportage } from './bakteriophagen';
+import { SITE_URL } from './site';
 import type { Reportage, UpcomingReportage } from './types';
 
 export const site = {
   name: 'Mays-Reportagen',
+  url: SITE_URL,
   claim: 'Die Wissenschaft des Möglichen',
   description:
     'Unabhängiges Online-Reportagemagazin über Wissenschaft, Medizin und die Menschen dahinter.',

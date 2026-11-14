@@ -15,7 +15,8 @@ describe('buildArticleJsonLd', () => {
     expect(jsonLd['@type']).toBe('NewsArticle');
     expect(jsonLd.inLanguage).toBe('de');
     expect(jsonLd.headline).toBe('Bakteriophagen gegen resistente Bakterien');
-    expect(jsonLd.image).toEqual(['/media/phagen/og-phagen.jpg']);
+    expect(jsonLd.image).toEqual(['https://mays-reportage.vercel.app/media/phagen/og-phagen.jpg']);
+    expect(jsonLd.url).toBe('https://mays-reportage.vercel.app/reportagen/bakteriophagen');
     expect(jsonLd.datePublished).toBe('2026-11-14');
     expect(jsonLd.publisher).toMatchObject({ name: 'Mays-Reportagen' });
   });

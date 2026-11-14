@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { SITE_URL } from '../content/site';
 
 const SEO_ATTR = 'data-managed-seo';
 
@@ -61,8 +62,7 @@ export function useSeo(input: SeoInput): void {
 
   useEffect(() => {
     document.title = title;
-    const absolute = (path: string) =>
-      typeof window === 'undefined' ? path : new URL(path, window.location.origin).href;
+    const absolute = (path: string) => new URL(path, SITE_URL).href;
 
     setMeta('name', 'description', description);
     setMeta('name', 'robots', noIndex ? 'noindex,follow' : 'index,follow');
@@ -130,8 +130,8 @@ export function buildArticleJsonLd(input: {
     '@type': 'NewsArticle',
     headline: input.title,
     description: input.description,
-    url: input.path,
-    image: [input.image],
+    url: new URL(input.path, SITE_URL).href,
+    image: [new URL(input.image, SITE_URL).href],
     datePublished: input.publishedAt,
     dateModified: input.publishedAt,
     articleSection: input.section,

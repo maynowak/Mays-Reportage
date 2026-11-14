@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-# Die Sitemap wird erst mit der produktiven Domain erzeugt:
-#   SITE_URL=https://<domain> npm run sitemap
-# Rechtliche Seiten erst nach Freigabe: INCLUDE_LEGAL=true SITE_URL=https://<domain> npm run sitemap
-# Danach hier ergänzen: Sitemap: https://<domain>/sitemap.xml
+Sitemap: https://mays-reportage.vercel.app/sitemap.xml
