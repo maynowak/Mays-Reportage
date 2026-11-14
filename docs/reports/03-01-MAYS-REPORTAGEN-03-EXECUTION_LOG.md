@@ -1,10 +1,10 @@
 # MAYS-REPORTAGEN-03 — Cinematic Interactive Storytelling — Execution Log
 
-**Status:** ABGESCHLOSSEN / LOKAL VERIFIZIERT / PUSH DURCH NUTZER FREIGEGEBEN / **KEIN DEPLOY**
+**Status:** ABGESCHLOSSEN / LOKAL VERIFIZIERT / **GEPUSHT** / **KEIN DEPLOY**
 **Audit-Zeitpunkt:** 2026-11-14, Europe/Berlin
 **Git-Baseline:** Branch `main`, HEAD `140de46` (10 lokale Commits nach `de6616b`).
-Neue Commits: `82de9c8` (Engine), `fc6f07d` (Tests); Docs-/Beleg-Commit folgt als
-letzter Commit dieses Tasks.
+Neue Commits: `82de9c8` (Engine), `fc6f07d` (Tests), `5843ee2` (Doku/Belege).
+Push nach Nutzerfreigabe: `de6616b..5843ee2` auf `origin/main`.
 **Scope:** Wiederverwendbare Storytelling-Engine, sieben Kapitel der Phagen-Reportage,
 Interaktionen, Accessibility, Performance, SEO/Sharing, Tests und Belege.
 **Freigabe:** Der Nutzer hat einen Git-Push ausdrücklich freigegeben. Deployment,
@@ -151,7 +151,7 @@ Geändert: `src/pages/ReportagePage.tsx`, `src/main.tsx`, `src/App.test.tsx`,
 
 Es wurden Dateien geändert; „keine Dateien geändert“ trifft nicht zu.
 Kein Merge, kein Deployment, keine Änderung an anderen Projekten.
-Push erfolgt nach diesem Commit gemäß ausdrücklicher Nutzerfreigabe.
+Push wurde gemäß ausdrücklicher Nutzerfreigabe ausgeführt: `de6616b..5843ee2`.
 
 ## 10. Klassifikation
 
