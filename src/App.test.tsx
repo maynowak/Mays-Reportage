@@ -86,6 +86,56 @@ describe('Mays-Reportagen app', () => {
     expect(screen.getByRole('heading', { name: 'Medizinischer Hinweis' })).toBeInTheDocument();
   });
 
+  it('shows the archive with published and planned reportagen', () => {
+    renderRoute('/reportagen');
+
+    expect(screen.getByRole('heading', { level: 1, name: 'Alle Reportagen' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Bakteriophagen gegen resistente Bakterien/i })).toHaveAttribute(
+      'href',
+      '/reportagen/bakteriophagen',
+    );
+    expect(screen.getByRole('heading', { name: 'In Vorbereitung' })).toBeInTheDocument();
+  });
+
+  it('renders the legal draft pages with placeholders instead of invented data', () => {
+    renderRoute('/impressum');
+
+    expect(screen.getByRole('heading', { level: 1, name: 'Impressum' })).toBeInTheDocument();
+    expect(screen.getByText(/Entwurf – nicht veröffentlichungsfähig/)).toBeInTheDocument();
+    expect(screen.getAllByText('Wird vor Veröffentlichung ergänzt.').length).toBeGreaterThan(0);
+    expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute('content', 'noindex,follow');
+  });
+
+  it('renders privacy and image credit information', () => {
+    renderRoute('/datenschutz');
+    expect(screen.getByRole('heading', { level: 1, name: 'Datenschutz' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Keine Cookies, kein Tracking' })).toBeInTheDocument();
+
+    renderRoute('/bildnachweis');
+    expect(screen.getByRole('heading', { level: 1, name: 'Bildnachweis' })).toBeInTheDocument();
+    expect(screen.getByText(/KI-generierte Illustration/)).toBeInTheDocument();
+  });
+
+  it('sets per-reportage SEO metadata', () => {
+    renderRoute('/reportagen/bakteriophagen');
+
+    expect(document.title).toBe('Bakteriophagen gegen resistente Bakterien — Mays-Reportagen');
+    expect(document.head.querySelector('link[rel="canonical"]')?.getAttribute('href')).toMatch(
+      /\/reportagen\/bakteriophagen$/,
+    );
+    expect(document.head.querySelector('meta[property="og:type"]')).toHaveAttribute('content', 'article');
+    expect(document.head.querySelector('script[type="application/ld+json"]')).toHaveTextContent(
+      '"@type":"NewsArticle"',
+    );
+  });
+
+  it('returns a noindex 404 for unknown reportage slugs', () => {
+    renderRoute('/reportagen/unbekannt');
+
+    expect(screen.getByRole('heading', { name: 'Diese Seite ist noch nicht entdeckt.' })).toBeInTheDocument();
+    expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute('content', 'noindex,follow');
+  });
+
   it('renders a 404 page for unknown routes', () => {
     renderRoute('/gibt-es-nicht');
 

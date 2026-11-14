@@ -4,6 +4,8 @@ export default defineConfig({
   testDir: './e2e',
   timeout: 90_000,
   fullyParallel: false,
+  workers: 1,
+  expect: { timeout: 10_000 },
   reporter: [['list']],
   use: {
     baseURL: 'http://127.0.0.1:4317',
@@ -17,5 +19,9 @@ export default defineConfig({
     reuseExistingServer: true,
     timeout: 180_000,
   },
-  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+  projects: [
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+  ],
 });

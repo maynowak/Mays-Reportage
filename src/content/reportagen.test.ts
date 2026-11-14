@@ -5,6 +5,7 @@ import {
   getReportage,
   listPublishedReportagen,
   publishedReportagen,
+  selectPublished,
   upcomingReportagen,
 } from './reportagen';
 
@@ -28,6 +29,16 @@ describe('reportage registry', () => {
 
   it('excludes the current story from related stories', () => {
     expect(getOtherReportagen('bakteriophagen')).toHaveLength(0);
+  });
+
+  it('excludes drafts from the published selection and hero', () => {
+    const drafts = [
+      { status: 'draft' as const, priority: 999, slug: 'entwurf' },
+      { status: 'published' as const, priority: 10, slug: 'live' },
+    ];
+    expect(selectPublished(drafts).map((entry) => entry.slug)).toEqual(['live']);
+    expect(listPublishedReportagen().every((entry) => entry.status === 'published')).toBe(true);
+    expect(getReportage('entwurf')).toBeUndefined();
   });
 
   it('provides upcoming teasers without published links', () => {

@@ -10,7 +10,7 @@ test.beforeAll(() => {
 
 test.describe('cinematic home hero', () => {
   for (const width of WIDTHS) {
-    test(`renders without horizontal overflow at ${width}px`, async ({ page }) => {
+    test(`renders without horizontal overflow at ${width}px`, async ({ page }, testInfo) => {
       await page.setViewportSize({ width, height: width < 500 ? 900 : 1000 });
       await page.goto('/');
 
@@ -29,7 +29,9 @@ test.describe('cinematic home hero', () => {
       }));
       expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth + 1);
 
-      await page.screenshot({ path: `${SHOT_DIR}/home-${width}.png`, fullPage: true });
+      if (testInfo.project.name === 'chromium') {
+        await page.screenshot({ path: `${SHOT_DIR}/home-${width}.png`, fullPage: true });
+      }
     });
   }
 
@@ -107,7 +109,7 @@ test.describe('reportage page', () => {
     expect(top).toBeLessThan(180);
   });
 
-  test('has no horizontal overflow at 390px and captures the page', async ({ page }) => {
+  test('has no horizontal overflow at 390px and captures the page', async ({ page }, testInfo) => {
     await page.setViewportSize({ width: 390, height: 900 });
     await page.goto('/reportagen/bakteriophagen');
 
@@ -117,20 +119,26 @@ test.describe('reportage page', () => {
     }));
     expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth + 1);
 
-    await page.screenshot({ path: `${SHOT_DIR}/reportage-390.png`, fullPage: true });
+    if (testInfo.project.name === 'chromium') {
+      await page.screenshot({ path: `${SHOT_DIR}/reportage-390.png`, fullPage: true });
+    }
   });
 
-  test('captures the desktop reportage', async ({ page }) => {
+  test('captures the desktop reportage', async ({ page }, testInfo) => {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto('/reportagen/bakteriophagen');
-    await page.screenshot({ path: `${SHOT_DIR}/reportage-1440.png`, fullPage: true });
+    if (testInfo.project.name === 'chromium') {
+      await page.screenshot({ path: `${SHOT_DIR}/reportage-1440.png`, fullPage: true });
+    }
   });
 });
 
 test.describe('about page', () => {
-  test('captures the editorial page at 1440px', async ({ page }) => {
+  test('captures the editorial page at 1440px', async ({ page }, testInfo) => {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto('/ueber-uns');
-    await page.screenshot({ path: `${SHOT_DIR}/ueber-uns-1440.png`, fullPage: true });
+    if (testInfo.project.name === 'chromium') {
+      await page.screenshot({ path: `${SHOT_DIR}/ueber-uns-1440.png`, fullPage: true });
+    }
   });
 });
