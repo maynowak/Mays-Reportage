@@ -1,5 +1,20 @@
 /* ---------- Cinematic hero ---------- */
 
+.hero,
+.article-hero {
+  --ink: #04070f;
+  --ink-2: #070d1a;
+  --heading: #f4fbff;
+  --text: #edf7ff;
+  --body-text: #d9e9f7;
+  --muted: #b9c9da;
+  --muted-2: #9fb3c8;
+  --line: rgba(126, 200, 255, 0.2);
+  --line-strong: rgba(126, 200, 255, 0.38);
+  --panel: #081120;
+  color: var(--text);
+}
+
 .hero {
   position: relative;
   display: flex;
@@ -10,6 +25,8 @@
   padding-bottom: 3.5rem;
   overflow: hidden;
   isolation: isolate;
+  border-radius: 0 0 clamp(24px, 3vw, 40px) clamp(24px, 3vw, 40px);
+  background: #04070f;
 }
 
 .hero__media {
@@ -127,9 +144,9 @@
   background: linear-gradient(
     96deg,
     #ffe36e 0%,
-    var(--accent-warm) 32%,
-    #ff7a4d 62%,
-    var(--accent-2) 100%
+    var(--accent-warm) 30%,
+    var(--accent-2) 68%,
+    var(--accent) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -361,6 +378,8 @@
   padding-bottom: 1.4rem;
   overflow: hidden;
   isolation: isolate;
+  border-radius: 0 0 clamp(24px, 3vw, 40px) clamp(24px, 3vw, 40px);
+  background: #04070f;
 }
 
 .article-hero__media {
@@ -506,4 +525,33 @@
   .article-hero__meta {
     margin-top: 1.1rem;
   }
+}
+
+
+/* Ghost buttons sit on the dark hero image, not on the light page. */
+.hero .btn--ghost,
+.article-hero .btn--ghost {
+  background: rgba(4, 7, 15, 0.42);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  box-shadow: none;
+  backdrop-filter: blur(10px);
+}
+
+.hero .btn--ghost:hover,
+.article-hero .btn--ghost:hover {
+  background: rgba(4, 7, 15, 0.62);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+
+.hero .btn--primary {
+  background: linear-gradient(118deg, #4df0e7 0%, var(--accent-bright) 55%, #00a39b 100%);
+  color: #04231f;
+  box-shadow: 0 16px 38px -18px rgba(0, 184, 176, 0.65);
+}
+
+.hero .btn--primary:hover {
+  box-shadow: 0 20px 46px -16px rgba(0, 184, 176, 0.8);
 }

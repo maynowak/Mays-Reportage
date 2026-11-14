@@ -13,6 +13,7 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const overHero = location.pathname === '/' || /^\/reportagen\/[^/]+$/.test(location.pathname);
 
   const isActive = (to: string) => {
     const [path, hash] = to.split('#');
@@ -42,7 +43,9 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   return (
-    <header className={`site-header${scrolled ? ' is-scrolled' : ''}${menuOpen ? ' is-open' : ''}`}>
+    <header
+      className={`site-header${overHero ? ' is-over-hero' : ''}${scrolled ? ' is-scrolled' : ''}${menuOpen ? ' is-open' : ''}`}
+    >
       <div className="container site-header__bar">
         <Logo />
 

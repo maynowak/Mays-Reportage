@@ -88,7 +88,7 @@ export const phagenReportage: Reportage = {
   publishedAt: '2026-11-14',
   priority: 100,
   tags: ['Medizin', 'Mikrobiologie', 'Antibiotikaresistenzen'],
-  accent: { primary: '#3fe8ff', secondary: '#ff4fa3', warm: '#ffb02e' },
+  accent: { primary: '#2fe3da', secondary: '#ff8a78', warm: '#ffc46b' },
   hero: {
     src: '/media/phagen/phagen-hero-1280.webp',
     srcSet:

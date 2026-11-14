@@ -9,8 +9,6 @@ import {
   site,
   upcomingReportagen,
 } from '../content/reportagen';
-import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
-import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useSeo } from '../lib/seo';
 
 const EXPLAINERS = [
@@ -39,8 +37,6 @@ const EXPLAINERS = [
 export function HomePage() {
   const featured = getFeaturedReportage();
   const published = listPublishedReportagen();
-  const reducedMotion = usePrefersReducedMotion();
-  useScrollReveal(!reducedMotion);
 
   useSeo({
     title: 'Mays-Reportagen — Wissenschaft statt Wunder',
@@ -80,7 +76,7 @@ export function HomePage() {
         </p>
       </section>
 
-      <section className="explainer" id="wie-es-funktioniert" data-reveal>
+      <section className="explainer" id="wie-es-funktioniert">
         <div className="container">
           <div className="section-head">
             <div>
@@ -115,7 +111,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="reportagen" id="reportagen" data-reveal>
+      <section className="reportagen" id="reportagen">
         <div className="container">
           <div className="section-head">
             <div>
@@ -181,7 +177,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="closing-cta" data-reveal>
+      <section className="closing-cta">
         <div className="container closing-cta__inner">
           <p className="section-kicker">Unsere Haltung</p>
           <h2>Wissenschaft statt Wunder.</h2>

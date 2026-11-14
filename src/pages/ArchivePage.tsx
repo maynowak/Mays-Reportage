@@ -20,7 +20,7 @@ export function ArchivePage() {
   return (
     <div className="page archive-page">
       <header className="page-hero">
-        <div className="container page-hero__inner" data-reveal>
+        <div className="container page-hero__inner">
           <p className="section-kicker">Das Magazin</p>
           <h1>Alle Reportagen</h1>
           <p>

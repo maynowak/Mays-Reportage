@@ -46,21 +46,22 @@ export function PhageCycleView({
 
             <defs>
               <linearGradient id={`bacterium-${baseId}`} x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#ff6aa8" />
-                <stop offset="48%" stopColor="#c93b8f" />
-                <stop offset="100%" stopColor="#5e2a8f" />
+                <stop offset="0%" stopColor="#ffb199" />
+                <stop offset="48%" stopColor="#ff7865" />
+                <stop offset="100%" stopColor="#d94a63" />
               </linearGradient>
               <linearGradient id={`phage-${baseId}`} x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#8dfbff" />
-                <stop offset="55%" stopColor="#48d7ff" />
-                <stop offset="100%" stopColor="#8b7bff" />
+                <stop offset="0%" stopColor="#00b8b0" />
+                <stop offset="55%" stopColor="#00b8b0" />
+                <stop offset="100%" stopColor="#14243a" />
               </linearGradient>
               <g id={symbolId}>
-                <g fill="none" stroke={`url(#phage-${baseId})`} strokeWidth="5" strokeLinecap="round">
-                  <path d="M0 -46 26 -28 26 10 0 28 -26 10 -26 -28Z" fill="rgba(72,215,255,.16)" />
+                <g fill="none" stroke="#00736d" strokeWidth="6" strokeLinecap="round">
+                  <path d="M0 -46 26 -28 26 10 0 28 -26 10 -26 -28Z" fill="#b9eeea" />
                   <path d="M0 28v42" />
-                  <path d="M0 70-24 96M0 70 24 96M0 78-32 92M0 78 32 92" />
-                  <path d="M-10 -22c10 8 10 20 0 28s-10 20 0 28" strokeWidth="2.5" opacity=".8" />
+                  <path d="M-13 70h26" />
+                  <path d="M0 70-26 98M0 70 26 98M0 78-34 94M0 78 34 94" />
+                  <path d="M-10 -22c10 8 10 20 0 28s-10 20 0 28" stroke="#00b8b0" strokeWidth="2.5" opacity=".9" />
                 </g>
               </g>
             </defs>
@@ -124,10 +125,10 @@ export function PhageCycleView({
             <circle className="attachment-dot" cx="430" cy="215" r="7" aria-hidden="true" />
 
             <g className="phage phage--free" aria-hidden="true">
-              <use href={`#${symbolId}`} transform="translate(165 150) scale(1.22)" />
+              <use href={`#${symbolId}`} transform="translate(168 148) scale(1.36)" />
             </g>
             <g className="phage phage--attached" aria-hidden="true">
-              <use href={`#${symbolId}`} transform="translate(388 215) rotate(90) scale(.9)" />
+              <use href={`#${symbolId}`} transform="translate(386 215) rotate(90) scale(.98)" />
             </g>
             <path
               className="dna-path"

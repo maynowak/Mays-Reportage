@@ -25,7 +25,6 @@ export function StoryChapterFrame({
     <section
       className={`story-chapter story-chapter--${chapter.kind}`}
       id={chapter.id}
-      data-reveal
       data-chapter={chapter.id}
       aria-labelledby={titleId}
     >
@@ -33,6 +32,7 @@ export function StoryChapterFrame({
         <span className="story-chapter__number" aria-hidden="true">
           {String(index + 1).padStart(2, '0')}
         </span>
+        {chapter.question && <p className="story-chapter__question">{chapter.question}</p>}
         <p className="section-kicker">{chapter.kicker}</p>
         <h2 id={titleId}>{chapter.title}</h2>
         <p className="story-chapter__lead">{chapter.lead}</p>

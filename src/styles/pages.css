@@ -6,11 +6,11 @@
 
 .page-hero {
   position: relative;
-  padding-block: clamp(4rem, 9vw, 7.5rem) clamp(3rem, 6vw, 4.5rem);
+  padding-block: clamp(2.6rem, 5.5vw, 4.2rem) clamp(2.2rem, 4vw, 3.2rem);
   border-bottom: 1px solid var(--line);
   background:
-    radial-gradient(800px 460px at 78% 0%, rgba(63, 232, 255, 0.12), transparent 65%),
-    radial-gradient(700px 420px at 8% 100%, rgba(255, 79, 163, 0.08), transparent 62%);
+    radial-gradient(800px 460px at 78% 0%, rgba(0, 184, 176, 0.12), transparent 65%),
+    radial-gradient(700px 420px at 8% 100%, rgba(255, 120, 101, 0.09), transparent 62%);
   overflow: hidden;
 }
 
@@ -20,11 +20,11 @@
 
 .page-hero h1 {
   max-width: 20ch;
-  font-family: var(--font-display);
-  font-size: clamp(2.1rem, 4.2vw, 3.9rem);
-  line-height: 1.04;
-  letter-spacing: -0.025em;
-  text-transform: uppercase;
+  font-family: var(--font-serif);
+  font-size: clamp(2.1rem, 4.2vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .about-section {
-  padding-block: clamp(3rem, 6vw, 5rem);
+  padding-block: clamp(2.4rem, 4.5vw, 3.6rem);
   border-bottom: 1px solid var(--line);
 }
 
@@ -76,9 +76,8 @@
   padding: 1.5rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background:
-    linear-gradient(160deg, rgba(63, 232, 255, 0.06), transparent 40%),
-    var(--panel);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
 }
 
 .principle > span {
@@ -131,8 +130,9 @@
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background:
-    radial-gradient(80% 140% at 0% 0%, rgba(63, 232, 255, 0.14), transparent 60%),
-    linear-gradient(150deg, #081323, #060b16);
+    radial-gradient(80% 140% at 0% 0%, rgba(0, 184, 176, 0.16), transparent 60%),
+    linear-gradient(150deg, #ffffff, var(--surface-alt));
+  box-shadow: var(--shadow-soft);
 }
 
 .page-back {
@@ -206,11 +206,11 @@
 }
 
 .legal-page h1 {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: clamp(2.2rem, 5vw, 3.4rem);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
 }
 
 .legal-page__intro {
@@ -226,9 +226,9 @@
   padding: 1rem 1.15rem;
   border: 1px solid rgba(255, 176, 46, 0.45);
   border-radius: var(--radius-sm);
-  background: rgba(255, 176, 46, 0.07);
-  color: #f2ddbd;
-  font-size: 0.86rem;
+  background: var(--surface-warm);
+  color: #7a3512;
+  font-size: 0.88rem;
   line-height: 1.65;
 }
 
@@ -245,11 +245,10 @@
 
 .legal-section h2 {
   margin-bottom: 0.7rem;
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 .legal-section p {

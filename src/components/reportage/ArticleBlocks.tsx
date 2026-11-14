@@ -176,7 +176,7 @@ function BlockView({ block }: { block: Block }) {
 
 export function ArticleSection({ section }: { section: Section }) {
   return (
-    <section className="article-section" id={section.id} data-reveal>
+    <section className="article-section" id={section.id}>
       <p className="section-kicker">{section.kicker}</p>
       <h2>{section.title}</h2>
       {section.paragraphs.map((paragraph) => (

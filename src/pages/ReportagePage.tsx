@@ -9,8 +9,6 @@ import { ReportageHero } from '../components/reportage/ReportageHero';
 import { getReportage } from '../content/reportagen';
 import { getStory } from '../content/stories';
 import { StoryReader } from '../story/StoryReader';
-import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
-import { useScrollReveal } from '../hooks/useScrollReveal';
 import { buildArticleJsonLd, useSeo } from '../lib/seo';
 import { NotFoundPage } from './NotFoundPage';
 
@@ -18,8 +16,6 @@ export function ReportagePage() {
   const { slug } = useParams();
   const reportage = getReportage(slug);
   const story = getStory(reportage?.slug);
-  const reducedMotion = usePrefersReducedMotion();
-  useScrollReveal(!reducedMotion);
 
   useSeo({
     title: reportage ? `${reportage.title} — Mays-Reportagen` : 'Reportage nicht gefunden — Mays-Reportagen',

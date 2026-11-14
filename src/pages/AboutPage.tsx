@@ -31,7 +31,7 @@ export function AboutPage() {
   return (
     <div className="page">
       <header className="page-hero">
-        <div className="container page-hero__inner" data-reveal>
+        <div className="container page-hero__inner">
           <p className="section-kicker">Über uns</p>
           <h1>
             Ein Magazin für die <span className="text-gradient">Wissenschaft des Möglichen.</span>
@@ -77,7 +77,7 @@ export function AboutPage() {
           <h2>Drei Regeln.</h2>
           <div className="principles">
             {PRINCIPLES.map((principle, index) => (
-              <article className="principle" key={principle.title} data-reveal>
+              <article className="principle" key={principle.title}>
                 <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                 <h3>{principle.title}</h3>
                 <p>{principle.text}</p>

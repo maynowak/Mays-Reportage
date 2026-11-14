@@ -18,21 +18,21 @@ export const upcomingReportagen: UpcomingReportage[] = [
     topic: 'Antibiotikaresistenzen',
     teaser:
       'Wie Erreger gegen unsere stärksten Medikamente immun werden – und welche Wege aus der Krise führen.',
-    accent: '#ffb02e',
+    accent: '#c2412d',
   },
   {
     title: 'Die unsichtbare Fabrik',
     topic: 'Mikrobiom',
     teaser:
       'Was die Gemeinschaft aus Bakterien, Viren und Pilzen in und auf uns wirklich leistet.',
-    accent: '#8b7bff',
+    accent: '#6d5bd0',
   },
   {
     title: 'Ein Gesundheitswesen, das rechnet',
     topic: 'One Health',
     teaser:
       'Warum menschliche Gesundheit ohne Tier- und Umweltgesundheit nicht zu haben ist.',
-    accent: '#3fe8ff',
+    accent: '#008b84',
   },
 ];
 

@@ -9,6 +9,7 @@ export interface ChapterBase {
   kicker: string;
   title: string;
   navLabel: string;
+  question?: string;
   lead: string;
 }
 
