@@ -61,3 +61,13 @@ Entwurfshinweis und setzen `robots: noindex,follow`. Canonical-, OG- und Twitter
 werden zur Laufzeit gegen die Origin absolut aufgelöst; `vercel.json` enthält den
 SPA-Rewrite, `scripts/generate-sitemap.mjs` erzeugt die Sitemap erst mit gesetzter
 `SITE_URL`.
+
+## Interaktive Reportagen
+
+Reportagen mit Story-Daten werden über `StoryReader` gerendert, alle anderen über den
+klassischen Artikelpfad. Die Engine ist inhaltsunabhängig; Kapiteltypen, Navigation,
+Quellen-Chips und Dialoge sind in `docs/STORYTELLING-ENGINE.md` dokumentiert.
+
+Story-Daten liegen unter `src/content/stories/` und müssen denselben Quellen-Audit
+verwenden wie der Artikel. `getStory(slug)` entscheidet in `ReportagePage`, ob interaktiv
+oder langformig gerendert wird; die Startseite importiert keine Story-Renderer.

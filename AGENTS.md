@@ -10,15 +10,15 @@ Bakteriophagen. Lizenz GPL-3.0.
 2. `AI_AUDITINDEX.md` — alle Reports; Header mit `git rev-parse --short HEAD` abgleichen.
 3. `docs/RELEASE-CHECKLIST.md` — offene Blocker (Recht, Bildrechte, Domain).
 4. `docs/WISSENSCHAFTLICHER-QUELLEN-AUDIT.md` — bevor du Inhalte oder Zahlen änderst.
-5. `docs/REPORTAGEN-ARCHITEKTUR.md`, `docs/BILDHERKUNFT.md`.
+5. `docs/REPORTAGEN-ARCHITEKTUR.md`, `docs/STORYTELLING-ENGINE.md`, `docs/BILDHERKUNFT.md`.
 
 ## Commands (verifiziert)
 
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run verify     # ESLint + tsc + 25 Unit-Tests + Build
-npm run e2e        # 39 Tests × Chromium/Firefox/WebKit, Port 4317
+npm run verify     # ESLint + tsc + 31 Unit-Tests + Build
+npm run e2e        # 51/49 Tests × Chromium/Firefox/WebKit (4 Skips), Port 4317
 npx vitest run src/App.test.tsx -t "Archiv"   # einzelner Test
 SITE_URL=https://<domain> npm run sitemap      # Domain ist bewusst nicht gesetzt
 ```
@@ -33,6 +33,8 @@ nur im Chromium-Projekt geschrieben, damit Browserläufe sie nicht überschreibe
 - `src/content/legal.ts` — Betreiberangaben; `null` heißt „fehlt“, niemals erfinden.
 - `src/pages/` — Start, Archiv `/reportagen`, Reportage, Über uns, Impressum,
   Datenschutz, Bildnachweis, 404.
+- `src/story/` — inhaltsunabhängige Storytelling-Engine; Inhalte liegen unter
+  `src/content/stories/`.
 - `public/media/phagen/` — ausgelieferte WebP-Derivate + OG-Bild.
 - `assets/source/` — unveränderte Originalbilder (nicht im Build).
 - `docs/reports/` — Audit-/Abnahmebelege; `docs/reports/assets/<TASK-ID>/` Screenshots.
@@ -49,6 +51,8 @@ nur im Chromium-Projekt geschrieben, damit Browserläufe sie nicht überschreibe
 - Rechtliche Platzhalter nicht mit erfundenen Namen/Adressen füllen. Impressum und
   Datenschutz bleiben `noindex`, solange `isLegalComplete === false`.
 - KI-Bilder immer als Illustration kennzeichnen; niemals als Mikroskopaufnahme ausgeben.
+- Story-Animationen nie automatisch starten; Inhalte müssen ohne Animation lesbar sein
+  und `prefers-reduced-motion` respektieren.
 - Keine Cookies, Analytics oder externen Font-/Tracking-Dienste ergänzen.
 - Bestehende Reportage-URLs müssen dauerhaft erreichbar bleiben; Entwürfe über
   `status: 'draft'` ausschließen, nicht durch Löschen der Route.

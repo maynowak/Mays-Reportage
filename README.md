@@ -18,9 +18,10 @@ npm run e2e        # Playwright: Chromium, Firefox, WebKit; Port 4317
 SITE_URL=https://<domain> npm run sitemap
 ```
 
-`npm run e2e` (39 Tests je Browser) schreibt Abnahme-Screenshots nach
+`npm run e2e` (51 Chromium- bzw. 49 Firefox/WebKit-Tests, 4 Skips) schreibt Abnahme-Screenshots nach
 `docs/reports/assets/MAYS-REPORTAGEN-01A/` (Hero/Reportage) und
-`docs/reports/assets/MAYS-REPORTAGEN-02/` (Archiv/Rechtliches).
+`docs/reports/assets/MAYS-REPORTAGEN-02/` (Archiv/Rechtliches) und
+`docs/reports/assets/MAYS-REPORTAGEN-03/` (Story-Kapitel, Interaktionen).
 
 ## Seiten
 
@@ -28,10 +29,17 @@ SITE_URL=https://<domain> npm run sitemap
 | --- | --- |
 | `/` | Titelgeschichte, Kennzahlen, Erklärstücke, Archivteaser |
 | `/reportagen` | Archiv aller veröffentlichten Reportagen + geplante Themen |
-| `/reportagen/bakteriophagen` | Titelgeschichte mit 14 Quellen |
+| `/reportagen/bakteriophagen` | interaktive Titelgeschichte mit 7 Kapiteln und 14 Quellen |
 | `/ueber-uns` | Arbeitsweise und medizinischer Hinweis |
 | `/impressum`, `/datenschutz` | Entwürfe mit Platzhaltern, bis Angaben vorliegen `noindex` |
 | `/bildnachweis` | Herkunft und KI-Kennzeichnung der Illustrationen |
+
+## Interaktive Reportage
+
+Die Titelgeschichte nutzt die Storytelling-Engine: scrollgesteuerte Kapitel, einen
+manuell bedienbaren Phagen-Zyklus, Zeitleiste, Kennzahlen mit Methodik, Einrichtungs-
+filter, Faktencheck, Kapitelnavigation, Quellen-Chips und Teilen ohne Tracking.
+Technische Dokumentation: `docs/STORYTELLING-ENGINE.md`.
 
 ## Release-Status
 

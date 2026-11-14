@@ -75,3 +75,23 @@ eine nicht belegte Zusatzaussage entfernt.
   Änderungen erneut geprüft werden.
 - Keine medizinische Fachprüfung durch eine Ärztin/einen Arzt; die Texte sind
   Wissenschaftsjournalismus, keine Therapieempfehlung.
+
+## Verwendung in der interaktiven Story (MAYS-REPORTAGEN-03)
+
+Die Storytelling-Fassung führt keine neuen quantitativen Aussagen ein. Sie verwendet
+dieselben geprüften Quellen und dieselben Bezugsgrößen wie der Artikel.
+
+| Kapitel | Verwendete Quellen | Geprüfte Aussagen |
+| --- | --- | --- |
+| 01 Die unsichtbare Bedrohung | S1, S3, S4, S8 | Penicillin/Resistenzen, schwierig behandelbare Infektionen, Forschungs-/Einzelfallverfahren |
+| 02 Die Bakterienfresser | S1, S4 | Phagen als Viren, Spezifität, lytischer Zyklus (schematisch) |
+| 03 Die Spur im Teichwasser | S1, S4, S8 | Teichwasser-Probenahme, Isolierung, Matching, Qualitätskontrolle, keine Selbstanwendung |
+| 04 Europa und die Militärmedizin | S2, S7, S3, S6, S14, S5, S4, S12 | 2005/2007, 260/15, 100 Fälle, PhagoFlow 2025, EMA 2025/26, Leitlinie 2026 |
+| 05 Was sagt die Wissenschaft? | S3 | 77,2 % / 61,3 % der dokumentierten Infektionen, Methodik, 15 unerwünschte Ereignisse |
+| 06 Wo wird geforscht und behandelt? | S1, S7, S8, S10, S2, S3, S6, S14 | Einrichtungen, Compassionate Use, Fallserie, PhagoFlow, keine Garantie |
+| 07 Faktencheck | S1, S3, S4, S5, S8, S9, S2, S7 | sechs Antworten, jeweils mit Quelle |
+
+Die Zeitleiste enthält nur Jahre, die im Audit belegt sind (2005, 2007, 2013–2018,
+2019, 2024, 20.06.2025, 23.10.2025–30.04.2026, 21.09.2026). Die historische Einordnung
+vor 2005 ist qualitativ („Anfang 20. Jahrhundert“, „um die 1940er Jahre“) und durch
+S2/S7 gedeckt. Es wurden keine Sterblichkeitszahlen ergänzt.

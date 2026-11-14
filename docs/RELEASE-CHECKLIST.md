@@ -41,9 +41,10 @@ Kein Deployment, kein Push, keine Domainkonfiguration wurde ausgeführt.
 ## 5. Qualität
 
 - [x] TypeScript, Unit-Tests, Production Build.
-- [x] Chromium-E2E, Responsive 320–1440 px, Reduced Motion.
-- [ ] Firefox/WebKit auf der Zielumgebung bestätigen (siehe Audit-Report).
-- [ ] Lighthouse-LCP/CLS auf dem Zielhost messen.
+- [x] Chromium/Firefox/WebKit lokal, Responsive 320–1440 px, Reduced Motion.
+- [x] axe-core WCAG 2.1 A/AA ohne Violations (inkl. Dialog/Faktencheck).
+- [x] Lighthouse mobil lokal: 100/100/100/100 auf Home und Story.
+- [ ] Firefox/WebKit und Lighthouse auf dem Zielhost/echten Geräten bestätigen.
 - [ ] Externe Quellenlinks periodisch prüfen (Redirects, Zugriffsbeschränkungen).
 
 ## 6. Inhalt
