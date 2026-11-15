@@ -13,9 +13,9 @@
 
   --heading: #14243a;
   --text: #14243a;
-  --body-text: #334155;
-  --muted: #55677c;
-  --muted-2: #526479;
+  --body-text: #243247;
+  --muted: #405269;
+  --muted-2: #4b5c72;
 
   --line: rgba(20, 36, 58, 0.12);
   --line-strong: rgba(20, 36, 58, 0.24);
@@ -58,6 +58,7 @@ html {
 
 body {
   margin: 0;
+  font-weight: 400;
   min-width: 320px;
   overflow-x: clip;
   background:
@@ -66,8 +67,8 @@ body {
     var(--page);
   color: var(--body-text);
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 16.5px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -172,9 +173,9 @@ ol {
   margin-bottom: 0.85rem;
   color: var(--accent);
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
@@ -251,7 +252,7 @@ ol {
   border: 1px solid transparent;
   border-radius: 999px;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-weight: 700;
   letter-spacing: 0.01em;
   cursor: pointer;
@@ -313,8 +314,8 @@ ol {
 .btn--small {
   min-height: 42px;
   padding: 0.55rem 1.05rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
 }
 
 .btn--hero {
@@ -349,9 +350,9 @@ ol {
   color: var(--muted);
   background: var(--surface);
   font-family: var(--font-body);
-  font-size: 0.64rem;
+  font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 

@@ -21,7 +21,7 @@
   margin-bottom: 1rem;
   color: var(--muted-2);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.66rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
@@ -53,7 +53,7 @@
 .article-toc__index {
   color: var(--accent);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.66rem;
   padding-top: 0.15rem;
 }
 
@@ -109,7 +109,7 @@
 
 .article-section__lead {
   color: var(--body-text);
-  font-size: 1.04rem;
+  font-size: 1.16rem;
   line-height: 1.78;
 }
 
@@ -118,7 +118,7 @@
 }
 
 .article-section__lead:first-of-type {
-  font-size: 1.1rem;
+  font-size: 1.16rem;
 }
 
 .article-body p {
@@ -128,7 +128,7 @@
 .block-title {
   margin-bottom: 0.9rem;
   color: var(--text);
-  font-size: 0.86rem;
+  font-size: 0.94rem;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -163,7 +163,7 @@
 
 .callout p {
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.94rem;
   line-height: 1.7;
 }
 
@@ -172,7 +172,7 @@
   margin-top: 0.7rem;
   color: var(--accent);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.66rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border-bottom: 1px solid rgba(63, 232, 255, 0.3);
@@ -208,7 +208,7 @@
 .steps__index {
   color: var(--accent);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   letter-spacing: 0.12em;
   padding-top: 0.15rem;
 }
@@ -220,7 +220,7 @@
 
 .steps__item p {
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 0.94rem;
   line-height: 1.65;
 }
 
@@ -253,7 +253,7 @@
 
 .stat-card__label {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.94rem;
   line-height: 1.55;
 }
 
@@ -277,7 +277,7 @@
   margin-bottom: 0.9rem;
   color: var(--muted-2);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.66rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -299,7 +299,7 @@
   padding: 0.8rem 0.9rem;
   border-top: 1px solid var(--line);
   vertical-align: top;
-  font-size: 0.82rem;
+  font-size: 0.94rem;
   line-height: 1.6;
 }
 
@@ -419,7 +419,7 @@
 
 .entry-card p {
   color: var(--muted);
-  font-size: 0.84rem;
+  font-size: 0.92rem;
   line-height: 1.65;
 }
 
@@ -457,7 +457,7 @@
 .source-list__id {
   color: var(--accent);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   letter-spacing: 0.08em;
   padding-top: 0.1rem;
 }
@@ -465,7 +465,7 @@
 .source-list__label {
   display: block;
   color: var(--text);
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   line-height: 1.55;
 }
 
@@ -529,7 +529,7 @@
 
 .medical-note p {
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 0.94rem;
   line-height: 1.7;
 }
 
@@ -614,7 +614,7 @@
 
 .related__body p {
   color: var(--muted);
-  font-size: 0.84rem;
+  font-size: 0.92rem;
   line-height: 1.6;
 }
 
@@ -630,7 +630,7 @@
   margin-top: 0.4rem;
   color: var(--accent);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.66rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
