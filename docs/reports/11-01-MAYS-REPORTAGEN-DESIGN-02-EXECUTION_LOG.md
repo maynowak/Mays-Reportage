@@ -4,7 +4,8 @@
 **Audit-Zeitpunkt:** 15. November 2026
 **Git-Baseline:** `eb1d2f7`, clean, 4 Commits vor `origin/main`; Production `a6331e9`.
 **Neue Commits:** `80341b7` (Typografie), `8a0d354` (Living-Science-Hintergrund),
-`e85a895` (Screenshot-Settling); Doku-/Beleg-Commit: dieser Commit.
+`e85a895` (Screenshot-Settling), `da05aa5` (Band-Zentrierung); Doku-/Beleg-Commit
+`16f72b9` plus dieser Nachtrag.
 **Kein Push, Merge oder Deployment.**
 
 ---
