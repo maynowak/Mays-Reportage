@@ -5,7 +5,7 @@ test.describe('SEO release preparation', () => {
   test('home exposes canonical, Open Graph, Twitter and robots metadata', async ({ page }) => {
     await page.goto('/');
 
-    await expect(page).toHaveTitle('Mays-Reportagen — Wissenschaft statt Wunder');
+    await expect(page).toHaveTitle('Mays-Reportagen — Geschichten, die bewegen.');
     const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
     expect(canonical).toBe('https://mays-reportage.vercel.app/');
 

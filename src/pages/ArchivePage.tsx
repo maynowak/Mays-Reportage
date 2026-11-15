@@ -4,6 +4,7 @@ import { HeroPicture } from '../components/hero/CinematicHero';
 import { IconArrow } from '../components/ui/icons';
 import { listPublishedReportagen, upcomingReportagen } from '../content/reportagen';
 import { useSeo } from '../lib/seo';
+import { buildCollectionJsonLd } from '../lib/structured-data';
 
 export function ArchivePage() {
   const published = listPublishedReportagen();
@@ -15,6 +16,15 @@ export function ArchivePage() {
     canonicalPath: '/reportagen',
     image: '/media/phagen/og-phagen.jpg',
     imageAlt: 'Mays-Reportagen',
+    jsonLd: buildCollectionJsonLd({
+      name: 'Alle Reportagen',
+      description: 'Veröffentlichte Wissenschaftsreportagen von Mays-Reportagen.',
+      path: '/reportagen',
+      items: published.map((reportage) => ({
+        name: reportage.title,
+        path: `/reportagen/${reportage.slug}`,
+      })),
+    }),
   });
 
   return (

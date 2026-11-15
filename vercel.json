@@ -6,6 +6,30 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/reportagen/bakteriophagen",
+      "destination": "/reportagen/bakteriophagen.html"
+    },
+    {
+      "source": "/reportagen",
+      "destination": "/reportagen.html"
+    },
+    {
+      "source": "/ueber-uns",
+      "destination": "/ueber-uns.html"
+    },
+    {
+      "source": "/impressum",
+      "destination": "/impressum.html"
+    },
+    {
+      "source": "/datenschutz",
+      "destination": "/datenschutz.html"
+    },
+    {
+      "source": "/bildnachweis",
+      "destination": "/bildnachweis.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

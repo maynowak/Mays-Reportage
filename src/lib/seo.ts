@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { SITE_URL } from '../content/site';
+export { buildArticleJsonLd } from './structured-data';
 
 const SEO_ATTR = 'data-managed-seo';
 
@@ -91,6 +92,12 @@ export function useSeo(input: SeoInput): void {
       );
     }
 
+    // Static HTML may already contain route-specific JSON-LD (social crawlers).
+    // Hydration replaces it with the same data from the active React page.
+    document.head.querySelectorAll('script[type="application/ld+json"]').forEach((element) => {
+      element.remove();
+    });
+
     let script: HTMLScriptElement | null = null;
     if (jsonLd) {
       script = document.createElement('script');
@@ -115,30 +122,4 @@ export function useSeo(input: SeoInput): void {
     jsonLd,
     noIndex,
   ]);
-}
-
-export function buildArticleJsonLd(input: {
-  title: string;
-  description: string;
-  path: string;
-  image: string;
-  publishedAt: string;
-  section: string;
-}): Record<string, unknown> {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
-    headline: input.title,
-    description: input.description,
-    url: new URL(input.path, SITE_URL).href,
-    image: [new URL(input.image, SITE_URL).href],
-    datePublished: input.publishedAt,
-    dateModified: input.publishedAt,
-    articleSection: input.section,
-    inLanguage: 'de',
-    publisher: {
-      '@type': 'Organization',
-      name: 'Mays-Reportagen',
-    },
-  };
 }
