@@ -70,21 +70,26 @@ test.describe('living science background', () => {
     await page.goto('/', { waitUntil: 'networkidle' });
     await page.screenshot({ path: `${SHOT_DIR}/after-home-top-1440.png` });
     await page.locator('.positioning').scrollIntoViewIfNeeded();
+    await page.locator('.site-header.is-scrolled').waitFor();
     await page.screenshot({ path: `${SHOT_DIR}/after-home-positioning-1440.png` });
     await page.locator('.science-band--transition').scrollIntoViewIfNeeded();
+    await page.locator('.site-header.is-scrolled').waitFor();
     await page.screenshot({ path: `${SHOT_DIR}/after-science-transition-1440.png` });
 
     await page.goto('/reportagen/bakteriophagen', { waitUntil: 'networkidle' });
     await page.locator('#biologie').scrollIntoViewIfNeeded();
+    await page.locator('.site-header.is-scrolled').waitFor();
     await page.screenshot({ path: `${SHOT_DIR}/after-story-biologie-1440.png` });
 
     await page.setViewportSize({ width: 390, height: 900 });
     await page.goto('/', { waitUntil: 'networkidle' });
     await page.screenshot({ path: `${SHOT_DIR}/after-home-top-390.png` });
     await page.locator('.science-band--transition').scrollIntoViewIfNeeded();
+    await page.locator('.site-header.is-scrolled').waitFor();
     await page.screenshot({ path: `${SHOT_DIR}/after-science-transition-390.png` });
     await page.goto('/reportagen/bakteriophagen', { waitUntil: 'networkidle' });
     await page.locator('#biologie').scrollIntoViewIfNeeded();
+    await page.locator('.site-header.is-scrolled').waitFor();
     await page.screenshot({ path: `${SHOT_DIR}/after-story-biologie-390.png` });
   });
 });
