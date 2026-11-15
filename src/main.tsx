@@ -8,6 +8,7 @@ import './styles/hero.css';
 import './styles/home.css';
 import './styles/article.css';
 import './styles/story.css';
+import './styles/science.css';
 import './styles/pages.css';
 
 document.documentElement.classList.add('js');

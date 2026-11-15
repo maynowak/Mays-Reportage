@@ -30,7 +30,13 @@ export function HeroPicture({
   );
 }
 
-export function CinematicHero({ reportage }: { reportage: Reportage }) {
+export function CinematicHero({
+  reportage,
+  flushBottom = false,
+}: {
+  reportage: Reportage;
+  flushBottom?: boolean;
+}) {
   const reducedMotion = usePrefersReducedMotion();
   const accentStyle = {
     '--accent': reportage.accent.primary,
@@ -46,7 +52,11 @@ export function CinematicHero({ reportage }: { reportage: Reportage }) {
   };
 
   return (
-    <section className="hero" aria-labelledby="hero-title" style={accentStyle}>
+    <section
+      className={`hero${flushBottom ? ' hero--flush' : ''}`}
+      aria-labelledby="hero-title"
+      style={accentStyle}
+    >
       <div className="hero__media">
         <HeroPicture hero={reportage.hero} className="hero__image" priority />
         <div className="hero__scrim" aria-hidden="true" />

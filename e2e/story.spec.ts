@@ -128,18 +128,24 @@ test.describe('cinematic story engine', () => {
     const state = await page.evaluate(() => {
       const chapters = [...document.querySelectorAll<HTMLElement>('.story-chapter')];
       const last = chapters[chapters.length - 1]?.getBoundingClientRect();
+      const band = document.querySelector<HTMLElement>('.science-band--story-end')?.getBoundingClientRect();
       const sources = document.querySelector('#quellen')?.getBoundingClientRect();
       return {
         opacities: chapters.map((chapter) => getComputedStyle(chapter).opacity),
-        gap: last && sources ? Math.round(sources.top - last.bottom) : -1,
+        gapToBand: last && band ? Math.round(band.top - last.bottom) : -1,
+        gapBandSources: band && sources ? Math.round(sources.top - band.bottom) : -1,
+        bandHeight: band ? Math.round(band.height) : 0,
         bodyBackground: getComputedStyle(document.body).backgroundColor,
         timelineBackground: getComputedStyle(document.querySelector('.story-chapter--timeline') as HTMLElement).backgroundColor,
       };
     });
 
     expect(state.opacities.every((opacity) => opacity === '1')).toBe(true);
-    expect(state.gap).toBeGreaterThanOrEqual(0);
-    expect(state.gap).toBeLessThan(120);
+    expect(state.gapToBand).toBeGreaterThanOrEqual(0);
+    expect(state.gapToBand).toBeLessThan(120);
+    expect(state.bandHeight).toBeGreaterThan(80);
+    expect(state.gapBandSources).toBeGreaterThanOrEqual(0);
+    expect(state.gapBandSources).toBeLessThan(140);
     expect(state.bodyBackground).toBe('rgb(248, 250, 252)');
     expect(state.timelineBackground).not.toBe(state.bodyBackground);
   });

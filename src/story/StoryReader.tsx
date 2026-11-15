@@ -1,4 +1,6 @@
+import { Fragment } from 'react';
 import { NeonButton } from '../components/ui/NeonButton';
+import { ScienceBand } from '../components/science/ScienceBand';
 import { IconArrow } from '../components/ui/icons';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 import type { Story } from './types';
@@ -21,14 +23,18 @@ export function StoryReader({
       <StoryChapterNav chapters={story.chapters} />
 
       <article className="story" aria-label="Reportagetext">
-        {story.chapters.map((chapter) => (
-          <StoryChapterFrame
-            key={chapter.id}
-            chapter={chapter}
-            sources={story.sources}
-            reducedMotion={reducedMotion}
-          />
+        {story.chapters.map((chapter, index) => (
+          <Fragment key={chapter.id}>
+            <StoryChapterFrame
+              chapter={chapter}
+              sources={story.sources}
+              reducedMotion={reducedMotion}
+            />
+            {index === 1 && <ScienceBand variant="story" />}
+          </Fragment>
         ))}
+
+        <ScienceBand variant="story-end" />
 
         <StorySources sources={story.sources} />
 

@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import { CinematicHero, HeroPicture } from '../components/hero/CinematicHero';
+import { ScienceBand } from '../components/science/ScienceBand';
 import { NeonButton } from '../components/ui/NeonButton';
 import { IconArrow } from '../components/ui/icons';
 import {
@@ -56,7 +57,8 @@ export function HomePage() {
 
   return (
     <div id="seitenanfang">
-      <CinematicHero reportage={featured} />
+      <CinematicHero reportage={featured} flushBottom />
+      <ScienceBand variant="transition" />
 
       <section className="facts" aria-label="Zahlen zur Titelgeschichte">
         <div className="container facts__grid">

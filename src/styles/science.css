@@ -1,0 +1,201 @@
+/* ---------- Living science background ---------- */
+
+.living-science--microbiology {
+  --science-teal: #00b8b0;
+  --science-bright: #56e7dd;
+  --science-deep: #00736d;
+  --science-violet: #6d5bd0;
+}
+
+.living-science {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: paint;
+  background:
+    radial-gradient(70% 100% at 15% 10%, rgba(0, 184, 176, 0.12), transparent 62%),
+    radial-gradient(65% 100% at 85% 80%, rgba(109, 91, 208, 0.1), transparent 64%),
+    linear-gradient(180deg, rgba(232, 248, 247, 0.7), rgba(248, 250, 252, 0.9));
+}
+
+.living-science__glow {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(closest-side at 30% 30%, rgba(0, 184, 176, 0.16), transparent 70%),
+    radial-gradient(closest-side at 75% 65%, rgba(109, 91, 208, 0.12), transparent 72%);
+  opacity: 0.9;
+}
+
+.science-band--transition .living-science {
+  background:
+    radial-gradient(60% 100% at 20% 20%, rgba(0, 184, 176, 0.22), transparent 65%),
+    radial-gradient(55% 100% at 85% 75%, rgba(109, 91, 208, 0.18), transparent 65%),
+    linear-gradient(
+      180deg,
+      rgba(4, 7, 15, 0.96) 0%,
+      rgba(4, 7, 15, 0.72) 22%,
+      rgba(6, 26, 32, 0.18) 48%,
+      rgba(232, 248, 247, 0.58) 74%,
+      rgba(248, 250, 252, 0.95) 100%
+    );
+}
+
+.living-science__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  will-change: transform;
+  animation: living-science-flow var(--duration, 100s) linear infinite;
+  transform: translate3d(0, -50%, 0);
+}
+
+.living-science__layer--far {
+  --duration: 150s;
+  opacity: 0.34;
+  animation-delay: -70s;
+}
+
+.living-science__layer--mid {
+  --duration: 105s;
+  opacity: 0.48;
+  animation-delay: -32s;
+}
+
+.living-science__layer--near {
+  --duration: 72s;
+  opacity: 0.62;
+  animation-delay: -12s;
+}
+
+.science-tile {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+}
+
+.science-tile:nth-child(2) {
+  top: 50%;
+}
+
+.living-science__vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(248, 250, 252, 0.05), rgba(248, 250, 252, 0.45) 70%, var(--page)),
+    linear-gradient(90deg, var(--page) 0%, transparent 18%, transparent 82%, var(--page) 100%);
+  opacity: 0.55;
+}
+
+@keyframes living-science-flow {
+  from {
+    transform: translate3d(0, -50%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ---------- Bands ---------- */
+
+.science-band {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  pointer-events: none;
+  contain: paint;
+}
+
+.science-band--transition {
+  height: clamp(170px, 22vw, 260px);
+  background: linear-gradient(
+    180deg,
+    #04070f 0%,
+    #061a20 22%,
+    #bfeae6 64%,
+    var(--page) 100%
+  );
+}
+
+.science-band--transition .living-science {
+  opacity: 0.85;
+}
+
+.science-band--transition .living-science__vignette {
+  background: linear-gradient(
+    180deg,
+    rgba(4, 7, 15, 0.15) 0%,
+    rgba(232, 248, 247, 0.25) 55%,
+    var(--page) 100%
+  );
+  opacity: 1;
+}
+
+.science-band--story,
+.science-band--story-end {
+  height: clamp(120px, 15vw, 170px);
+  margin-block: 1.5rem;
+  border: 1px solid rgba(0, 139, 132, 0.16);
+  border-radius: clamp(18px, 2.5vw, 26px);
+  background: var(--surface-alt);
+}
+
+.science-band--story-end {
+  margin-top: 2rem;
+}
+
+.science-band--story .living-science,
+.science-band--story-end .living-science {
+  opacity: 0.9;
+}
+
+.science-band__vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.15));
+}
+
+@media (max-width: 720px) {
+  .living-science__layer--far {
+    display: none;
+  }
+
+  .science-band--transition {
+    height: 140px;
+  }
+
+  .science-band--story,
+  .science-band--story-end {
+    height: 104px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .science-band--transition .living-science {
+  background:
+    radial-gradient(60% 100% at 20% 20%, rgba(0, 184, 176, 0.22), transparent 65%),
+    radial-gradient(55% 100% at 85% 75%, rgba(109, 91, 208, 0.18), transparent 65%),
+    linear-gradient(
+      180deg,
+      rgba(4, 7, 15, 0.96) 0%,
+      rgba(4, 7, 15, 0.72) 22%,
+      rgba(6, 26, 32, 0.18) 48%,
+      rgba(232, 248, 247, 0.58) 74%,
+      rgba(248, 250, 252, 0.95) 100%
+    );
+}
+
+.living-science__layer {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+
+  .living-science__layer--far {
+    opacity: 0.22;
+  }
+}

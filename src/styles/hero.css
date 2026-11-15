@@ -555,3 +555,8 @@
 .hero .btn--primary:hover {
   box-shadow: 0 20px 46px -16px rgba(0, 184, 176, 0.8);
 }
+
+
+.hero--flush {
+  border-radius: 0;
+}
