@@ -1,6 +1,6 @@
 # Marketing-02/03 — Fahrplan
 
-**Stand:** 15. November 2026. MARKETING-02 ist lokal umgesetzt; MARKETING-03 bleibt Planung.
+**Stand:** 15. November 2026. MARKETING-02 ist live; MARKETING-03 ist vorbereitet.
 Keine bezahlte Werbung, kein Tracking, keine neuen Reportagen.
 
 ## MARKETING-02 — Magazine Positioning & Landing Page
@@ -112,3 +112,15 @@ Lokal umgesetzt und getestet, **nicht gepusht/deployt**:
 
 Offen: Deployment, Search Console, Pre-Rendering des sichtbaren Artikeltexts,
 soft-404, CSP und reportagespezifische Social-Cards.
+
+
+## Status MARKETING-03 (15.11.2026)
+
+Planung, Keyword-Recherche, Redaktionskalender, Social-Entwürfe und Messvorlage sind
+erstellt. Search Console ist **nicht verifiziert**; es wurden keine Beiträge
+veröffentlicht und keine Website-Änderungen vorgenommen.
+
+- `docs/MARKETING-03-ORGANIC-GROWTH-PLAN.md`
+- `docs/MARKETING-03-SOCIAL-DRAFTS.md`
+- `docs/MARKETING-03-MONTHLY-MEASUREMENT.md`
+- `docs/reports/13-01-MAYS-REPORTAGEN-MARKETING-03-EXECUTION_LOG.md`
