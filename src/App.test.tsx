@@ -24,7 +24,8 @@ describe('Mays-Reportagen app', () => {
     expect(screen.getByText('> 100')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Reportagen' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Wie funktioniert Phagentherapie?' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Wissenschaft statt Wunder.' })).toBeInTheDocument();
+    expect(screen.getAllByRole('heading', { name: /Geschichten, die bewegen/ }).length).toBeGreaterThan(0);
+    expect(screen.getByText('Unabhängig & kostenlos')).toBeInTheDocument();
   });
 
   it('navigates from the hero CTA to the reportage page', async () => {
@@ -85,7 +86,7 @@ describe('Mays-Reportagen app', () => {
   it('shows the about page editorial principles', () => {
     renderRoute('/ueber-uns');
 
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Ein Magazin für die Wissenschaft des Möglichen.');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Geschichten, die bewegen. Wissen, das bleibt.');
     expect(screen.getByRole('heading', { name: 'Recherche vor Tempo' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Keine Heilversprechen' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Medizinischer Hinweis' })).toBeInTheDocument();

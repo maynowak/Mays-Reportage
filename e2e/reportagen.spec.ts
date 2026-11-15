@@ -64,7 +64,7 @@ test.describe('cinematic home hero', () => {
     await menu.getByRole('link', { name: 'Über uns' }).click();
 
     await expect(page).toHaveURL(/\/ueber-uns$/);
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Ein Magazin für die');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Geschichten, die bewegen');
   });
 
   test('disables decorative particles for reduced motion', async ({ page }) => {

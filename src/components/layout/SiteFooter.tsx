@@ -8,9 +8,9 @@ export function SiteFooter() {
         <div className="site-footer__brand">
           <Logo compact />
           <p>
-            Mays-Reportagen ist ein erweiterbares Online-Reportagemagazin über Wissenschaft,
-            Medizin und die Menschen dahinter. Jede Titelgeschichte wird eigenständig
-            recherchiert und mit ihren Quellen veröffentlicht.
+            Mays-Reportagen ist ein unabhängiges, kostenloses und nicht kommerzielles
+            Wissenschafts- und Recherchemagazin. Geschichten, die bewegen. Wissen, das
+            bleibt. Jede Titelgeschichte erscheint mit ihren Quellen.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export function SiteFooter() {
 
       <div className="container site-footer__bottom">
         <span>© 2026 Mays-Reportagen</span>
-        <span>Wissenschaft statt Wunder.</span>
+        <span>Geschichten, die bewegen.</span>
         <span>Keine medizinische Beratung.</span>
       </div>
     </footer>

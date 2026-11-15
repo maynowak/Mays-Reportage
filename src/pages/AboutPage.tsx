@@ -34,12 +34,13 @@ export function AboutPage() {
         <div className="container page-hero__inner">
           <p className="section-kicker">Über uns</p>
           <h1>
-            Ein Magazin für die <span className="text-gradient">Wissenschaft des Möglichen.</span>
+            Geschichten, die bewegen. <span className="text-gradient">Wissen, das bleibt.</span>
           </h1>
           <p>
-            Mays-Reportagen ist ein erweiterbares Online-Reportagemagazin. Es erzählt Geschichten
-            aus Medizin, Forschung und Gesellschaft – lang genug für den Zusammenhang, klar genug
-            für den Alltag.
+            Mays-Reportagen ist ein unabhängiges, kostenloses und nicht kommerzielles
+            Wissenschafts- und Recherchemagazin. Es erzählt Geschichten aus Medizin,
+            Forschung und Gesellschaft – lang genug für den Zusammenhang, klar genug für
+            den Alltag.
           </p>
         </div>
       </header>
@@ -54,7 +55,8 @@ export function AboutPage() {
             <p>
               Viele Wissenschaftsthemen werden auf einen Satz verkürzt. Mays-Reportagen nimmt sich
               Zeit für den Weg davor: welche Frage am Anfang stand, welche Studien wirklich etwas
-              belegen und wo die Unsicherheit beginnt.
+              belegen und wo die Unsicherheit beginnt. Das Magazin ist kostenlos und bleibt
+              vorerst nicht kommerziell.
             </p>
             <p>
               Die erste Titelgeschichte widmet sich der Phagentherapie. Sie verbindet eine
@@ -65,7 +67,8 @@ export function AboutPage() {
             <p>
               Das Magazin ist bewusst erweiterbar gebaut: Jede Reportage bringt ihr eigenes
               Titelmotiv, ihre eigene Akzentfarbe und ihre eigenen Quellen mit. Die Startseite
-              zeigt die aktuelle Titelgeschichte nach redaktioneller Priorität.
+              zeigt die aktuelle Titelgeschichte nach redaktioneller Priorität – offen für
+              weitere wissenschaftliche Themen.
             </p>
           </div>
         </div>

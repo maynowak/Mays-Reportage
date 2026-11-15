@@ -93,7 +93,7 @@ export function CinematicHero({ reportage }: { reportage: Reportage }) {
       <div className="container hero__explore">
         <span>Scroll to explore</span>
         <span className="hero__explore-rule" aria-hidden="true" />
-        <span>Wissenschaft statt Wunder</span>
+        <span>Geschichten, die bewegen</span>
       </div>
     </section>
   );

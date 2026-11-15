@@ -5,9 +5,10 @@ import type { Reportage, UpcomingReportage } from './types';
 export const site = {
   name: 'Mays-Reportagen',
   url: SITE_URL,
-  claim: 'Die Wissenschaft des Möglichen',
+  claim: 'Geschichten, die bewegen. Wissen, das bleibt.',
+  title: 'Mays-Reportagen — Geschichten, die bewegen.',
   description:
-    'Unabhängiges Online-Reportagemagazin über Wissenschaft, Medizin und die Menschen dahinter.',
+    'Unabhängiges, kostenloses Wissenschafts- und Recherchemagazin. Reportagen mit nachvollziehbaren Quellen, transparenten Unsicherheiten und ohne Heilversprechen.',
   issue: 'Ausgabe 01 · 2026',
 } as const;
 

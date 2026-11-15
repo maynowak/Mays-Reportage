@@ -102,7 +102,7 @@ export function SiteHeader() {
               Titelgeschichte lesen
             </Link>
           </nav>
-          <p className="mobile-menu__note">Wissenschaft statt Wunder. Recherchiert, quellenbasiert, ohne Heilversprechen.</p>
+          <p className="mobile-menu__note">Geschichten, die bewegen. Recherchiert, quellenbasiert, ohne Heilversprechen.</p>
         </div>
       )}
     </header>

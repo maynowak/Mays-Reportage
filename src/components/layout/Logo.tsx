@@ -11,7 +11,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
         <span className="logo__word">
           Mays<span className="logo__slash">/</span>Reportagen
         </span>
-        <span className="logo__claim">Die Wissenschaft des Möglichen</span>
+        <span className="logo__claim">Geschichten, die bewegen</span>
       </span>
       <span className="visually-hidden">Startseite</span>
     </Link>
