@@ -54,10 +54,10 @@ Designregeln: `docs/DESIGN-SYSTEM.md`.
 
 ## Release-Status
 
-**LIVE — Production `a6331e9` / MARKETING-02 lokal fertig, Deployment ausstehend.**
-Die Produktion läuft unter `https://mays-reportage.vercel.app`. Die neue
-Positionierung und die statischen Social-Metadaten sind lokal getestet, aber noch
-nicht gepusht/deployt. Restpunkte: Deployment, Search Console, Soft-404, CSP,
+**LIVE — Production `304a6e3` / MARKETING-02 + DESIGN-02 verifiziert.**
+Die Produktion läuft unter `https://mays-reportage.vercel.app`. Positionierung,
+statische Social-Metadaten und das Living-Science-Redesign sind live und geprüft.
+Restpunkte: Search Console, reale Social-Previews, Soft-404, CSP,
 Vercel-DPA/KI-Training. Keine Rechts- oder Ranking-Garantie. Details:
 `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 

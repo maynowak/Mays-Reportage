@@ -1,6 +1,6 @@
 # Release-Checkliste — Mays-Reportagen
 
-Stand: 14. November 2026. **MAIN INTEGRATED / PRODUCTION VERIFIED.**
+Stand: 15. November 2026. **PRODUCTION 304a6e3 VERIFIED.**
 Details: `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 
 ## 1. Vercel
@@ -8,7 +8,7 @@ Details: `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 - [x] Plan Hobby, Projekt `mays-reportage`, Production-Branch `main`.
 - [x] Nicht-kommerzielle Nutzung von der Betreiberin bestätigt.
 - [x] Auto-Deployment nach `main` verifiziert.
-- [x] Produktionsdeployment `a670327` READY; Domain liefert neue Version.
+- [x] Produktionsdeployment `dpl_H4ydqQxfKmQXypHt8LAecuqwYe1Q` / `304a6e3` READY; Domain verifiziert.
 - [x] Runtime-Logs Hobby (1 h), Region `iad1`, Edge-Auslieferung dokumentiert.
 - [ ] KI-Modelltraining durch Betreiberin prüfen.
 - [ ] DPA-Status für Hobby klären (Enterprise/Pro-DPA).
@@ -32,21 +32,21 @@ Details: `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 - [x] Betreiberin hat Bildnutzung mit dem Release freigegeben.
 - [ ] Mögliche Ähnlichkeiten/Rechte Dritter redaktionell prüfen.
 
-## 3b. MARKETING-02 (lokal)
+## 3b. MARKETING-02
 
 - [x] Claim/Positionierung, Startseiten-Vertrauenselemente, Archivzugang.
 - [x] Statische HTML-Metadaten für 7 öffentliche Routen; No-JS-/Social-Tests.
 - [x] OG-Bild/Canonical/Twitter/JSON-LD im initialen HTML.
-- [ ] Deployment der Marketing-02-Änderungen.
-- [ ] Social-Preview auf der Zielplattform prüfen.
+- [x] Deployment der Marketing-02-Änderungen.
+- [ ] Social-Preview auf der Zielplattform prüfen (externer Cache).
 
-## 3c. DESIGN-02 (lokal)
+## 3c. DESIGN-02
 
 - [x] Kräftigere Typografie, dunklere Fließ-/Sekundärtexte, größere Lesegrade.
 - [x] Living-Science-Hintergrund (SVG/CSS, drei Ebenen, Reduced-Motion-statisch).
 - [x] Integration im Hero-Übergang und in ausgewählten Story-Bereichen.
 - [x] Kontrastmessungen und axe ohne Violations; 192 E2E / 6 Skips.
-- [ ] Deployment und Produktions-Smoke.
+- [x] Deployment und Produktions-Smoke (Lighthouse 100/100/100/100).
 
 ## 4. Domain/SEO
 
@@ -55,14 +55,14 @@ Details: `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 - [x] Produktionsrouten, Statuscodes, Canonical, Metadaten geprüft.
 - [x] Lighthouse mobil 100/100/100/100; axe 0.
 - [ ] Search Console verifizieren, Sitemap einreichen.
-- [ ] Social-/No-JS-Metadaten (Pre-Rendering/Edge).
+- [x] Statische Social-/No-JS-Metadaten für 7 Routen; Live-Test 0 Fehler.
 - [ ] Soft-404-Entscheidung.
 - [ ] Reportagespezifische Social-Cards.
 
 ## 5. CI/Qualität
 
 - [x] GitHub-Actions-Workflow; CI-Läufe nach Fix erfolgreich.
-- [x] 33 Unit-Tests, 149 E2E / 4 Skips lokal; CI erfolgreich.
+- [x] 39 Unit-Tests, 192 E2E / 6 Skips lokal; CI-Lauf `43735767466` erfolgreich.
 - [x] Responsive 320–1440, Reduced Motion, Tastatur/Touch.
 - [x] Externe Quellenlinks im Audit geprüft; periodisch wiederholen.
 
@@ -70,5 +70,5 @@ Details: `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 
 - [x] MARKETING-01 SEO-/Discoverability-Audit.
 - [x] MARKETING-02/03-Fahrplan dokumentiert.
-- [ ] MARKETING-02 Positioning/Landing-Page-Umsetzung (separate Phase).
+- [x] MARKETING-02 Positioning/Landing-Page-Umsetzung live.
 - [ ] MARKETING-03 Organic-Launch-Umsetzung (separate Phase).

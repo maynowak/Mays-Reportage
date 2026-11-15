@@ -1,34 +1,33 @@
-# Release-Gate — Post-Release (MAIN RELEASE & MARKETING-01)
+# Release-Gate — Post-Release (MARKETING-02 + DESIGN-02)
 
 **Stand:** 15. November 2026
-**Status:** **PRODUCTION a6331e9 / MARKETING-02 + DESIGN-02 LOKAL FERTIG / DEPLOYMENT AUSSTEHEND**
-**Restrisiken:** Social-/No-JS-Metadaten, Soft-404, CSP, DPA/KI-Training, Bildrechte-Dritte.
+**Status:** **PRODUCTION 304a6e3 / MARKETING-02 + DESIGN-02 LIVE & VERIFIED**
+**Restrisiken:** Externe Plattform-Previews, Soft-404, CSP, DPA/KI-Training, Bildrechte-Dritte.
 
 ## 1. Git und CI
 
-- `origin/main` / Produktion: `a6331e9` (letzter Release).
+- `origin/main` / Produktion: `304a6e3` (Release MARKETING-02 + DESIGN-02).
 - MARKETING-02 (Positionierung + statische Social-Metadaten) und DESIGN-02
-  (Typografie + Living-Science-Hintergrund) sind lokal committet, aber **nicht
-  gepusht/deployt**.
-- Fast-Forward, keine History-Rewrites, kein Force-Push.
-- CI: erster Lauf nach dem ersten Release-Push schlug wegen eines
-  Playwright-WebServer-Timeouts fehl (Run `43646048356`). Ursache behoben
-  (Preview-Bind-Adresse, Timeout); alle folgenden Läufe **success**:
-  `43646780686`, `43647482362`, `43648394647`.
-- Lokal: 39 Unit-Tests, 192 E2E / 6 Skips, Build PASS; Lighthouse Home 100,
-  Story 96 (lokale Varianz).
+  (Typografie + Living-Science-Hintergrund) sind live und produktiv verifiziert.
+- Fast-Forward `a6331e9..304a6e3`, keine History-Rewrites, kein Force-Push.
+- CI: Release-Lauf `43735767466` **success**. Früherer Lauf `43646048356` war
+  wegen eines Playwright-WebServer-Timeouts fehlgeschlagen und wurde behoben.
+- Lokal: 39 Unit-Tests, 192 E2E / 6 Skips, Build PASS.
+- Release-Report: `docs/reports/12-01-MAYS-REPORTAGEN-CONTROLLED-PRODUCTION-RELEASE.md`.
 
 ## 2. Production
 
-- Deployment `dpl_6UGUxdw4QbDNNwphbk9NUgq8gmjL`, Commit `a6331e9`, READY.
-- Lokale Marketing-02-HTML-Metadaten sind noch nicht live.
+- Deployment `dpl_H4ydqQxfKmQXypHt8LAecuqwYe1Q`, Commit `304a6e3`, READY.
 - Domain `https://mays-reportage.vercel.app` liefert die neue Version.
 - Alle öffentlichen Routen 200: `/`, `/reportagen`, Reportage, `/impressum`,
-  `/datenschutz`, `/bildnachweis`; `robots.txt` und `sitemap.xml` 200.
-- Canonical, OG, Twitter, JSON-LD und robots werden mit JS korrekt gesetzt.
-- axe: 0 Violations auf Home/Reportage; Mobile 390 px ohne Überlauf.
+  `/datenschutz`, `/bildnachweis`; `robots.txt` und `sitemap.xml` 200 (7 URLs).
+- Statische HTML-Metadaten für 7 Routen ohne JavaScript geprüft: 0 Fehler über
+  Twitterbot/Facebook/LinkedIn/Standard-UA.
+- Canonical, Open Graph, Twitter Cards und JSON-LD im initialen HTML; Home
+  `WebSite`, Archiv `CollectionPage`, Reportage `NewsArticle`.
+- axe: 0 Violations auf Home und Reportage; Mobile 390 px ohne Überlauf.
 - Lighthouse mobil: **100/100/100/100** auf Home und Reportage.
-  LCP 0,9 s/1,1 s; CLS 0; TBT 30/80 ms.
+  LCP 1,0/0,9 s; CLS 0; TBT 20/90 ms.
 
 ## 3. Vercel-Konto
 
@@ -56,14 +55,15 @@
 Vollständig: `docs/SEO-AUDIT-MARKETING-01.md`.
 
 - Indexierbar, Sitemap 7 URLs, robots korrekt, Canonical korrekt.
-- **Offen:** Social-Crawler ohne JS sehen für Reportagen Home-Metadaten.
+- Statische Social-/No-JS-Metadaten sind live und geprüft.
+- **Offen:** reale Plattform-Previews (LinkedIn/X/WhatsApp/Slack) prüfen.
 - **Offen:** unbekannte Slugs liefern HTTP 200 (Soft-404) mit JS-`noindex`.
-- **Offen:** CSP, Search-Console-Anbindung, reportagespezifische Social-Cards.
+- **Offen:** CSP, Search-Console-Anbindung.
 
 ## 6. Entscheidungen / nächste Schritte
 
 1. Search Console per URL-Präfix verifizieren und Sitemap einreichen.
-2. Pre-Rendering/Edge-Metadata für Social-Preview/statische Metadaten.
+2. Reale Social-Previews auf den Zielplattformen prüfen.
 3. Edge-404 oder dokumentierte Akzeptanz des Soft-404.
 4. CSP definieren/testen.
 5. Vercel-DPA/Tarif und KI-Training final prüfen.
