@@ -1,6 +1,6 @@
 # Marketing-02/03 — Fahrplan
 
-**Stand:** 14. November 2026. Planung, keine Umsetzung in diesem Task.
+**Stand:** 15. November 2026. MARKETING-02 ist lokal umgesetzt; MARKETING-03 bleibt Planung.
 Keine bezahlte Werbung, kein Tracking, keine neuen Reportagen.
 
 ## MARKETING-02 — Magazine Positioning & Landing Page
@@ -19,9 +19,9 @@ machen und Grenzen der Forschung nicht verschweigen.
 
 ### Kernbotschaft
 
-**„Wissenschaft statt Wunder.“**
-Unterzeile: „Reportagen über Forschung, die unsere Gesundheit verändert – mit Quellen,
-Grenzen und offenen Fragen.“
+**„Geschichten, die bewegen. Wissen, das bleibt.“**
+Unterzeile: „Unabhängige Reportagen über Forschung, die unsere Gesundheit verändert –
+mit Quellen, Grenzen und offenen Fragen.“
 
 ### Landing-Page-Struktur (später)
 
@@ -97,3 +97,18 @@ ohne bezahlte Werbung, ohne Tracking-Skripte.
 - Clientseitige Metadaten begrenzen Social-Previews.
 - Wenig Reichweite ohne Redaktionsnetzwerk; Fokus auf Qualität und Quellen.
 - Rechtliche/Bildrechte-Themen bleiben vor jeder weiteren Veröffentlichung zu prüfen.
+
+
+## Status MARKETING-02 (15.11.2026)
+
+Lokal umgesetzt und getestet, **nicht gepusht/deployt**:
+
+- Positionierung und Claim „Geschichten, die bewegen. Wissen, das bleibt.“
+- Startseiten-Positionierungsblock und Vertrauenselemente (Quellenstand,
+  Forschungsgrenzen, KI-Transparenz).
+- Archivzugang und Darstellung geplanter Themen.
+- Statische HTML-Metadaten für alle sieben öffentlichen Routen inkl. Social-/No-JS-Test.
+- OG-Bild, Canonical, Twitter Cards und JSON-LD im initialen HTML.
+
+Offen: Deployment, Search Console, Pre-Rendering des sichtbaren Artikeltexts,
+soft-404, CSP und reportagespezifische Social-Cards.

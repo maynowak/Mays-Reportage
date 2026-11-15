@@ -1,12 +1,14 @@
 # Release-Gate — Post-Release (MAIN RELEASE & MARKETING-01)
 
 **Stand:** 14. November 2026
-**Status:** **MAIN INTEGRATED / PRODUCTION VERIFIED / MARKETING-01 COMPLETED**
+**Status:** **PRODUCTION a6331e9 / MARKETING-02 LOKAL FERTIG / DEPLOYMENT AUSSTEHEND**
 **Restrisiken:** Social-/No-JS-Metadaten, Soft-404, CSP, DPA/KI-Training, Bildrechte-Dritte.
 
 ## 1. Git und CI
 
-- `origin/main` nach Release: `a670327` (App-Code); Audit-Doku-Commit folgt.
+- `origin/main` / Produktion: `a6331e9` (letzter Release).
+- MARKETING-02 (Positionierung + statische Social-Metadaten) ist lokal committet,
+  aber **nicht gepusht/deployt**.
 - Fast-Forward, keine History-Rewrites, kein Force-Push.
 - CI: erster Lauf nach dem ersten Release-Push schlug wegen eines
   Playwright-WebServer-Timeouts fehl (Run `43646048356`). Ursache behoben
@@ -16,7 +18,8 @@
 
 ## 2. Production
 
-- Deployment `dpl_5D1bkJXxmJ8vojMWc9YCuFmkgvAw`, Commit `a670327`, READY.
+- Deployment `dpl_6UGUxdw4QbDNNwphbk9NUgq8gmjL`, Commit `a6331e9`, READY.
+- Lokale Marketing-02-HTML-Metadaten sind noch nicht live.
 - Domain `https://mays-reportage.vercel.app` liefert die neue Version.
 - Alle öffentlichen Routen 200: `/`, `/reportagen`, Reportage, `/impressum`,
   `/datenschutz`, `/bildnachweis`; `robots.txt` und `sitemap.xml` 200.

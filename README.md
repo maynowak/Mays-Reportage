@@ -13,16 +13,17 @@ eigenes Titelmotiv, ihre eigene Akzentfarbe und ihre eigenen Quellen mit.
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run verify     # ESLint + TypeScript + 33 Unit-Tests + Produktions-Build
+npm run verify     # ESLint + TypeScript + 38 Unit-Tests + Produktions-Build
 npm run e2e        # Playwright: Chromium, Firefox, WebKit; Port 4317
 npm run sitemap    # bestätigte Domain in site.config.json
 ```
 
-`npm run e2e` (51 Chromium- bzw. 49 Firefox/WebKit-Tests, 4 Skips) schreibt Abnahme-Screenshots nach
+`npm run e2e` (62 Chromium- bzw. 60 Firefox/WebKit-Tests, 4 Skips) schreibt Abnahme-Screenshots nach
 `docs/reports/assets/MAYS-REPORTAGEN-01A/` (Hero/Reportage) und
 `docs/reports/assets/MAYS-REPORTAGEN-02/` (Archiv/Rechtliches) und
 `docs/reports/assets/MAYS-REPORTAGEN-03/` (Story-Kapitel, Interaktionen) sowie
-`docs/reports/assets/MAYS-REPORTAGEN-DESIGN-01/` (Vorher/Nachher, Light Design).
+`docs/reports/assets/MAYS-REPORTAGEN-DESIGN-01/` (Vorher/Nachher, Light Design) und
+`docs/reports/assets/MAYS-REPORTAGEN-MARKETING-02/` (Positionierung/Trust).
 
 ## Seiten
 
@@ -51,11 +52,12 @@ Designregeln: `docs/DESIGN-SYSTEM.md`.
 
 ## Release-Status
 
-**LIVE — MAIN INTEGRATED / PRODUCTION VERIFIED.** Betreiber-, Hosting- und
-Domaindaten sind gesetzt; die Produktion läuft unter
-`https://mays-reportage.vercel.app`. Restpunkte: Social-/No-JS-Metadaten, Soft-404,
-CSP, Search Console sowie Vercel-DPA/KI-Training. Keine Rechts- oder Ranking-Garantie.
-Details: `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
+**LIVE — Production `a6331e9` / MARKETING-02 lokal fertig, Deployment ausstehend.**
+Die Produktion läuft unter `https://mays-reportage.vercel.app`. Die neue
+Positionierung und die statischen Social-Metadaten sind lokal getestet, aber noch
+nicht gepusht/deployt. Restpunkte: Deployment, Search Console, Soft-404, CSP,
+Vercel-DPA/KI-Training. Keine Rechts- oder Ranking-Garantie. Details:
+`docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 
 ## Struktur
 

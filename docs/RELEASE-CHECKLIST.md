@@ -32,6 +32,14 @@ Details: `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 - [x] Betreiberin hat Bildnutzung mit dem Release freigegeben.
 - [ ] Mögliche Ähnlichkeiten/Rechte Dritter redaktionell prüfen.
 
+## 3b. MARKETING-02 (lokal)
+
+- [x] Claim/Positionierung, Startseiten-Vertrauenselemente, Archivzugang.
+- [x] Statische HTML-Metadaten für 7 öffentliche Routen; No-JS-/Social-Tests.
+- [x] OG-Bild/Canonical/Twitter/JSON-LD im initialen HTML.
+- [ ] Deployment der Marketing-02-Änderungen.
+- [ ] Social-Preview auf der Zielplattform prüfen.
+
 ## 4. Domain/SEO
 
 - [x] Domain, Canonical, OG, Twitter, JSON-LD.

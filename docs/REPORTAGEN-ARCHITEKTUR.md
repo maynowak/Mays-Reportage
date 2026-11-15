@@ -72,3 +72,20 @@ Story-Daten liegen unter `src/content/stories/` und müssen denselben Quellen-Au
 verwenden wie der Artikel. Die Darstellung folgt dem hellen Editorial-Design
 (`docs/DESIGN-SYSTEM.md`); der Hero bleibt dunkel. `getStory(slug)` entscheidet in `ReportagePage`, ob interaktiv
 oder langformig gerendert wird; die Startseite importiert keine Story-Renderer.
+
+
+## Statische Metadaten und Social Preview
+
+`npm run build` führt nach Vite den Generator `scripts/generate-static-pages.mjs` aus.
+Er bündelt `src/content/static-meta.ts` mit esbuild, erzeugt für jede veröffentlichte
+Route eine statische HTML-Datei (`dist/<route>.html`) auf Basis von `dist/index.html`
+und schreibt Titel, Description, Canonical, Open Graph, Twitter Cards und JSON-LD
+bereits ins HTTP-HTML. Entwürfe werden nicht ausgegeben.
+
+`vercel.json` mappt die sauberen URLs explizit auf die HTML-Dateien; der letzte Rewrite
+bleibt der SPA-Fallback. `src/content/static-meta.test.ts` prüft, dass statische Seiten,
+Sitemap und Vercel-Rewrites synchron sind. Eine neue Reportage benötigt daher:
+`published`-Status, Sitemap-Eintrag und einen expliziten Rewrite.
+
+Vite Preview simuliert diese Rewrites über `previewStaticRoutes()` in `vite.config.ts`,
+damit die No-JS-/Social-Metadaten lokal auf denselben URLs getestet werden können.

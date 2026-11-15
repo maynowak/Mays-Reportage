@@ -5,6 +5,11 @@
 **Produktionsstand:** `a670327` (Deployment `dpl_5D1bkJXxmJ8vojMWc9YCuFmkgvAw`)
 **Keine Ranking-Garantie.** Geprüft wurden Technik, Indexierbarkeit und Metadaten.
 
+> **Update MARKETING-02 (15.11.2026):** Statische HTML-Metadaten für alle sieben
+> öffentlichen Routen sind lokal implementiert und getestet (`dist/<route>.html`,
+> Vercel-Rewrites, No-JS-/Social-Tests). Produktion läuft noch auf `a6331e9`;
+> der Fix ist **noch nicht deployt**. Soft-404, CSP und Search Console bleiben offen.
+
 ## 1. Google-Indexierung
 
 | Prüfung | Ergebnis |

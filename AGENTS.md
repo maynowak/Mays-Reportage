@@ -19,8 +19,8 @@ Bakteriophagen. Lizenz GPL-3.0.
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run verify     # ESLint + tsc + 33 Unit-Tests + Build
-npm run e2e        # 51/49 Tests × Chromium/Firefox/WebKit (4 Skips), Port 4317
+npm run verify     # ESLint + tsc + 38 Unit-Tests + Build
+npm run e2e        # 62/60 Tests × Chromium/Firefox/WebKit (4 Skips), Port 4317
 npx vitest run src/App.test.tsx -t "Archiv"   # einzelner Test
 npm run sitemap    # nutzt site.config.json; EXCLUDE_LEGAL=true für Entwürfe
 ```
