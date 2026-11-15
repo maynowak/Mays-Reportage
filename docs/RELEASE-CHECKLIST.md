@@ -40,6 +40,14 @@ Details: `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 - [ ] Deployment der Marketing-02-Änderungen.
 - [ ] Social-Preview auf der Zielplattform prüfen.
 
+## 3c. DESIGN-02 (lokal)
+
+- [x] Kräftigere Typografie, dunklere Fließ-/Sekundärtexte, größere Lesegrade.
+- [x] Living-Science-Hintergrund (SVG/CSS, drei Ebenen, Reduced-Motion-statisch).
+- [x] Integration im Hero-Übergang und in ausgewählten Story-Bereichen.
+- [x] Kontrastmessungen und axe ohne Violations; 192 E2E / 6 Skips.
+- [ ] Deployment und Produktions-Smoke.
+
 ## 4. Domain/SEO
 
 - [x] Domain, Canonical, OG, Twitter, JSON-LD.

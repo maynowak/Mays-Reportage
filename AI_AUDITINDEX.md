@@ -3,7 +3,7 @@
 Current workspace: Git checkout at `/home/dci-student/projects/Mays-Reportage` (branch `main`)
 Remote: `maynowak/Mays-Reportage`; letzter Push-Stand: `git log -1 origin/main`
 Reports: `docs/reports/`, evidence in `docs/reports/assets/<TASK-ID>/`
-Last updated: 2026-11-14
+Last updated: 2026-11-15
 
 | Task ID | Report | Status |
 | --- | --- | --- |
@@ -17,3 +17,4 @@ Last updated: 2026-11-14
 | MAIN-RELEASE-MARKETING-01 | [08-01-MAYS-REPORTAGEN-MAIN-RELEASE-MARKETING-01-EXECUTION_LOG.md](docs/reports/08-01-MAYS-REPORTAGEN-MAIN-RELEASE-MARKETING-01-EXECUTION_LOG.md) | YELLOW — live, Production verified, SEO-Restpunkte dokumentiert |
 | MARKETING-02 | [09-01-MAYS-REPORTAGEN-MARKETING-02-EXECUTION_LOG.md](docs/reports/09-01-MAYS-REPORTAGEN-MARKETING-02-EXECUTION_LOG.md) | GREEN lokal — Positionierung + statische Social-Metadaten; Deployment ausstehend |
 | MARKETING-02 PRODUCTION PREFLIGHT | [10-01-MAYS-REPORTAGEN-MARKETING-02-PRODUCTION-PREFLIGHT.md](docs/reports/10-01-MAYS-REPORTAGEN-MARKETING-02-PRODUCTION-PREFLIGHT.md) | RELEASE-READY lokal; Push/Deploy-Freigabe ausstehend |
+| DESIGN-02 | [11-01-MAYS-REPORTAGEN-DESIGN-02-EXECUTION_LOG.md](docs/reports/11-01-MAYS-REPORTAGEN-DESIGN-02-EXECUTION_LOG.md) | GREEN lokal — Typografie + Living-Science-Hintergrund; Deployment ausstehend |

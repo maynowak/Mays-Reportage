@@ -13,17 +13,19 @@ eigenes Titelmotiv, ihre eigene Akzentfarbe und ihre eigenen Quellen mit.
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run verify     # ESLint + TypeScript + 38 Unit-Tests + Produktions-Build
+npm run verify     # ESLint + TypeScript + 39 Unit-Tests + Produktions-Build
 npm run e2e        # Playwright: Chromium, Firefox, WebKit; Port 4317
 npm run sitemap    # bestätigte Domain in site.config.json
 ```
 
-`npm run e2e` (62 Chromium- bzw. 60 Firefox/WebKit-Tests, 4 Skips) schreibt Abnahme-Screenshots nach
+`npm run e2e` (66 Chromium- bzw. 63 Firefox/WebKit-Tests, 6 Skips) schreibt Abnahme-Screenshots nach
 `docs/reports/assets/MAYS-REPORTAGEN-01A/` (Hero/Reportage) und
 `docs/reports/assets/MAYS-REPORTAGEN-02/` (Archiv/Rechtliches) und
 `docs/reports/assets/MAYS-REPORTAGEN-03/` (Story-Kapitel, Interaktionen) sowie
 `docs/reports/assets/MAYS-REPORTAGEN-DESIGN-01/` (Vorher/Nachher, Light Design) und
-`docs/reports/assets/MAYS-REPORTAGEN-MARKETING-02/` (Positionierung/Trust).
+`docs/reports/assets/MAYS-REPORTAGEN-MARKETING-02/` (Positionierung/Trust) und
+`docs/reports/assets/MAYS-REPORTAGEN-DESIGN-02/` (Living-Science-Hintergrund,
+Typografie-Vorher/Nachher).
 
 ## Seiten
 

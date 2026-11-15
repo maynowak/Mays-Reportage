@@ -13,8 +13,8 @@ leseorientiert; der Hero bleibt der einzige bewusst dunkle, filmische Block.
 | Kapitel Lavendel | `--surface-lavender` | `#f0ebff` |
 | Warme Fläche | `--surface-warm` | `#fff7ed` |
 | Überschriften | `--heading` | `#14243a` |
-| Fließtext | `--body-text` | `#334155` |
-| Sekundärtext | `--muted` / `--muted-2` | `#55677c` / `#526479` |
+| Fließtext | `--body-text` | `#243247` |
+| Sekundärtext | `--muted` / `--muted-2` | `#405269` / `#4b5c72` |
 | Akzent (Text/Icons) | `--accent` | `#00736d` |
 | Akzent (Flächen/Illustration) | `--accent-bright` | `#00b8b0` |
 | Koralle (Text) | `--coral` | `#b23a27` |
@@ -65,6 +65,36 @@ keine Inhalte dauerhaft. Kein Kapitel wird per Opacity versteckt (siehe unten).
   Kennzahlenbalken, Einrichtungsfilter, Faktencheck.
 - **Quellen:** Chips an der Aussage, vollständige Liste am Ende, optisch untergeordnet.
 - **Footer:** sehr helle Türkisfläche, Marineblau, kein zweiter Dark-Block.
+
+## Living Science Background
+
+`LivingScienceBackground` / `ScienceBand` sind ein wiederverwendbares, rein
+dekoratives Hintergrundsystem:
+
+- Drei Ebenen aus wiederholbaren SVG-Kacheln (DNA-Fragmente, Phagen, Tropfen,
+  Lichtpunkte) fließen mit 150 s / 105 s / 72 s von oben nach unten.
+- Kein Partikelregen, keine 3D-Engine, keine Videos; nur SVG + CSS-Transforms.
+- `ScienceBand` wird im Hero-Übergang, zwischen ausgewählten Story-Kapiteln und vor
+  dem Quellenbereich eingesetzt; Artikelkarten bleiben opak.
+- `aria-hidden`, `pointer-events: none`; Inhalte bleiben unberührt.
+- Reduced Motion stoppt die Ebenen und zeigt eine statische Darstellung.
+- Mobile blendet die ferne Ebene aus und reduziert die Bandhöhe.
+- Theme-Farben sind CSS-Variablen (`--science-teal`, `--science-violet`, …); die
+  Komponente ist nicht an die Phagen-Reportage gekoppelt. Weitere Themen können
+  später über eigene Theme-Klassen ergänzt werden.
+
+## Kontrast (gemessen)
+
+| Farbe | Weiß | Page | Türkis | Lavendel |
+| --- | --- | --- | --- | --- |
+| `#14243a` | 15,6 | 14,9 | 14,3 | 13,4 |
+| `#243247` | 13,0 | 12,4 | 11,8 | 11,1 |
+| `#405269` | 8,0 | 7,6 | 7,3 | 6,9 |
+| `#4b5c72` | 6,8 | 6,5 | 6,3 | 5,9 |
+| `#00736d` | 5,7 | 5,5 | 5,2 | 4,9 |
+| `#b23a27` | 6,0 | 5,7 | 5,4 | 5,1 |
+
+Alle Werte liegen für normalen Text über 4,5:1; Axe bestätigt 0 Violations.
 
 ## Bewegung
 

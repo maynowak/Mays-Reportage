@@ -1,20 +1,22 @@
 # Release-Gate — Post-Release (MAIN RELEASE & MARKETING-01)
 
-**Stand:** 14. November 2026
-**Status:** **PRODUCTION a6331e9 / MARKETING-02 LOKAL FERTIG / DEPLOYMENT AUSSTEHEND**
+**Stand:** 15. November 2026
+**Status:** **PRODUCTION a6331e9 / MARKETING-02 + DESIGN-02 LOKAL FERTIG / DEPLOYMENT AUSSTEHEND**
 **Restrisiken:** Social-/No-JS-Metadaten, Soft-404, CSP, DPA/KI-Training, Bildrechte-Dritte.
 
 ## 1. Git und CI
 
 - `origin/main` / Produktion: `a6331e9` (letzter Release).
-- MARKETING-02 (Positionierung + statische Social-Metadaten) ist lokal committet,
-  aber **nicht gepusht/deployt**.
+- MARKETING-02 (Positionierung + statische Social-Metadaten) und DESIGN-02
+  (Typografie + Living-Science-Hintergrund) sind lokal committet, aber **nicht
+  gepusht/deployt**.
 - Fast-Forward, keine History-Rewrites, kein Force-Push.
 - CI: erster Lauf nach dem ersten Release-Push schlug wegen eines
   Playwright-WebServer-Timeouts fehl (Run `43646048356`). Ursache behoben
   (Preview-Bind-Adresse, Timeout); alle folgenden Läufe **success**:
   `43646780686`, `43647482362`, `43648394647`.
-- Lokal: 33 Unit-Tests, 149 E2E / 4 Skips, Build PASS.
+- Lokal: 39 Unit-Tests, 192 E2E / 6 Skips, Build PASS; Lighthouse Home 100,
+  Story 96 (lokale Varianz).
 
 ## 2. Production
 
