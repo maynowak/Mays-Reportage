@@ -2,11 +2,10 @@
 
 ## 1. Status
 
-**GREEN LOKAL — VERIFIZIERUNGSDATEI VORBEREITET / DEPLOYMENT AUSSTEHEND.**
+**GREEN LIVE — VERIFIZIERUNGSDATEI AUSGELIEFERT UND PRODUKTIV GEPRÜFT.**
 
-Kein Push, kein Deployment und keine Google-Verifikation in diesem Schritt. Die
-Bestätigung in der Search Console erfolgt erst nach der separaten Freigabe und
-erfolgreichen Auslieferung.
+Die Datei ist seit 16.11.2026 auf der Produktionsdomain verfügbar. Die
+Search-Console-Bestätigung ist noch nicht erfolgt und wird nicht behauptet.
 
 ## 2. Audit-Zeitpunkt
 
@@ -169,3 +168,32 @@ Keine Cloud-Infrastruktur geändert.
 Lokal ist alles für die Betreiberfreigabe vorbereitet. Nächster Schritt ist die
 ausdrückliche Freigabe für Push und Deployment; danach Datei-Smoke-Test und
 Search-Console-Verifikation. Production bleibt bis dahin auf `304a6e3`.
+
+
+## 17. Production-Release-Nachtrag (16.11.2026)
+
+- Push: `304a6e3..6c960c4 main -> main` als Fast-Forward.
+- CI-Run `43948954612`: **success** (4m35s).
+- Vercel-Deployment `dpl_GZ817a2xBBxLkV6nkjSRi88M5bZY`: **READY**.
+- Deployment-Commit: `6c960c4`.
+- Aliases: `mays-reportage.vercel.app`, `mays-reportage-maymilly.vercel.app`,
+  `mays-reportage-git-main-maymilly.vercel.app`.
+- Verifizierungsdatei produktiv: HTTP 200, `Content-Type: text/html`,
+  `Content-Length: 53`, Inhalt exakt `google-site-verification:
+  google426c8ebaa607666d.html`, SHA-256
+  `4ddd9841d3de4229eeb61181ee9cca0004bb2311675abaeb11f4e9595d268691`.
+- Kein SPA-Index: Der Response enthält kein `<title>` und nicht die Startseite.
+- Sieben öffentliche Routen: alle HTTP 200 mit unveränderten Titeln und Canonicals.
+- `sitemap.xml`: 7 URLs; `robots.txt`: Sitemap-Zeile unverändert.
+- Startseite und Phagen-Reportage im Browser: keine Konsolen-/Seitenfehler.
+- Canonical, Open Graph, Twitter Cards und JSON-LD: unverändert.
+- Keine Google-Verifikation durchgeführt; keine Indexierung behauptet.
+- Dokumentation wird nur lokal committed; kein weiterer Push/Deploy.
+
+### Offene Schritte
+
+1. Betreiberin bestätigt die Property in der Google Search Console.
+2. Sitemap `https://mays-reportage.vercel.app/sitemap.xml` einreichen.
+3. Startseite per URL-Prüftool kontrollieren.
+4. Phagen-Reportage per URL-Prüftool kontrollieren.
+5. Erst danach organische Search-Console-Daten beobachten.

@@ -1,24 +1,26 @@
 # Release-Gate — Post-Release (MARKETING-02 + DESIGN-02)
 
-**Stand:** 15. November 2026
-**Status:** **PRODUCTION 304a6e3 / MARKETING-02 + DESIGN-02 LIVE & VERIFIED**
+**Stand:** 16. November 2026
+**Status:** **PRODUCTION 6c960c4 / MARKETING-02 + DESIGN-02 + GSC-DATEI LIVE**
 **Restrisiken:** Externe Plattform-Previews, Soft-404, CSP, DPA/KI-Training, Bildrechte-Dritte.
 
 ## 1. Git und CI
 
-- `origin/main` / Produktion: `304a6e3` (Release MARKETING-02 + DESIGN-02).
-- MARKETING-02 (Positionierung + statische Social-Metadaten) und DESIGN-02
-  (Typografie + Living-Science-Hintergrund) sind live und produktiv verifiziert.
-- Fast-Forward `a6331e9..304a6e3`, keine History-Rewrites, kein Force-Push.
-- CI: Release-Lauf `43735767466` **success**. Früherer Lauf `43646048356` war
-  wegen eines Playwright-WebServer-Timeouts fehlgeschlagen und wurde behoben.
+- `origin/main` / Produktion: `6c960c4` (GSC-01-Release).
+- MARKETING-02, DESIGN-02 und die Google-Verifizierungsdatei sind live und
+  produktiv geprüft.
+- Fast-Forward `304a6e3..6c960c4`, keine History-Rewrites, kein Force-Push.
+- CI: Release-Lauf `43948954612` **success**.
 - Lokal: 39 Unit-Tests, 192 E2E / 6 Skips, Build PASS.
-- Release-Report: `docs/reports/12-01-MAYS-REPORTAGEN-CONTROLLED-PRODUCTION-RELEASE.md`.
+- Release-Reports: `docs/reports/12-01-...`, `docs/reports/14-01-...`.
 
 ## 2. Production
 
-- Deployment `dpl_H4ydqQxfKmQXypHt8LAecuqwYe1Q`, Commit `304a6e3`, READY.
+- Deployment `dpl_GZ817a2xBBxLkV6nkjSRi88M5bZY`, Commit `6c960c4`, READY.
 - Domain `https://mays-reportage.vercel.app` liefert die neue Version.
+- GSC-Verifizierungsdatei: `https://mays-reportage.vercel.app/google426c8ebaa607666d.html`,
+  HTTP 200, `text/html`, 53 Bytes, SHA-256
+  `4ddd9841d3de4229eeb61181ee9cca0004bb2311675abaeb11f4e9595d268691`.
 - Alle öffentlichen Routen 200: `/`, `/reportagen`, Reportage, `/impressum`,
   `/datenschutz`, `/bildnachweis`; `robots.txt` und `sitemap.xml` 200 (7 URLs).
 - Statische HTML-Metadaten für 7 Routen ohne JavaScript geprüft: 0 Fehler über
@@ -58,9 +60,10 @@ Vollständig: `docs/SEO-AUDIT-MARKETING-01.md`.
 - Statische Social-/No-JS-Metadaten sind live und geprüft.
 - **Offen:** reale Plattform-Previews (LinkedIn/X/WhatsApp/Slack) prüfen.
 - **Offen:** unbekannte Slugs liefern HTTP 200 (Soft-404) mit JS-`noindex`.
-- **Vorbereitet:** GSC-01-Verifizierungsdatei liegt unter
-  `public/google426c8ebaa607666d.html`; Deploy und Search-Console-Verifikation
-  stehen aus. Exakter Pfad: `https://mays-reportage.vercel.app/google426c8ebaa607666d.html`.
+- **Live:** GSC-01-Verifizierungsdatei ist unter
+  `https://mays-reportage.vercel.app/google426c8ebaa607666d.html` ausgeliefert.
+- **Offen:** Bestätigung der Property in der Google Search Console, Sitemap-
+  Einreichung und URL-Prüfung.
 - **Offen:** CSP.
 
 ## 6. Entscheidungen / nächste Schritte

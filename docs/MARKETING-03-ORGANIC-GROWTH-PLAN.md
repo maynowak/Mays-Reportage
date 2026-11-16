@@ -54,9 +54,10 @@ nichts an der Website geändert und keine Verifikation behauptet.
 **GSC-01-Stand (16.11.2026):** Die originale Datei
 `google426c8ebaa607666d.html` liegt bytegenau unter
 `public/google426c8ebaa607666d.html` (SHA-256
-`4ddd9841d3de4229eeb61181ee9cca0004bb2311675abaeb11f4e9595d268691`). Der
-öffentliche Pfad ist noch nicht deployt; die Search Console ist nicht verifiziert.
-Details: `docs/reports/14-01-MAYS-REPORTAGEN-GSC-01-VERIFICATION.md`.
+`4ddd9841d3de4229eeb61181ee9cca0004bb2311675abaeb11f4e9595d268691`) und ist
+produktiv ausgeliefert. Die Search Console ist weiterhin **nicht verifiziert**;
+Bestätigung, Sitemap-Einreichung und URL-Prüfung stehen aus. Details:
+`docs/reports/14-01-MAYS-REPORTAGEN-GSC-01-VERIFICATION.md`.
 
 Quelle: Google, „Meine Website-Inhaberschaft bestätigen“,
 https://support.google.com/webmasters/answer/9008080?hl=de (abgerufen 15.11.2026).
