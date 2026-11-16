@@ -20,3 +20,4 @@ Last updated: 2026-11-15
 | DESIGN-02 | [11-01-MAYS-REPORTAGEN-DESIGN-02-EXECUTION_LOG.md](docs/reports/11-01-MAYS-REPORTAGEN-DESIGN-02-EXECUTION_LOG.md) | GREEN — Typografie + Living-Science-Hintergrund live; Production verified |
 | CONTROLLED PRODUCTION RELEASE | [12-01-MAYS-REPORTAGEN-CONTROLLED-PRODUCTION-RELEASE.md](docs/reports/12-01-MAYS-REPORTAGEN-CONTROLLED-PRODUCTION-RELEASE.md) | GREEN — `304a6e3` live, CI + Production-E2E + Lighthouse PASS |
 | MARKETING-03 | [13-01-MAYS-REPORTAGEN-MARKETING-03-EXECUTION_LOG.md](docs/reports/13-01-MAYS-REPORTAGEN-MARKETING-03-EXECUTION_LOG.md) | YELLOW — Organic-Growth-Plan, Keywords, 7 Textentwürfe, Messvorlage; Search Console/Veröffentlichung offen |
+| GSC-01 | [14-01-MAYS-REPORTAGEN-GSC-01-VERIFICATION.md](docs/reports/14-01-MAYS-REPORTAGEN-GSC-01-VERIFICATION.md) | GREEN lokal — Google-Verifizierungsdatei bytegenau eingebunden; Deploy/Search-Console-Verifikation ausstehend |

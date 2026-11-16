@@ -58,7 +58,10 @@ Vollständig: `docs/SEO-AUDIT-MARKETING-01.md`.
 - Statische Social-/No-JS-Metadaten sind live und geprüft.
 - **Offen:** reale Plattform-Previews (LinkedIn/X/WhatsApp/Slack) prüfen.
 - **Offen:** unbekannte Slugs liefern HTTP 200 (Soft-404) mit JS-`noindex`.
-- **Offen:** CSP, Search-Console-Anbindung.
+- **Vorbereitet:** GSC-01-Verifizierungsdatei liegt unter
+  `public/google426c8ebaa607666d.html`; Deploy und Search-Console-Verifikation
+  stehen aus. Exakter Pfad: `https://mays-reportage.vercel.app/google426c8ebaa607666d.html`.
+- **Offen:** CSP.
 
 ## 6. Entscheidungen / nächste Schritte
 

@@ -55,6 +55,7 @@ Details: `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 - [x] Produktionsrouten, Statuscodes, Canonical, Metadaten geprüft.
 - [x] Lighthouse mobil 100/100/100/100; axe 0.
 - [ ] Search Console verifizieren, Sitemap einreichen.
+- [x] GSC-01-Verifizierungsdatei bytegenau eingebunden; Deploy/Verifikation ausstehend.
 - [x] Statische Social-/No-JS-Metadaten für 7 Routen; Live-Test 0 Fehler.
 - [ ] Soft-404-Entscheidung.
 - [ ] Reportagespezifische Social-Cards.
