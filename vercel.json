@@ -30,7 +30,7 @@
       "destination": "/bildnachweis.html"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!google426c8ebaa607666d\\.html).*)",
       "destination": "/index.html"
     }
   ],
