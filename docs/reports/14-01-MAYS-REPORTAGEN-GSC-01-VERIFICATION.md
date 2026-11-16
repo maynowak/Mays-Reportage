@@ -93,6 +93,11 @@ https://mays-reportage.vercel.app/google426c8ebaa607666d.html
 Erwartet: HTTP 200, `Content-Type: text/html`, exakt 53 Bytes, Inhalt
 `google-site-verification: google426c8ebaa607666d.html`.
 
+**Aktueller Production-Vor-Deploy-Stand (16.11.2026):** Der Pfad liefert bereits
+HTTP 200, aber noch die SPA-Startseite (`index.html`), weil die Datei nicht deployt
+ist. Das ist erwartet und **keine** Verifizierung. Nach dem Deployment muss der
+Response bytegenau gegen den oben genannten SHA-256 geprüft werden.
+
 ## 9. Bestehende Routen und statische Dateien
 
 | Pfad | Preview-Ergebnis |
