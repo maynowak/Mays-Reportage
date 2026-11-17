@@ -3,7 +3,7 @@
 Current workspace: Git checkout at `/home/dci-student/projects/Mays-Reportage` (branch `main`)
 Remote: `maynowak/Mays-Reportage`; letzter Push-Stand: `git log -1 origin/main`
 Reports: `docs/reports/`, evidence in `docs/reports/assets/<TASK-ID>/`
-Last updated: 2026-11-16
+Last updated: 2026-11-17
 
 | Task ID | Report | Status |
 | --- | --- | --- |
@@ -21,3 +21,4 @@ Last updated: 2026-11-16
 | CONTROLLED PRODUCTION RELEASE | [12-01-MAYS-REPORTAGEN-CONTROLLED-PRODUCTION-RELEASE.md](docs/reports/12-01-MAYS-REPORTAGEN-CONTROLLED-PRODUCTION-RELEASE.md) | GREEN — `304a6e3` live, CI + Production-E2E + Lighthouse PASS |
 | MARKETING-03 | [13-01-MAYS-REPORTAGEN-MARKETING-03-EXECUTION_LOG.md](docs/reports/13-01-MAYS-REPORTAGEN-MARKETING-03-EXECUTION_LOG.md) | YELLOW — Organic-Growth-Plan, Keywords, 7 Textentwürfe, Messvorlage; Search Console/Veröffentlichung offen |
 | GSC-01 | [14-01-MAYS-REPORTAGEN-GSC-01-VERIFICATION.md](docs/reports/14-01-MAYS-REPORTAGEN-GSC-01-VERIFICATION.md) | GREEN live — Verifizierungsdatei produktiv geprüft; Search-Console-Bestätigung ausstehend |
+| GSC-02 | [15-01-MAYS-REPORTAGEN-GSC-02-VERIFICATION.md](docs/reports/15-01-MAYS-REPORTAGEN-GSC-02-VERIFICATION.md) | GREEN lokal — zweite Google-Verifizierungsdatei bytegenau eingebunden; Deploy/Bestätigung ausstehend |

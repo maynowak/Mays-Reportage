@@ -1,6 +1,6 @@
 # Release-Checkliste — Mays-Reportagen
 
-Stand: 16. November 2026. **PRODUCTION 6c960c4 VERIFIED.**
+Stand: 17. November 2026. **PRODUCTION 6c960c4 VERIFIED / GSC-02 VORBEREITET.**
 Details: `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 
 ## 1. Vercel
@@ -56,6 +56,7 @@ Details: `docs/RELEASE-GATE.md`, `docs/SEO-AUDIT-MARKETING-01.md`.
 - [x] Lighthouse mobil 100/100/100/100; axe 0.
 - [ ] Search Console verifizieren, Sitemap einreichen.
 - [x] GSC-01-Verifizierungsdatei bytegenau eingebunden und live ausgeliefert.
+- [x] GSC-02-Verifizierungsdatei bytegenau eingebunden; Deploy ausstehend.
 - [ ] Search-Console-Property bestätigen, Sitemap einreichen, URL-Prüfung.
 - [x] Statische Social-/No-JS-Metadaten für 7 Routen; Live-Test 0 Fehler.
 - [ ] Soft-404-Entscheidung.

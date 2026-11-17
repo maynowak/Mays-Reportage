@@ -1,7 +1,7 @@
 # Release-Gate — Post-Release (MARKETING-02 + DESIGN-02)
 
-**Stand:** 16. November 2026
-**Status:** **PRODUCTION 6c960c4 / MARKETING-02 + DESIGN-02 + GSC-DATEI LIVE**
+**Stand:** 17. November 2026
+**Status:** **PRODUCTION 6c960c4 / GSC-01 LIVE / GSC-02 LOKAL VORBEREITET**
 **Restrisiken:** Externe Plattform-Previews, Soft-404, CSP, DPA/KI-Training, Bildrechte-Dritte.
 
 ## 1. Git und CI
@@ -62,6 +62,8 @@ Vollständig: `docs/SEO-AUDIT-MARKETING-01.md`.
 - **Offen:** unbekannte Slugs liefern HTTP 200 (Soft-404) mit JS-`noindex`.
 - **Live:** GSC-01-Verifizierungsdatei ist unter
   `https://mays-reportage.vercel.app/google426c8ebaa607666d.html` ausgeliefert.
+- **Vorbereitet:** GSC-02-Datei `googlea37c2005c0abca88.html` liegt unter
+  `public/`; Deploy und Search-Console-Bestätigung stehen aus.
 - **Offen:** Bestätigung der Property in der Google Search Console, Sitemap-
   Einreichung und URL-Prüfung.
 - **Offen:** CSP.

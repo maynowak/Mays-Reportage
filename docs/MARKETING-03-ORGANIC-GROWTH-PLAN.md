@@ -55,9 +55,12 @@ nichts an der Website geändert und keine Verifikation behauptet.
 `google426c8ebaa607666d.html` liegt bytegenau unter
 `public/google426c8ebaa607666d.html` (SHA-256
 `4ddd9841d3de4229eeb61181ee9cca0004bb2311675abaeb11f4e9595d268691`) und ist
-produktiv ausgeliefert. Die Search Console ist weiterhin **nicht verifiziert**;
-Bestätigung, Sitemap-Einreichung und URL-Prüfung stehen aus. Details:
-`docs/reports/14-01-MAYS-REPORTAGEN-GSC-01-VERIFICATION.md`.
+produktiv ausgeliefert. Zusätzlich liegt die zweite Datei
+`googlea37c2005c0abca88.html` bytegenau unter `public/`; ihr Deploy steht noch aus.
+Die Search Console ist weiterhin **nicht verifiziert**; Bestätigung, Sitemap-
+Einreichung und URL-Prüfung stehen aus. Details:
+`docs/reports/14-01-MAYS-REPORTAGEN-GSC-01-VERIFICATION.md` und
+`docs/reports/15-01-MAYS-REPORTAGEN-GSC-02-VERIFICATION.md`.
 
 Quelle: Google, „Meine Website-Inhaberschaft bestätigen“,
 https://support.google.com/webmasters/answer/9008080?hl=de (abgerufen 15.11.2026).
